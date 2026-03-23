@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import LayoutShell from "@/components/LayoutShell";
 
 export const metadata: Metadata = {
   title: "Cadex Systems | AI Onboarding & Automation Services",
@@ -19,9 +18,7 @@ export default function RootLayout({
     <html lang="en" className="light" suppressHydrationWarning>
       <body className="min-h-screen antialiased">
         <ThemeProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <LayoutShell>{children}</LayoutShell>
         </ThemeProvider>
       </body>
     </html>
