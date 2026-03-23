@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const SITE_PASSWORD = process.env.SITE_PASSWORD || "cadex2026";
+const SITE_PASSWORD = process.env.SITE_PASSWORD || "Cadex2026$";
 
 export function middleware(request: NextRequest) {
   // Skip password check for the password page itself and API routes
