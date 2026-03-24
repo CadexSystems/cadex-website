@@ -186,7 +186,12 @@ export default function Home() {
 
       <ROIFramework />
 
-      <CTASection />
+      <CTASection
+        headline="See how much you could save."
+        subtext="Our free ROI calculator shows you exactly how much time and money your business is losing to manual work — in under 60 seconds."
+        buttonText="Calculate Your Savings"
+        buttonHref="/roi"
+      />
     </>
   );
 }

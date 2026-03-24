@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
@@ -15,6 +16,27 @@ export default function Hero() {
         backgroundColor: theme === "dark" ? "#0B0F1A" : "#FFFFFF",
       }}
     >
+      {/* Background hero image */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/hero-1.png"
+          alt=""
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* White/dark overlay to fade the image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundColor:
+              theme === "dark"
+                ? "rgba(11, 15, 26, 0.85)"
+                : "rgba(255, 255, 255, 0.82)",
+          }}
+        />
+      </div>
+
       {/* Gradient orb background */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[700px] rounded-full opacity-15 blur-3xl pointer-events-none"
@@ -35,7 +57,7 @@ export default function Hero() {
           <SectionBadge text="AI Onboarding & Automation Services" />
         </motion.div>
 
-        {/* Headline — large Decagon-style */}
+        {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
