@@ -4,9 +4,10 @@ import type { NextRequest } from "next/server";
 const SITE_PASSWORD = process.env.SITE_PASSWORD || "Cadex2026$";
 
 export function middleware(request: NextRequest) {
-  // Skip password check for the password page itself and API routes
+  // Skip password check for these pages
   if (
     request.nextUrl.pathname === "/password" ||
+    request.nextUrl.pathname === "/launching-soon" ||
     request.nextUrl.pathname.startsWith("/api") ||
     request.nextUrl.pathname.startsWith("/_next") ||
     request.nextUrl.pathname.startsWith("/favicon")
@@ -20,10 +21,9 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Redirect to password page
+  // Redirect to launching soon page
   const url = request.nextUrl.clone();
-  url.pathname = "/password";
-  url.searchParams.set("redirect", request.nextUrl.pathname);
+  url.pathname = "/launching-soon";
   return NextResponse.redirect(url);
 }
 

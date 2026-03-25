@@ -10,9 +10,10 @@ export default function LayoutShell({ children }: { children: React.ReactNode })
   const pathname = usePathname();
   const { theme } = useTheme();
   const isPasswordPage = pathname === "/password";
+  const isLaunchingPage = pathname === "/launching-soon";
   const isROIPage = pathname === "/roi";
 
-  if (isPasswordPage) {
+  if (isPasswordPage || isLaunchingPage) {
     return <>{children}</>;
   }
 
