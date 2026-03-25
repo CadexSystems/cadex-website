@@ -27,10 +27,7 @@ export default function ServiceCard({ tier, compact = false }: ServiceCardProps)
         backgroundColor: theme === "dark" ? "#1A2235" : "#FFFFFF",
         borderWidth: 1,
         borderStyle: "solid",
-        borderColor: tier.recommended ? accent.border : theme === "dark" ? "#243049" : "#E5E7EB",
-        boxShadow: tier.recommended
-          ? `0 0 20px ${accent.border}25`
-          : undefined,
+        borderColor: "#4FE0FF",
       }}
     >
       {/* Tier label + recommended badge */}
@@ -41,11 +38,6 @@ export default function ServiceCard({ tier, compact = false }: ServiceCardProps)
         >
           {tier.name}
         </span>
-        {tier.recommended && (
-          <span className="text-[10px] font-bold uppercase tracking-wider bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-2 py-0.5 rounded-full">
-            Recommended
-          </span>
-        )}
       </div>
 
       {/* Title */}
