@@ -4,16 +4,40 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "@/components/ThemeProvider";
+import { supabase } from "@/lib/supabase";
 
 export default function LaunchingSoonPage() {
   const { theme } = useTheme();
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Connect to GHL or email list
-    setSubmitted(true);
+    setError("");
+    setLoading(true);
+
+    try {
+      const { error: insertError } = await supabase
+        .from("email_subscribers")
+        .insert({ email, source: "launching-soon" });
+
+      if (insertError) {
+        // Duplicate email — treat as success
+        if (insertError.code === "23505") {
+          setSubmitted(true);
+          return;
+        }
+        throw insertError;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -151,11 +175,15 @@ export default function LaunchingSoonPage() {
               />
               <button
                 type="submit"
-                className="w-full sm:w-auto rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-8 py-3.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity whitespace-nowrap"
+                disabled={loading}
+                className="w-full sm:w-auto rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-8 py-3.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity whitespace-nowrap disabled:opacity-60"
               >
-                Notify Me
+                {loading ? "Submitting..." : "Notify Me"}
               </button>
             </form>
+          )}
+          {error && (
+            <p className="mt-3 text-sm text-red-400">{error}</p>
           )}
         </motion.div>
 
