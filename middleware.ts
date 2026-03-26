@@ -8,6 +8,7 @@ export function middleware(request: NextRequest) {
   if (
     request.nextUrl.pathname === "/password" ||
     request.nextUrl.pathname === "/launching-soon" ||
+    request.nextUrl.pathname.startsWith("/studio") ||
     request.nextUrl.pathname.startsWith("/api") ||
     request.nextUrl.pathname.startsWith("/_next") ||
     request.nextUrl.pathname.startsWith("/favicon")
