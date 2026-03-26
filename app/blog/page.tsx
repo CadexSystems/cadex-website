@@ -1,8 +1,22 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "@/components/ThemeProvider";
 import CTASection from "@/components/CTASection";
+import { sanityClient, BLOG_POSTS_QUERY, urlFor } from "@/lib/sanity";
+import { useEffect, useState } from "react";
+
+interface SanityPost {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  excerpt: string;
+  category: string;
+  publishedAt: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  mainImage: any;
+}
 
 const PLACEHOLDER_POSTS = [
   {
@@ -33,6 +47,17 @@ const PLACEHOLDER_POSTS = [
 
 export default function BlogPage() {
   const { theme } = useTheme();
+  const [posts, setPosts] = useState<SanityPost[]>([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    sanityClient.fetch(BLOG_POSTS_QUERY).then((data: SanityPost[]) => {
+      setPosts(data || []);
+      setLoaded(true);
+    }).catch(() => setLoaded(true));
+  }, []);
+
+  const hasSanityPosts = loaded && posts.length > 0;
 
   return (
     <>
@@ -57,75 +82,163 @@ export default function BlogPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PLACEHOLDER_POSTS.map((post) => (
-              <article
-                key={post.slug}
-                className="rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                style={{
-                  backgroundColor: theme === "dark" ? "#1A2235" : "#FFFFFF",
-                  border: `1px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}`,
-                }}
-              >
-                {/* Placeholder image area */}
-                <div
-                  className="h-40"
-                  style={{
-                    backgroundColor: theme === "dark" ? "#243049" : "#E5E7EB",
-                  }}
-                />
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span
-                      className="text-xs font-medium px-2 py-0.5 rounded-full"
-                      style={{
-                        backgroundColor:
-                          theme === "dark"
-                            ? "rgba(79,224,255,0.1)"
-                            : "rgba(30,143,225,0.1)",
-                        color: "#4FE0FF",
-                      }}
-                    >
-                      {post.category}
-                    </span>
-                    <span
-                      className="text-xs"
-                      style={{
-                        color: theme === "dark" ? "#6B7280" : "#9CA3AF",
-                      }}
-                    >
-                      {post.date}
-                    </span>
-                  </div>
-                  <h2
-                    className="text-lg font-bold mb-2"
+          {hasSanityPosts ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map((post) => (
+                <Link
+                  key={post._id}
+                  href={`/blog/${post.slug.current}`}
+                >
+                  <article
+                    className="rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full"
                     style={{
-                      color: theme === "dark" ? "#4FE0FF" : "#0A3D7C",
+                      backgroundColor: theme === "dark" ? "#1A2235" : "#FFFFFF",
+                      border: `1px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}`,
                     }}
                   >
-                    {post.title}
-                  </h2>
-                  <p
-                    className="text-sm"
+                    {post.mainImage ? (
+                      <div className="h-48 relative">
+                        <Image
+                          src={urlFor(post.mainImage).width(600).height(300).url()}
+                          alt={post.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className="h-48"
+                        style={{
+                          backgroundColor: theme === "dark" ? "#243049" : "#E5E7EB",
+                        }}
+                      />
+                    )}
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        {post.category && (
+                          <span
+                            className="text-xs font-medium px-2 py-0.5 rounded-full"
+                            style={{
+                              backgroundColor:
+                                theme === "dark"
+                                  ? "rgba(79,224,255,0.1)"
+                                  : "rgba(30,143,225,0.1)",
+                              color: "#4FE0FF",
+                            }}
+                          >
+                            {post.category}
+                          </span>
+                        )}
+                        {post.publishedAt && (
+                          <span
+                            className="text-xs"
+                            style={{
+                              color: theme === "dark" ? "#6B7280" : "#9CA3AF",
+                            }}
+                          >
+                            {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                            })}
+                          </span>
+                        )}
+                      </div>
+                      <h2
+                        className="text-lg font-bold mb-2"
+                        style={{
+                          color: theme === "dark" ? "#4FE0FF" : "#0A3D7C",
+                        }}
+                      >
+                        {post.title}
+                      </h2>
+                      {post.excerpt && (
+                        <p
+                          className="text-sm"
+                          style={{
+                            color: theme === "dark" ? "#9CA3AF" : "#6B7280",
+                          }}
+                        >
+                          {post.excerpt}
+                        </p>
+                      )}
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {PLACEHOLDER_POSTS.map((post) => (
+                  <article
+                    key={post.slug}
+                    className="rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                     style={{
-                      color: theme === "dark" ? "#9CA3AF" : "#6B7280",
+                      backgroundColor: theme === "dark" ? "#1A2235" : "#FFFFFF",
+                      border: `1px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}`,
                     }}
                   >
-                    {post.excerpt}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
+                    <div
+                      className="h-40"
+                      style={{
+                        backgroundColor: theme === "dark" ? "#243049" : "#E5E7EB",
+                      }}
+                    />
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span
+                          className="text-xs font-medium px-2 py-0.5 rounded-full"
+                          style={{
+                            backgroundColor:
+                              theme === "dark"
+                                ? "rgba(79,224,255,0.1)"
+                                : "rgba(30,143,225,0.1)",
+                            color: "#4FE0FF",
+                          }}
+                        >
+                          {post.category}
+                        </span>
+                        <span
+                          className="text-xs"
+                          style={{
+                            color: theme === "dark" ? "#6B7280" : "#9CA3AF",
+                          }}
+                        >
+                          {post.date}
+                        </span>
+                      </div>
+                      <h2
+                        className="text-lg font-bold mb-2"
+                        style={{
+                          color: theme === "dark" ? "#4FE0FF" : "#0A3D7C",
+                        }}
+                      >
+                        {post.title}
+                      </h2>
+                      <p
+                        className="text-sm"
+                        style={{
+                          color: theme === "dark" ? "#9CA3AF" : "#6B7280",
+                        }}
+                      >
+                        {post.excerpt}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
 
-          <div className="text-center mt-12">
-            <p
-              className="text-sm"
-              style={{ color: theme === "dark" ? "#6B7280" : "#9CA3AF" }}
-            >
-              More content coming soon. Stay tuned.
-            </p>
-          </div>
+              <div className="text-center mt-12">
+                <p
+                  className="text-sm"
+                  style={{ color: theme === "dark" ? "#6B7280" : "#9CA3AF" }}
+                >
+                  More content coming soon. Stay tuned.
+                </p>
+              </div>
+            </>
+          )}
         </div>
       </section>
 

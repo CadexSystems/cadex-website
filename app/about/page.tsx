@@ -1,10 +1,29 @@
 "use client";
 
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import CTASection from "@/components/CTASection";
 import { useTheme } from "@/components/ThemeProvider";
+import { sanityClient, TEAM_MEMBERS_QUERY, urlFor } from "@/lib/sanity";
+
+interface TeamMember {
+  _id: string;
+  name: string;
+  role: string;
+  bio: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  photo: any;
+}
 
 export default function AboutPage() {
   const { theme } = useTheme();
+  const [team, setTeam] = useState<TeamMember[]>([]);
+
+  useEffect(() => {
+    sanityClient.fetch(TEAM_MEMBERS_QUERY).then((data: TeamMember[]) => {
+      setTeam(data || []);
+    });
+  }, []);
 
   return (
     <>
@@ -144,25 +163,36 @@ export default function AboutPage() {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {[
-              { name: "Team Member", role: "Position" },
-              { name: "Team Member", role: "Position" },
-              { name: "Team Member", role: "Position" },
-            ].map((member, i) => (
+            {(team.length > 0 ? team : [
+              { _id: "1", name: "Team Member", role: "Position", bio: "", photo: null },
+              { _id: "2", name: "Team Member", role: "Position", bio: "", photo: null },
+              { _id: "3", name: "Team Member", role: "Position", bio: "", photo: null },
+            ]).map((member) => (
               <div
-                key={i}
+                key={member._id}
                 className="rounded-xl p-6 transition-colors duration-300"
                 style={{
                   backgroundColor: theme === "dark" ? "#1A2235" : "#F9FAFB",
                   border: `1px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}`,
                 }}
               >
-                <div
-                  className="w-20 h-20 rounded-full mx-auto mb-4"
-                  style={{
-                    backgroundColor: theme === "dark" ? "#243049" : "#E5E7EB",
-                  }}
-                />
+                {member.photo ? (
+                  <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden relative">
+                    <Image
+                      src={urlFor(member.photo).width(160).height(160).url()}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="w-20 h-20 rounded-full mx-auto mb-4"
+                    style={{
+                      backgroundColor: theme === "dark" ? "#243049" : "#E5E7EB",
+                    }}
+                  />
+                )}
                 <h3
                   className="font-semibold"
                   style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
@@ -175,6 +205,14 @@ export default function AboutPage() {
                 >
                   {member.role}
                 </p>
+                {member.bio && (
+                  <p
+                    className="text-xs mt-2"
+                    style={{ color: theme === "dark" ? "#6B7280" : "#9CA3AF" }}
+                  >
+                    {member.bio}
+                  </p>
+                )}
               </div>
             ))}
           </div>
