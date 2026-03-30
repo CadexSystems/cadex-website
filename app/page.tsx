@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
@@ -85,10 +86,25 @@ export default function Home() {
 
       {/* How We Help You Win — Vertical Timeline (Decagon-style) */}
       <section
-        className="py-28 sm:py-36 transition-colors duration-300"
-        style={{ backgroundColor: theme === "dark" ? "#0B0F1A" : "#FFFFFF" }}
+        className="py-28 sm:py-36 transition-colors duration-300 relative overflow-hidden"
+        style={{
+          backgroundImage: "url(/hero-3.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        {/* Overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundColor:
+              theme === "dark"
+                ? "rgba(11, 15, 26, 0.90)"
+                : "rgba(255, 255, 255, 0.90)",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <AnimateIn>
             <SectionBadge text="Our process" />
           </AnimateIn>

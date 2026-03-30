@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Header from "./Header";
 import Footer from "./Footer";
+import ChatWidget from "./ChatWidget";
 import { useTheme } from "./ThemeProvider";
 
 export default function LayoutShell({ children }: { children: React.ReactNode }) {
@@ -24,11 +25,11 @@ export default function LayoutShell({ children }: { children: React.ReactNode })
       <main>{children}</main>
       <Footer />
 
-      {/* Floating ROI Calculator CTA */}
+      {/* Floating ROI Calculator CTA — sits to the left of the chat button */}
       {!isROIPage && (
         <Link
           href="/roi"
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:opacity-90 hover:scale-105 transition-all"
+          className="fixed bottom-6 right-24 z-50 flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:opacity-90 hover:scale-105 transition-all"
           style={{
             boxShadow: theme === "dark"
               ? "0 4px 24px rgba(79,224,255,0.25)"
@@ -39,6 +40,9 @@ export default function LayoutShell({ children }: { children: React.ReactNode })
           Calculate Your ROI
         </Link>
       )}
+
+      {/* AI Chat Widget */}
+      <ChatWidget />
     </>
   );
 }
