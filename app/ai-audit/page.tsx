@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "@/components/ThemeProvider";
-import { supabase } from "@/lib/supabase";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -341,11 +340,24 @@ export default function AIAuditPage() {
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
+
+    // Build category scores object
+    const categoryScores = Object.fromEntries(
+      CATEGORIES.map((cat) => [cat.id, categoryScore(cat.id)])
+    );
+
     try {
-      await supabase.from("email_subscribers").insert({
-        email,
-        source: "ai-audit",
-        metadata: { name, company, score: totalScore(), band: scoreBand().label },
+      await fetch("/api/audit-submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          company,
+          email,
+          score: totalScore(),
+          band: scoreBand().label,
+          categoryScores,
+        }),
       });
     } catch {
       // Non-blocking — show results regardless
