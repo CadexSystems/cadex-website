@@ -35,7 +35,8 @@ export const BLOG_POST_QUERY = `*[_type == "post" && slug.current == $slug][0] {
   category,
   publishedAt,
   mainImage,
-  body
+  body,
+  cta
 }`;
 
 export const SERVICES_QUERY = `*[_type == "service"] | order(order asc) {

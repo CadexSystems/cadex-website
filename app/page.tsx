@@ -12,7 +12,16 @@ import AnimateIn, { AnimateInStagger, AnimateInChild } from "@/components/Animat
 import { SERVICE_TIERS } from "@/lib/constants";
 import type { ServiceTier } from "@/lib/constants";
 import { useTheme } from "@/components/ThemeProvider";
-import { sanityClient, SERVICES_QUERY } from "@/lib/sanity";
+import { sanityClient, SERVICES_QUERY, BLOG_POSTS_QUERY } from "@/lib/sanity";
+
+interface BlogPost {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  excerpt: string;
+  category: string;
+  publishedAt: string;
+}
 
 interface SanityService {
   _id: string;
@@ -71,12 +80,15 @@ const TIMELINE_STEPS = [
 export default function Home() {
   const { theme } = useTheme();
   const [tiers, setTiers] = useState<ServiceTier[]>(SERVICE_TIERS);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
     sanityClient.fetch(SERVICES_QUERY).then((data: SanityService[]) => {
-      if (data && data.length > 0) {
-        setTiers(data.map(mapSanityToTier));
-      }
+      if (data && data.length > 0) setTiers(data.map(mapSanityToTier));
+    }).catch(() => {});
+
+    sanityClient.fetch(BLOG_POSTS_QUERY).then((data: BlogPost[]) => {
+      if (data && data.length > 0) setPosts(data.slice(0, 3));
     }).catch(() => {});
   }, []);
 
@@ -243,6 +255,102 @@ export default function Home() {
       </section>
 
       <ROIFramework />
+
+      {/* Recent Articles */}
+      {posts.length > 0 && (
+        <section
+          className="py-28 sm:py-36 transition-colors duration-300"
+          style={{ backgroundColor: theme === "dark" ? "#0B0F1A" : "#F9FAFB" }}
+        >
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <AnimateIn>
+              <SectionBadge text="From the blog" />
+            </AnimateIn>
+
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mt-6 mb-12">
+              <AnimateIn delay={0.1}>
+                <h2
+                  className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight"
+                  style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+                >
+                  Recent articles.
+                </h2>
+              </AnimateIn>
+              <AnimateIn delay={0.2}>
+                <Link
+                  href="/blog"
+                  className="mt-4 sm:mt-0 text-sm font-medium transition-colors hover:text-cyan-400"
+                  style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
+                >
+                  View all posts →
+                </Link>
+              </AnimateIn>
+            </div>
+
+            <AnimateInStagger className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.1}>
+              {posts.map((post) => (
+                <AnimateInChild key={post._id}>
+                  <Link
+                    href={`/blog/${post.slug.current}`}
+                    className="group flex flex-col rounded-2xl p-6 h-full transition-all hover:-translate-y-1"
+                    style={{
+                      backgroundColor: theme === "dark" ? "#0F1623" : "#FFFFFF",
+                      border: `1px solid ${theme === "dark" ? "#1E2D45" : "#E5E7EB"}`,
+                    }}
+                  >
+                    {/* Category */}
+                    {post.category && (
+                      <span
+                        className="self-start text-xs font-medium px-3 py-1 rounded-full mb-4"
+                        style={{
+                          backgroundColor: theme === "dark" ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.06)",
+                          color: "#4FE0FF",
+                        }}
+                      >
+                        {post.category}
+                      </span>
+                    )}
+
+                    {/* Title */}
+                    <h3
+                      className="text-lg font-semibold leading-snug mb-3 group-hover:text-cyan-400 transition-colors"
+                      style={{ color: theme === "dark" ? "#F9FAFB" : "#111827" }}
+                    >
+                      {post.title}
+                    </h3>
+
+                    {/* Excerpt */}
+                    {post.excerpt && (
+                      <p
+                        className="text-sm leading-relaxed flex-1"
+                        style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
+                      >
+                        {post.excerpt.length > 120 ? post.excerpt.slice(0, 120) + "…" : post.excerpt}
+                      </p>
+                    )}
+
+                    {/* Footer */}
+                    <div className="flex items-center justify-between mt-5 pt-4"
+                      style={{ borderTop: `1px solid ${theme === "dark" ? "#1E2D45" : "#F3F4F6"}` }}
+                    >
+                      {post.publishedAt && (
+                        <span className="text-xs" style={{ color: theme === "dark" ? "#6B7280" : "#9CA3AF" }}>
+                          {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                            month: "short", day: "numeric", year: "numeric",
+                          })}
+                        </span>
+                      )}
+                      <span className="text-xs font-medium text-cyan-400 group-hover:translate-x-1 transition-transform inline-block">
+                        Read more →
+                      </span>
+                    </div>
+                  </Link>
+                </AnimateInChild>
+              ))}
+            </AnimateInStagger>
+          </div>
+        </section>
+      )}
 
       <CTASection
         headline="See how much you could save."

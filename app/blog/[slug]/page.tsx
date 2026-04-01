@@ -19,6 +19,7 @@ interface BlogPost {
   mainImage: any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body: any[];
+  cta?: { text: string; href: string };
 }
 
 export default function BlogPostPage() {
@@ -154,6 +155,33 @@ export default function BlogPostPage() {
               .prose strong { color: ${theme === "dark" ? "#F9FAFB" : "#111827"}; }
             `}</style>
             <PortableText value={post.body} />
+          </div>
+        )}
+
+        {/* CTA */}
+        {post.cta?.text && post.cta?.href && (
+          <div
+            className="mt-12 rounded-2xl p-8 text-center"
+            style={{
+              background: theme === "dark"
+                ? "linear-gradient(135deg, rgba(79,224,255,0.08), rgba(30,143,225,0.08))"
+                : "linear-gradient(135deg, rgba(79,224,255,0.06), rgba(30,143,225,0.06))",
+              border: "1px solid rgba(79,224,255,0.2)",
+            }}
+          >
+            <p
+              className="text-sm font-medium mb-4"
+              style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
+            >
+              Ready to take the next step?
+            </p>
+            <Link
+              href={post.cta.href}
+              className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              style={{ background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)" }}
+            >
+              {post.cta.text} →
+            </Link>
           </div>
         )}
       </div>
