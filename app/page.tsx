@@ -12,7 +12,7 @@ import AnimateIn, { AnimateInStagger, AnimateInChild } from "@/components/Animat
 import { SERVICE_TIERS } from "@/lib/constants";
 import type { ServiceTier } from "@/lib/constants";
 import { useTheme } from "@/components/ThemeProvider";
-import { sanityClient, SERVICES_QUERY, BLOG_POSTS_QUERY } from "@/lib/sanity";
+import { sanityClient, SERVICES_QUERY, BLOG_POSTS_QUERY, urlFor } from "@/lib/sanity";
 
 interface BlogPost {
   _id: string;
@@ -21,6 +21,8 @@ interface BlogPost {
   excerpt: string;
   category: string;
   publishedAt: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  mainImage: any;
 }
 
 interface SanityService {
@@ -292,57 +294,77 @@ export default function Home() {
                 <AnimateInChild key={post._id}>
                   <Link
                     href={`/blog/${post.slug.current}`}
-                    className="group flex flex-col rounded-2xl p-6 h-full transition-all hover:-translate-y-1"
+                    className="group flex flex-col rounded-2xl overflow-hidden h-full transition-all hover:-translate-y-1 hover:shadow-lg"
                     style={{
                       backgroundColor: theme === "dark" ? "#0F1623" : "#FFFFFF",
                       border: `1px solid ${theme === "dark" ? "#1E2D45" : "#E5E7EB"}`,
                     }}
                   >
-                    {/* Category */}
-                    {post.category && (
-                      <span
-                        className="self-start text-xs font-medium px-3 py-1 rounded-full mb-4"
-                        style={{
-                          backgroundColor: theme === "dark" ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.06)",
-                          color: "#4FE0FF",
-                        }}
-                      >
-                        {post.category}
-                      </span>
+                    {/* Image */}
+                    {post.mainImage ? (
+                      <div className="h-48 relative flex-shrink-0">
+                        <Image
+                          src={urlFor(post.mainImage).width(600).height(300).url()}
+                          alt={post.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className="h-48 flex-shrink-0"
+                        style={{ backgroundColor: theme === "dark" ? "#1E2D45" : "#F3F4F6" }}
+                      />
                     )}
 
-                    {/* Title */}
-                    <h3
-                      className="text-lg font-semibold leading-snug mb-3 group-hover:text-cyan-400 transition-colors"
-                      style={{ color: theme === "dark" ? "#F9FAFB" : "#111827" }}
-                    >
-                      {post.title}
-                    </h3>
+                    {/* Content */}
+                    <div className="flex flex-col flex-1 p-6">
+                      {/* Category + Date */}
+                      <div className="flex items-center gap-2 mb-3">
+                        {post.category && (
+                          <span
+                            className="text-xs font-medium px-2 py-0.5 rounded-full"
+                            style={{
+                              backgroundColor: theme === "dark" ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.06)",
+                              color: "#4FE0FF",
+                            }}
+                          >
+                            {post.category}
+                          </span>
+                        )}
+                        {post.publishedAt && (
+                          <span className="text-xs" style={{ color: theme === "dark" ? "#6B7280" : "#9CA3AF" }}>
+                            {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                              month: "short", day: "numeric", year: "numeric",
+                            })}
+                          </span>
+                        )}
+                      </div>
 
-                    {/* Excerpt */}
-                    {post.excerpt && (
-                      <p
-                        className="text-sm leading-relaxed flex-1"
-                        style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
+                      {/* Title */}
+                      <h3
+                        className="text-lg font-bold leading-snug mb-2 group-hover:text-cyan-400 transition-colors"
+                        style={{ color: theme === "dark" ? "#F9FAFB" : "#0A3D7C" }}
                       >
-                        {post.excerpt.length > 120 ? post.excerpt.slice(0, 120) + "…" : post.excerpt}
-                      </p>
-                    )}
+                        {post.title}
+                      </h3>
 
-                    {/* Footer */}
-                    <div className="flex items-center justify-between mt-5 pt-4"
-                      style={{ borderTop: `1px solid ${theme === "dark" ? "#1E2D45" : "#F3F4F6"}` }}
-                    >
-                      {post.publishedAt && (
-                        <span className="text-xs" style={{ color: theme === "dark" ? "#6B7280" : "#9CA3AF" }}>
-                          {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                            month: "short", day: "numeric", year: "numeric",
-                          })}
-                        </span>
+                      {/* Excerpt */}
+                      {post.excerpt && (
+                        <p
+                          className="text-sm leading-relaxed flex-1"
+                          style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
+                        >
+                          {post.excerpt.length > 120 ? post.excerpt.slice(0, 120) + "…" : post.excerpt}
+                        </p>
                       )}
-                      <span className="text-xs font-medium text-cyan-400 group-hover:translate-x-1 transition-transform inline-block">
-                        Read more →
-                      </span>
+
+                      {/* Read more */}
+                      <div className="mt-4 pt-4" style={{ borderTop: `1px solid ${theme === "dark" ? "#1E2D45" : "#F3F4F6"}` }}>
+                        <span className="text-xs font-medium text-cyan-400 group-hover:translate-x-1 transition-transform inline-block">
+                          Read more →
+                        </span>
+                      </div>
                     </div>
                   </Link>
                 </AnimateInChild>
