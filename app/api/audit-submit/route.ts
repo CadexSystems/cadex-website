@@ -116,7 +116,7 @@ export async function POST(req: Request) {
 
         <!-- Footer -->
         <div style="background: #F9FAFB; padding: 16px 40px; border-top: 1px solid #E5E7EB;">
-          <p style="margin: 0; color: #9CA3AF; font-size: 12px; text-align: center;">Cadex Systems · info@cadexhq.com · cadexsystems.com</p>
+          <p style="margin: 0; color: #9CA3AF; font-size: 12px; text-align: center;">Cadex Systems · info@cadexhq.com · cadexhq.com</p>
         </div>
       </div>
     </body>
