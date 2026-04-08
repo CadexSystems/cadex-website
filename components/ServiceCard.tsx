@@ -1,11 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { useTheme } from "./ThemeProvider";
 import type { ServiceTier } from "@/lib/constants";
-
-const CALENDAR_URL =
-  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0WP4JV9un7wAocLf9x62K6dakQxUKIH0_qElJwbZs-zSjuA6Wv1NmbdiwT-6rJWV2HDH2j-Hrf?gv=true";
 
 interface ServiceCardProps {
   tier: ServiceTier;
@@ -23,60 +20,10 @@ const TIER_ACCENTS: Record<string, { border: string; label: string }> = {
 export default function ServiceCard({ tier, compact = false }: ServiceCardProps) {
   const { theme } = useTheme();
   const accent = TIER_ACCENTS[tier.color] || TIER_ACCENTS.gray;
-  const buttonRef = useRef<HTMLDivElement>(null);
-  const initialized = useRef(false);
-
-  useEffect(() => {
-    if (compact || initialized.current || !buttonRef.current) return;
-    initialized.current = true;
-
-    // Load CSS once across all cards
-    if (!document.querySelector('link[href*="scheduling-button-script.css"]')) {
-      const link = document.createElement("link");
-      link.href = "https://calendar.google.com/calendar/scheduling-button-script.css";
-      link.rel = "stylesheet";
-      document.head.appendChild(link);
-    }
-
-    const initButton = () => {
-      if (buttonRef.current && (window as any).calendar?.schedulingButton) {
-        (window as any).calendar.schedulingButton.load({
-          url: CALENDAR_URL,
-          color: "#1574c0",
-          label: "Book a Discovery Call",
-          target: buttonRef.current,
-        });
-      }
-    };
-
-    if ((window as any).calendar?.schedulingButton) {
-      // Script already loaded (e.g. contact page loaded it, or another card loaded it first)
-      initButton();
-    } else {
-      const existingScript = document.querySelector('script[src*="scheduling-button-script.js"]');
-      if (!existingScript) {
-        // First card to load — inject the script
-        const script = document.createElement("script");
-        script.src = "https://calendar.google.com/calendar/scheduling-button-script.js";
-        script.async = true;
-        script.onload = initButton;
-        document.head.appendChild(script);
-      } else {
-        // Script tag exists but hasn't finished loading yet — poll until ready
-        const interval = setInterval(() => {
-          if ((window as any).calendar?.schedulingButton) {
-            clearInterval(interval);
-            initButton();
-          }
-        }, 100);
-        setTimeout(() => clearInterval(interval), 10000);
-      }
-    }
-  }, [compact]);
 
   return (
     <div
-      className="relative rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col"
+      className="relative rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
       style={{
         backgroundColor: theme === "dark" ? "#1A2235" : "#FFFFFF",
         borderWidth: 1,
@@ -146,7 +93,7 @@ export default function ServiceCard({ tier, compact = false }: ServiceCardProps)
 
       {/* Details (full mode) */}
       {!compact && (
-        <div className="mt-6 space-y-4 flex-1">
+        <div className="mt-6 space-y-4">
           {tier.setupIncludes.length > 0 && (
             <div>
               <h4
@@ -199,13 +146,22 @@ export default function ServiceCard({ tier, compact = false }: ServiceCardProps)
         </div>
       )}
 
-      {/* Google Calendar CTA button */}
+      {/* CTA */}
       {!compact && (
         <div
-          className="mt-6 pt-6 flex justify-center"
+          className="mt-6 pt-6"
           style={{ borderTop: `1px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}` }}
         >
-          <div ref={buttonRef} />
+          <Link
+            href="/contact"
+            className="block w-full text-center text-sm font-semibold py-3 px-4 rounded-full transition-opacity hover:opacity-90"
+            style={{
+              background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+              color: "#FFFFFF",
+            }}
+          >
+            Book a Discovery Call →
+          </Link>
         </div>
       )}
     </div>
