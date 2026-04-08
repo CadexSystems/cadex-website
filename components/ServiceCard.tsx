@@ -156,7 +156,7 @@ export default function ServiceCard({ tier, compact = false }: ServiceCardProps)
             href="/contact"
             className="block w-full text-center text-sm font-semibold py-3 px-4 rounded-full transition-opacity hover:opacity-90"
             style={{
-              background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+              background: `linear-gradient(135deg, ${accent.label}, ${accent.border})`,
               color: "#FFFFFF",
             }}
           >
