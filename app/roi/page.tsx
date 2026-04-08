@@ -385,7 +385,7 @@ export default function ROICalculatorPage() {
               </motion.div>
 
               <p className="text-xs text-center" style={{ color: mutedColor }}>
-                Based on automating 60% of identified manual workflows &mdash; a conservative industry benchmark.
+                Based on automating 60% of identified manual workflows, a conservative industry benchmark.
                 Actual savings depend on your specific processes and are typically higher.
               </p>
             </div>

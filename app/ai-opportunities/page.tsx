@@ -541,7 +541,7 @@ export default function AIOpportunitiesPage() {
           Find Your Top AI Opportunities
         </h1>
         <p style={{ fontSize: "1.0625rem", color: textMuted, lineHeight: 1.65 }}>
-          Select your industry and company size to instantly see the top 5 AI use cases with real ROI benchmarks — tailored to your business.
+          Select your industry and company size to instantly see the top 5 AI use cases with real ROI benchmarks, tailored to your business.
         </p>
       </div>
 
@@ -567,7 +567,7 @@ export default function AIOpportunitiesPage() {
                 marginBottom: "1rem",
               }}
             >
-              Step 1 of 2 — Pick your industry
+              Step 1 of 2: Pick your industry
             </p>
 
             <div
@@ -661,7 +661,7 @@ export default function AIOpportunitiesPage() {
                 marginBottom: "0.5rem",
               }}
             >
-              Step 2 of 2 — Company size
+              Step 2 of 2: Company size
             </p>
 
             {industryInfo && (
@@ -962,7 +962,7 @@ export default function AIOpportunitiesPage() {
                   margin: "0 auto 1.5rem",
                 }}
               >
-                Our AI Audit goes deeper — mapping your specific workflows, tech stack, and team to surface the highest-impact opportunities with a clear implementation roadmap.
+                Our AI Audit goes deeper, mapping your specific workflows, tech stack, and team to surface the highest-impact opportunities with a clear implementation roadmap.
               </p>
 
               <div

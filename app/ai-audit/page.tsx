@@ -43,7 +43,7 @@ const CATEGORIES = [
       {
         text: "How well do your current tools integrate with each other?",
         options: [
-          { label: "They don't — everything is siloed", value: 0 },
+          { label: "They don't, everything is siloed", value: 0 },
           { label: "Manual data transfers between tools", value: 1 },
           { label: "Some integrations in place", value: 2 },
           { label: "Fully connected tech stack", value: 3 },
@@ -69,10 +69,10 @@ const CATEGORIES = [
       {
         text: "How often do manual errors or dropped tasks occur in your operations?",
         options: [
-          { label: "Daily — it's a real problem", value: 0 },
+          { label: "Daily, it's a real problem", value: 0 },
           { label: "Weekly", value: 1 },
           { label: "Monthly", value: 2 },
-          { label: "Rarely — we have good controls", value: 3 },
+          { label: "Rarely, we have good controls", value: 3 },
         ],
       },
       {

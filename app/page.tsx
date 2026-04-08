@@ -61,21 +61,21 @@ const TIMELINE_STEPS = [
     title: "Uncover",
     accent: "your opportunity",
     description:
-      "We audit your operations, surface the highest-impact automation opportunities, and deliver a prioritized roadmap with ROI estimates — so every investment is backed by data, not instinct.",
+      "We audit your operations, surface the highest-impact automation opportunities, and deliver a prioritized roadmap with ROI estimates. Every investment is backed by data, not instinct.",
   },
   {
     number: 2,
     title: "Build & Deploy",
     accent: "your AI",
     description:
-      "We implement your automations, configure your stack, and train your team — then stay hands-on through launch to ensure adoption sticks and value shows up from day one.",
+      "We implement your automations, configure your stack, and train your team. We stay hands-on through launch to ensure adoption sticks and value shows up from day one.",
   },
   {
     number: 3,
     title: "Optimize & Scale",
     accent: "your ROI",
     description:
-      "We track KPIs, deliver executive-ready reporting, and run quarterly roadmap sessions to keep momentum compounding — because the KPIs you track today become the ROI you report tomorrow.",
+      "We track KPIs, deliver executive-ready reporting, and run quarterly roadmap sessions to keep momentum compounding. The KPIs you track today become the ROI you report tomorrow.",
   },
 ];
 
@@ -360,7 +360,7 @@ export default function Home() {
 
       <CTASection
         headline="See how much you could save."
-        subtext="Our free ROI calculator shows you exactly how much time and money your business is losing to manual work — in under 60 seconds."
+        subtext="Our free ROI calculator shows you exactly how much time and money your business is losing to manual work, in under 60 seconds."
         buttonText="Calculate Your Savings"
         buttonHref="/roi"
       />

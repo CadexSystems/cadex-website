@@ -69,7 +69,7 @@ export default function PricingTable() {
         className="mt-3 text-xs"
         style={{ color: theme === "dark" ? "#6B7280" : "#9CA3AF" }}
       >
-        Discounts apply to retainer only &mdash; setup fees are not discounted.
+        Discounts apply to retainer only. Setup fees are not discounted.
       </p>
     </div>
   );

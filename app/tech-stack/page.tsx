@@ -623,7 +623,7 @@ export default function TechStackPage() {
                   {selected.size === 1 ? "tool" : "tools"} selected
                   {selected.size < 3 && (
                     <span style={{ color: textMuted }}>
-                      {" "}— select {3 - selected.size} more to analyze
+                      {" "}(select {3 - selected.size} more to analyze)
                     </span>
                   )}
                 </p>
@@ -1219,7 +1219,7 @@ export default function TechStackPage() {
                         margin: 0,
                       }}
                     >
-                      Quick Wins — Unused AI Features
+                      Quick Wins: Unused AI Features
                     </h3>
                   </div>
 
@@ -1280,7 +1280,7 @@ export default function TechStackPage() {
                                 color: "#4FE0FF",
                               }}
                             >
-                              — probably not using these yet
+                              probably not using these yet
                             </span>
                           </p>
                           <div
@@ -1480,12 +1480,12 @@ export default function TechStackPage() {
                 >
                   {score >= 80 && (
                     <>
-                      Your stack is genuinely AI-ready. With {strengthTools.filter((t) => t.grade === "A").length} Grade-A tools, you have the infrastructure to automate significant workflows right now. The biggest opportunity isn&apos;t buying new software — it&apos;s connecting what you already own and actually using the AI features you&apos;re already paying for.
+                      Your stack is genuinely AI-ready. With {strengthTools.filter((t) => t.grade === "A").length} Grade-A tools, you have the infrastructure to automate significant workflows right now. The biggest opportunity isn&apos;t buying new software. It&apos;s connecting what you already own and actually using the AI features you&apos;re already paying for.
                     </>
                   )}
                   {score >= 60 && score < 80 && (
                     <>
-                      You have a solid foundation with {strengthTools.length} integration-ready tools. The gap between where you are and a fully-automated stack is smaller than you think — mostly configuration, not new purchases. Focusing on your {quickWinTools.length > 0 ? `${quickWinTools.length} B-grade tool${quickWinTools.length > 1 ? "s" : ""} with unused AI features` : "underutilized tools"} is where we&apos;d start.
+                      You have a solid foundation with {strengthTools.length} integration-ready tools. The gap between where you are and a fully-automated stack is smaller than you think, mostly configuration, not new purchases. Focusing on your {quickWinTools.length > 0 ? `${quickWinTools.length} B-grade tool${quickWinTools.length > 1 ? "s" : ""} with unused AI features` : "underutilized tools"} is where we&apos;d start.
                     </>
                   )}
                   {score >= 40 && score < 60 && (
@@ -1535,7 +1535,7 @@ export default function TechStackPage() {
                         lineHeight: 1.55,
                       }}
                     >
-                      We&apos;ll walk through your specific tools and show you exactly which automations to build first — with realistic time and cost estimates.
+                      We&apos;ll walk through your specific tools and show you exactly which automations to build first, with realistic time and cost estimates.
                     </p>
                     <Link
                       href="/contact"

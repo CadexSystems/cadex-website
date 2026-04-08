@@ -51,10 +51,10 @@ const QUESTIONS = [
   {
     text: "How often do errors or dropped tasks occur?",
     options: [
-      { label: "Rarely — almost never", value: 0 },
+      { label: "Rarely, almost never", value: 0 },
       { label: "Monthly", value: 1 },
       { label: "Weekly", value: 2 },
-      { label: "Daily — it's a real problem", value: 3 },
+      { label: "Daily, it's a real problem", value: 3 },
     ],
   },
 ];
@@ -287,7 +287,7 @@ export default function ProcessAuditPage() {
                   Process Discovery Worksheet
                 </h1>
                 <p style={{ color: textMuted, fontSize: "1.0625rem", lineHeight: 1.65 }}>
-                  Rate 10 business functions across 4 dimensions to discover your highest-impact automation opportunities — ranked by potential time savings.
+                  Rate 10 business functions across 4 dimensions to discover your highest-impact automation opportunities, ranked by potential time savings.
                 </p>
               </div>
 
@@ -383,7 +383,7 @@ export default function ProcessAuditPage() {
                   </div>
                 </div>
                 <p style={{ fontSize: "0.8125rem", color: textMuted, marginTop: "0.25rem" }}>
-                  Rate this function honestly — skipped processes score zero.
+                  Rate this function honestly. Skipped processes score zero.
                 </p>
               </div>
 
@@ -713,7 +713,7 @@ export default function ProcessAuditPage() {
               {/* Full ranked table */}
               <div style={{ marginBottom: "2rem" }}>
                 <p style={{ fontSize: "0.75rem", fontWeight: 600, color: textMuted, textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: "0.875rem" }}>
-                  All Processes — Ranked
+                  All Processes: Ranked
                 </p>
                 <div
                   style={{

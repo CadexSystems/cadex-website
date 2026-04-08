@@ -79,7 +79,7 @@ export default function Hero() {
           style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
         >
           We help businesses unlock operational efficiency through strategic AI
-          implementation, automation, and ongoing optimization &mdash; with
+          implementation, automation, and ongoing optimization, with
           measurable ROI from day one.
         </motion.p>
 

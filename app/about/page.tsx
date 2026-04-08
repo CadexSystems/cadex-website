@@ -27,7 +27,7 @@ export default function AboutPage() {
             >
               We&apos;re an AI onboarding and automation company built on a
               simple belief: businesses shouldn&apos;t have to guess where AI
-              fits. We show them &mdash; then we build it, deploy it, and prove
+              fits. We show them, build it, deploy it, and prove
               it works.
             </p>
           </div>
@@ -61,8 +61,8 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Every engagement comes with KPI baselines, monthly tracking,
-                  and executive reporting &mdash; because if we can&apos;t
-                  measure it, we can&apos;t improve it.
+                  and executive reporting. If we can&apos;t measure it,
+                  we can&apos;t improve it.
                 </p>
                 <p>
                   From one-time discovery sessions to full enterprise rollouts,

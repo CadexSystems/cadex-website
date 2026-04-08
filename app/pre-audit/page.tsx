@@ -250,7 +250,7 @@ function getEngagement(
     return {
       tier: "TRANSFORM",
       description:
-        "Enterprise-grade AI transformation program — full process redesign, custom automation infrastructure, and dedicated implementation team.",
+        "Enterprise-grade AI transformation program with full process redesign, custom automation infrastructure, and a dedicated implementation team.",
       price: "$35,000 + $8,500/mo",
     };
   }
@@ -273,7 +273,7 @@ function getEngagement(
   return {
     tier: "SPARK",
     description:
-      "Our flagship discovery and quick-win engagement — identify your top automation opportunities and deploy your first workflows in 30 days.",
+      "Our flagship discovery and quick-win engagement to identify your top automation opportunities and deploy your first workflows in 30 days.",
     price: "$7,500 one-time",
   };
 }
@@ -633,7 +633,7 @@ export default function PreAuditPage() {
                 }}
               >
                 Answer 3 pages of questions and receive a personalized
-                AI readiness report — including your estimated ROI, top
+                AI readiness report including your estimated ROI, top
                 automation opportunities, and a recommended engagement.
               </p>
 
@@ -720,7 +720,7 @@ export default function PreAuditPage() {
             style={{ maxWidth: 640, margin: "0 auto" }}
           >
             <ProgressBar current={1} />
-            <StepBadge label="Step 1 of 3 — Company Profile" />
+            <StepBadge label="Step 1 of 3: Company Profile" />
             <h2
               style={{
                 fontSize: 26,
@@ -947,7 +947,7 @@ export default function PreAuditPage() {
             style={{ maxWidth: 640, margin: "0 auto" }}
           >
             <ProgressBar current={2} />
-            <StepBadge label="Step 2 of 3 — Process Inventory" />
+            <StepBadge label="Step 2 of 3: Process Inventory" />
             <h2
               style={{
                 fontSize: 26,
@@ -1202,7 +1202,7 @@ export default function PreAuditPage() {
             style={{ maxWidth: 640, margin: "0 auto" }}
           >
             <ProgressBar current={3} />
-            <StepBadge label="Step 3 of 3 — Readiness Check" />
+            <StepBadge label="Step 3 of 3: Readiness Check" />
             <h2
               style={{
                 fontSize: 26,
@@ -1473,7 +1473,7 @@ export default function PreAuditPage() {
                 {page1.industry} organization with a clear opportunity to
                 reduce operational friction through targeted AI automation.{" "}
                 {page2.manualHours > 40
-                  ? `Your team is carrying a significant manual workload — our estimate puts this at ${formatCurrency(
+                  ? `Your team is carrying a significant manual workload. Our estimate puts this at ${formatCurrency(
                       annualCost
                     )}/year in recoverable labor costs. `
                   : `Based on your reported ${page2.manualHours} hours/week of manual work, there is an estimated ${formatCurrency(
@@ -1490,9 +1490,9 @@ export default function PreAuditPage() {
                   ? "The absence of a centralized CRM creates blind spots in your pipeline and limits automation potential across sales and customer operations. "
                   : ""}
                 {page2.painPoints.length >= 2
-                  ? `Your top friction areas — ${page2.painPoints[0]} and ${page2.painPoints[1]} — represent your highest-ROI automation targets and are well-suited for a focused first engagement.`
+                  ? `Your top friction areas, ${page2.painPoints[0]} and ${page2.painPoints[1]}, represent your highest-ROI automation targets and are well-suited for a focused first engagement.`
                   : page2.painPoints.length === 1
-                  ? `Your primary friction area — ${page2.painPoints[0]} — represents a clear automation target with strong ROI potential.`
+                  ? `Your primary friction area, ${page2.painPoints[0]}, represents a clear automation target with strong ROI potential.`
                   : "Based on your profile, there are several process areas where targeted automation could drive significant efficiency gains."}
               </p>
             </ReportSection>
