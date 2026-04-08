@@ -3,6 +3,9 @@
 import { useTheme } from "./ThemeProvider";
 import type { ServiceTier } from "@/lib/constants";
 
+const CALENDAR_URL =
+  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0WP4JV9un7wAocLf9x62K6dakQxUKIH0_qElJwbZs-zSjuA6Wv1NmbdiwT-6rJWV2HDH2j-Hrf?gv=true";
+
 interface ServiceCardProps {
   tier: ServiceTier;
   compact?: boolean;
@@ -142,6 +145,24 @@ export default function ServiceCard({ tier, compact = false }: ServiceCardProps)
               </ul>
             </div>
           )}
+        </div>
+      )}
+
+      {/* CTA */}
+      {!compact && (
+        <div className="mt-6 pt-6" style={{ borderTop: `1px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}` }}>
+          <a
+            href={CALENDAR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-center text-sm font-semibold py-3 px-4 rounded-full transition-opacity hover:opacity-90"
+            style={{
+              background: `linear-gradient(135deg, ${accent.label}, ${accent.border})`,
+              color: "#FFFFFF",
+            }}
+          >
+            Book a Discovery Call →
+          </a>
         </div>
       )}
     </div>

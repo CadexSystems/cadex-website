@@ -98,7 +98,7 @@ export default function ServicesPage() {
       <CTASection
         headline="Not Sure Which Tier Is Right?"
         subtext="Let's talk through your goals and find the perfect fit. No commitment required."
-        buttonText="Schedule a Consultation"
+        buttonText="Book a Discovery Call"
       />
     </>
   );
