@@ -1,202 +1,112 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 import { useTheme } from "@/components/ThemeProvider";
 
 export default function ContactPage() {
   const { theme } = useTheme();
-  const [submitted, setSubmitted] = useState(false);
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const initialized = useRef(false);
 
-  const inputStyle = {
-    backgroundColor: theme === "dark" ? "#1A2235" : "#FFFFFF",
-    borderColor: theme === "dark" ? "#243049" : "#E5E7EB",
-    color: theme === "dark" ? "#4FE0FF" : "#0A3D7C",
-  };
+  useEffect(() => {
+    if (initialized.current) return;
+    initialized.current = true;
 
-  const labelStyle = {
-    color: theme === "dark" ? "#D1D5DB" : "#374151",
-  };
+    const link = document.createElement("link");
+    link.href = "https://calendar.google.com/calendar/scheduling-button-script.css";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Connect to GHL webhook
-    setSubmitted(true);
-  };
+    const script = document.createElement("script");
+    script.src = "https://calendar.google.com/calendar/scheduling-button-script.js";
+    script.async = true;
+    script.onload = () => {
+      if (buttonRef.current && (window as any).calendar?.schedulingButton) {
+        (window as any).calendar.schedulingButton.load({
+          url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0WP4JV9un7wAocLf9x62K6dakQxUKIH0_qElJwbZs-zSjuA6Wv1NmbdiwT-6rJWV2HDH2j-Hrf?gv=true",
+          color: "#1574c0",
+          label: "Book Discovery Call",
+          target: buttonRef.current,
+        });
+      }
+    };
+    document.head.appendChild(script);
+  }, []);
+
+  const isDark = theme === "dark";
 
   return (
     <section
       className="pt-32 pb-20 min-h-screen transition-colors duration-300"
-      style={{ backgroundColor: theme === "dark" ? "#0B0F1A" : "#FFFFFF" }}
+      style={{ backgroundColor: isDark ? "#0B0F1A" : "#FFFFFF" }}
     >
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
         <div className="text-center mb-12">
           <h1
             className="text-4xl sm:text-5xl font-bold"
-            style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+            style={{ color: isDark ? "#4FE0FF" : "#0A3D7C" }}
           >
-            Get In Touch
+            Book a Discovery Call
           </h1>
-          <p
-            className="mt-4 text-lg"
-            style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
-          >
-            Ready to explore how AI can transform your operations? Let&apos;s
-            start the conversation.
-          </p>
         </div>
 
-        {submitted ? (
+        {/* Booking card */}
+        <div
+          className="rounded-2xl p-10 text-center"
+          style={{
+            backgroundColor: isDark ? "#0F1623" : "#F9FAFB",
+            border: `1px solid ${isDark ? "#1E2D45" : "#E5E7EB"}`,
+          }}
+        >
+          <div className="text-4xl mb-4">📅</div>
+          <h2
+            className="text-xl font-semibold mb-2"
+            style={{ color: isDark ? "#F9FAFB" : "#111827" }}
+          >
+            Schedule a 30-Minute Discovery Call
+          </h2>
+          <p
+            className="text-sm mb-8 max-w-md mx-auto"
+            style={{ color: isDark ? "#9CA3AF" : "#6B7280" }}
+          >
+            We&apos;ll review your current operations, identify your highest-value
+            automation opportunities, and walk you through what working with
+            Cadex looks like.
+          </p>
+
+          {/* Google Calendar button renders here */}
+          <div ref={buttonRef} className="flex justify-center" />
+
+          {/* What to expect */}
           <div
-            className="rounded-xl p-8 text-center"
-            style={{
-              backgroundColor: theme === "dark" ? "#1A2235" : "#F9FAFB",
-              border: `1px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}`,
-            }}
+            className="mt-10 pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left"
+            style={{ borderTop: `1px solid ${isDark ? "#1E2D45" : "#E5E7EB"}` }}
           >
-            <div className="text-4xl mb-4">&#10003;</div>
-            <h2
-              className="text-2xl font-bold mb-2"
-              style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
-            >
-              Message Sent
-            </h2>
-            <p style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}>
-              Thank you for reaching out. We&apos;ll be in touch within 24
-              hours.
-            </p>
+            {[
+              { icon: "🔍", title: "Operations Review", desc: "We map your current workflows and identify bottlenecks." },
+              { icon: "🎯", title: "Top Opportunities", desc: "You'll leave with your 3 highest-impact automation opportunities." },
+              { icon: "🗺️", title: "Clear Next Steps", desc: "A recommended starting point with realistic timelines and costs." },
+            ].map((item) => (
+              <div key={item.title}>
+                <div className="text-2xl mb-2">{item.icon}</div>
+                <p className="text-sm font-semibold mb-1" style={{ color: isDark ? "#F9FAFB" : "#111827" }}>
+                  {item.title}
+                </p>
+                <p className="text-xs leading-relaxed" style={{ color: isDark ? "#9CA3AF" : "#6B7280" }}>
+                  {item.desc}
+                </p>
+              </div>
+            ))}
           </div>
-        ) : (
-          <form
-            onSubmit={handleSubmit}
-            className="rounded-xl p-8"
-            style={{
-              backgroundColor: theme === "dark" ? "#111827" : "#F9FAFB",
-              border: `1px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}`,
-            }}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label
-                  className="block text-sm font-medium mb-1.5"
-                  style={labelStyle}
-                >
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="w-full rounded-lg border px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-cyan-400/50 transition-all"
-                  style={inputStyle}
-                  placeholder="John"
-                />
-              </div>
-              <div>
-                <label
-                  className="block text-sm font-medium mb-1.5"
-                  style={labelStyle}
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="w-full rounded-lg border px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-cyan-400/50 transition-all"
-                  style={inputStyle}
-                  placeholder="Doe"
-                />
-              </div>
-            </div>
-
-            <div className="mt-6">
-              <label
-                className="block text-sm font-medium mb-1.5"
-                style={labelStyle}
-              >
-                Work Email
-              </label>
-              <input
-                type="email"
-                required
-                className="w-full rounded-lg border px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-cyan-400/50 transition-all"
-                style={inputStyle}
-                placeholder="john@company.com"
-              />
-            </div>
-
-            <div className="mt-6">
-              <label
-                className="block text-sm font-medium mb-1.5"
-                style={labelStyle}
-              >
-                Company
-              </label>
-              <input
-                type="text"
-                className="w-full rounded-lg border px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-cyan-400/50 transition-all"
-                style={inputStyle}
-                placeholder="Acme Corp"
-              />
-            </div>
-
-            <div className="mt-6">
-              <label
-                className="block text-sm font-medium mb-1.5"
-                style={labelStyle}
-              >
-                Which service tier are you interested in?
-              </label>
-              <select
-                className="w-full rounded-lg border px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-cyan-400/50 transition-all"
-                style={inputStyle}
-              >
-                <option value="">Not sure yet</option>
-                <option value="spark">Spark — AI Discovery ($7,500)</option>
-                <option value="ignite">Ignite — Premium Audit</option>
-                <option value="accelerate">
-                  Accelerate — Full Implementation
-                </option>
-                <option value="transform">
-                  Transform — Enterprise Partnership
-                </option>
-                <option value="enterprise">Enterprise — Custom Consulting</option>
-              </select>
-            </div>
-
-            <div className="mt-6">
-              <label
-                className="block text-sm font-medium mb-1.5"
-                style={labelStyle}
-              >
-                Message
-              </label>
-              <textarea
-                rows={4}
-                className="w-full rounded-lg border px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-cyan-400/50 transition-all resize-none"
-                style={inputStyle}
-                placeholder="Tell us about your business and what you're looking to achieve with AI..."
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="mt-8 w-full rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 px-8 py-3 text-base font-semibold text-white hover:opacity-90 transition-opacity"
-            >
-              Send Message
-            </button>
-          </form>
-        )}
+        </div>
 
         {/* Direct contact */}
         <div className="mt-8 text-center">
-          <p
-            className="text-sm"
-            style={{ color: theme === "dark" ? "#6B7280" : "#9CA3AF" }}
-          >
+          <p className="text-sm" style={{ color: isDark ? "#6B7280" : "#9CA3AF" }}>
             Prefer email? Reach us at{" "}
-            <a
-              href="mailto:info@cadexhq.com"
-              className="text-cyan-400 hover:text-cyan-300 transition-colors"
-            >
+            <a href="mailto:info@cadexhq.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
               info@cadexhq.com
             </a>
           </p>

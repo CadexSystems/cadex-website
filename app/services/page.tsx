@@ -65,7 +65,7 @@ export default function ServicesPage() {
             className="text-4xl sm:text-5xl font-bold"
             style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
           >
-            Service Tier Offerings
+            Offerings
           </h1>
           <p
             className="mt-4 text-lg max-w-2xl mx-auto"

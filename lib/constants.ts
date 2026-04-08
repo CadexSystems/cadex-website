@@ -1,6 +1,6 @@
 export const COMPANY = {
   name: "Cadex Systems",
-  tagline: "AI Onboarding & Automation Services",
+  tagline: "AI Integration & Automation Services",
   description:
     "We help businesses unlock operational efficiency through strategic AI implementation, automation, and ongoing optimization.",
   email: "info@cadexhq.com",
@@ -206,7 +206,7 @@ export const ROI_FRAMEWORK = {
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
+  { label: "Offerings", href: "/services" },
   { label: "AI Audit", href: "/ai-audit" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },

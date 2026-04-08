@@ -54,7 +54,7 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <SectionBadge text="AI Onboarding & Automation Services" />
+          <SectionBadge text="AI Integration & Automation Services" />
         </motion.div>
 
         {/* Headline */}

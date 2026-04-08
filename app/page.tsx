@@ -58,24 +58,24 @@ function mapSanityToTier(s: SanityService): ServiceTier {
 const TIMELINE_STEPS = [
   {
     number: 1,
-    title: "Discover",
+    title: "Uncover",
     accent: "your opportunity",
     description:
-      "We audit your operations, identify the highest-impact automation opportunities, and build a clear roadmap with ROI estimates — so you invest with confidence, not guesswork.",
+      "We audit your operations, surface the highest-impact automation opportunities, and deliver a prioritized roadmap with ROI estimates — so every investment is backed by data, not instinct.",
   },
   {
     number: 2,
     title: "Build & Deploy",
-    accent: "your automations",
+    accent: "your AI",
     description:
-      "Our team implements automations, configures tools, trains your staff, and provides hands-on hypercare to ensure adoption sticks and value is realized from day one.",
+      "We implement your automations, configure your stack, and train your team — then stay hands-on through launch to ensure adoption sticks and value shows up from day one.",
   },
   {
     number: 3,
     title: "Optimize & Scale",
-    accent: "your results",
+    accent: "your ROI",
     description:
-      "Ongoing optimization, KPI tracking, executive reporting, and quarterly roadmap planning to keep momentum building — because the best automations get better over time.",
+      "We track KPIs, deliver executive-ready reporting, and run quarterly roadmap sessions to keep momentum compounding — because the KPIs you track today become the ROI you report tomorrow.",
   },
 ];
 
@@ -128,7 +128,7 @@ export default function Home() {
               className="mt-6 text-4xl sm:text-5xl font-bold leading-tight tracking-tight"
               style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
             >
-              How we help you win.
+              Lead with the outcome.
             </h2>
           </AnimateIn>
 
@@ -137,8 +137,7 @@ export default function Home() {
               className="mt-4 text-lg max-w-xl leading-relaxed"
               style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
             >
-              From discovery to enterprise-scale rollout, we meet you where you
-              are and build the AI infrastructure your business needs.
+              Your business runs on decisions, processes, and people. We build the AI infrastructure that makes all three faster, smarter, and more scalable.
             </p>
           </AnimateIn>
 
@@ -194,7 +193,7 @@ export default function Home() {
 
       {/* Service Tiers — Dark Panel Section (Decagon-style contrast) */}
       <section
-        className="py-28 sm:py-36 transition-colors duration-300 rounded-3xl mx-4 sm:mx-8 lg:mx-12 my-4"
+        className="py-14 sm:py-16 transition-colors duration-300 rounded-3xl mx-4 sm:mx-8 lg:mx-12 my-4"
         style={{
           backgroundColor: theme === "dark" ? "#111827" : "#0B0F1A",
         }}
@@ -211,7 +210,7 @@ export default function Home() {
                 }}
               >
                 <span className="mr-1.5" style={{ color: "#4FE0FF" }}>&#10038;</span>
-                Service tiers
+                Our offerings
               </div>
             </div>
           </AnimateIn>
@@ -219,9 +218,9 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16">
             <AnimateIn delay={0.1}>
               <h2 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight text-white">
-                Flexible engagement models
+                From tiered offerings
                 <br />
-                designed to scale.
+                to custom solutions.
               </h2>
             </AnimateIn>
 
@@ -233,26 +232,11 @@ export default function Home() {
                   border: "1px solid rgba(255,255,255,0.2)",
                 }}
               >
-                View all services &rarr;
+                Click here for details &rarr;
               </Link>
             </AnimateIn>
           </div>
 
-          <AnimateInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
-            {tiers.slice(0, 3).map((tier) => (
-              <AnimateInChild key={tier.id}>
-                <ServiceCard tier={tier} compact />
-              </AnimateInChild>
-            ))}
-          </AnimateInStagger>
-
-          <AnimateInStagger className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 max-w-4xl mx-auto" staggerDelay={0.1}>
-            {tiers.slice(3).map((tier) => (
-              <AnimateInChild key={tier.id}>
-                <ServiceCard tier={tier} compact />
-              </AnimateInChild>
-            ))}
-          </AnimateInStagger>
         </div>
       </section>
 

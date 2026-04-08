@@ -67,8 +67,24 @@ export default function ROICalculatorPage() {
     if (step > 1) setStep((s) => (s - 1) as Step);
   };
 
-  const handleSubmit = () => {
-    // TODO: POST to GHL webhook with { companyName, email, employees, hoursWasted, hourlyCost, departments, results }
+  const handleSubmit = async () => {
+    try {
+      await fetch("/api/roi-submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          companyName,
+          email,
+          employees,
+          hoursWasted,
+          hourlyCost,
+          departments,
+          results,
+        }),
+      });
+    } catch {
+      // Non-blocking — show results regardless
+    }
     setStep(5);
   };
 
@@ -364,7 +380,7 @@ export default function ROICalculatorPage() {
                   disabled={!email.trim()}
                   className="w-full rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-8 py-3.5 text-base font-semibold text-white hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Book My Free Consultation →
+                  Book a Discovery Call →
                 </button>
               </motion.div>
 
