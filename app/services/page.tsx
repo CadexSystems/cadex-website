@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import ServiceCard from "@/components/ServiceCard";
-import PricingTable from "@/components/PricingTable";
 import CTASection from "@/components/CTASection";
 import { SERVICE_TIERS } from "@/lib/constants";
 import type { ServiceTier } from "@/lib/constants";
@@ -92,64 +91,6 @@ export default function ServicesPage() {
             {tiers.slice(3).map((tier) => (
               <ServiceCard key={tier.id} tier={tier} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Enterprise distinction */}
-      <section
-        className="py-12 transition-colors duration-300"
-        style={{ backgroundColor: theme === "dark" ? "#0B0F1A" : "#FFFFFF" }}
-      >
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div
-            className="rounded-xl p-6 text-center"
-            style={{
-              backgroundColor: theme === "dark" ? "#1A2235" : "#F9FAFB",
-              border: `1px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}`,
-            }}
-          >
-            <h3
-              className="text-lg font-bold mb-2"
-              style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
-            >
-              The Distinction
-            </h3>
-            <p
-              className="text-sm"
-              style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
-            >
-              If you can deliver it the same way twice &mdash; it&apos;s{" "}
-              <strong style={{ color: "#A855F7" }}>Transform</strong>. If you
-              have to scope it from scratch every time &mdash; it&apos;s{" "}
-              <strong style={{ color: "#FBBF24" }}>Custom Consulting</strong>.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Billing Table */}
-      <section
-        className="py-16 transition-colors duration-300"
-        style={{
-          backgroundColor: theme === "dark" ? "#111827" : "#F9FAFB",
-        }}
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2
-            className="text-2xl sm:text-3xl font-bold mb-8 text-center"
-            style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
-          >
-            Retainer Billing Options
-          </h2>
-          <div
-            className="rounded-xl p-6 transition-colors duration-300"
-            style={{
-              backgroundColor: theme === "dark" ? "#1A2235" : "#FFFFFF",
-              border: `1px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}`,
-            }}
-          >
-            <PricingTable />
           </div>
         </div>
       </section>

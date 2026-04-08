@@ -5,7 +5,7 @@ export const COMPANY = {
     "We help businesses unlock operational efficiency through strategic AI implementation, automation, and ongoing optimization.",
   email: "info@cadexhq.com",
   services: [
-    "AI Onboarding & Automation",
+    "AI Integration & Automation",
     "Custom Consulting",
     "Venture / MVP Studio",
   ],

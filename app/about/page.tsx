@@ -1,29 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import CTASection from "@/components/CTASection";
 import { useTheme } from "@/components/ThemeProvider";
-import { sanityClient, TEAM_MEMBERS_QUERY, urlFor } from "@/lib/sanity";
-
-interface TeamMember {
-  _id: string;
-  name: string;
-  role: string;
-  bio: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  photo: any;
-}
+import CTASection from "@/components/CTASection";
 
 export default function AboutPage() {
   const { theme } = useTheme();
-  const [team, setTeam] = useState<TeamMember[]>([]);
-
-  useEffect(() => {
-    sanityClient.fetch(TEAM_MEMBERS_QUERY).then((data: TeamMember[]) => {
-      setTeam(data || []);
-    });
-  }, []);
 
   return (
     <>
@@ -139,82 +120,6 @@ export default function AboutPage() {
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team placeholder */}
-      <section
-        className="py-20 transition-colors duration-300"
-        style={{ backgroundColor: theme === "dark" ? "#0B0F1A" : "#FFFFFF" }}
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2
-            className="text-2xl sm:text-3xl font-bold mb-4"
-            style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
-          >
-            Our Team
-          </h2>
-          <p
-            className="text-lg mb-12"
-            style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
-          >
-            Meet the people behind Cadex Systems.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {(team.length > 0 ? team : [
-              { _id: "1", name: "Team Member", role: "Position", bio: "", photo: null },
-              { _id: "2", name: "Team Member", role: "Position", bio: "", photo: null },
-              { _id: "3", name: "Team Member", role: "Position", bio: "", photo: null },
-            ]).map((member) => (
-              <div
-                key={member._id}
-                className="rounded-xl p-6 transition-colors duration-300"
-                style={{
-                  backgroundColor: theme === "dark" ? "#1A2235" : "#F9FAFB",
-                  border: `1px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}`,
-                }}
-              >
-                {member.photo ? (
-                  <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden relative">
-                    <Image
-                      src={urlFor(member.photo).width(160).height(160).url()}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ) : (
-                  <div
-                    className="w-20 h-20 rounded-full mx-auto mb-4"
-                    style={{
-                      backgroundColor: theme === "dark" ? "#243049" : "#E5E7EB",
-                    }}
-                  />
-                )}
-                <h3
-                  className="font-semibold"
-                  style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
-                >
-                  {member.name}
-                </h3>
-                <p
-                  className="text-sm"
-                  style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
-                >
-                  {member.role}
-                </p>
-                {member.bio && (
-                  <p
-                    className="text-xs mt-2"
-                    style={{ color: theme === "dark" ? "#6B7280" : "#9CA3AF" }}
-                  >
-                    {member.bio}
-                  </p>
-                )}
-              </div>
-            ))}
           </div>
         </div>
       </section>
