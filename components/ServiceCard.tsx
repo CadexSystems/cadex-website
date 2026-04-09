@@ -57,40 +57,6 @@ export default function ServiceCard({ tier, compact = false }: ServiceCardProps)
         {tier.description}
       </p>
 
-      {/* Pricing */}
-      <div className="mt-4 space-y-1">
-        <div className="flex items-baseline gap-1">
-          <span
-            className="text-2xl font-bold"
-            style={{ color: accent.label }}
-          >
-            {tier.setupFee}
-          </span>
-          {tier.monthlyRetainer === null && tier.id !== "enterprise" && (
-            <span
-              className="text-xs"
-              style={{ color: theme === "dark" ? "#6B7280" : "#9CA3AF" }}
-            >
-              one-time
-            </span>
-          )}
-        </div>
-        {tier.monthlyRetainer && (
-          <p
-            className="text-sm"
-            style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
-          >
-            + {tier.monthlyRetainer} retainer
-          </p>
-        )}
-        <p
-          className="text-xs"
-          style={{ color: theme === "dark" ? "#6B7280" : "#9CA3AF" }}
-        >
-          {tier.commitment}
-        </p>
-      </div>
-
       {/* Details (full mode) */}
       {!compact && (
         <div className="mt-6 space-y-4">

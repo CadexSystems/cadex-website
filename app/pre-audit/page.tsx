@@ -236,7 +236,7 @@ function getEngagement(
   p1: Page1Data,
   p2: Page2Data,
   readinessScore: number
-): { tier: string; description: string; price: string } {
+): { tier: string; description: string } {
   const isSmall = ["1–10", "11–50"].includes(p1.companySize);
   const isMid = ["51–200"].includes(p1.companySize);
   const isLarge = ["201–1000", "1000+"].includes(p1.companySize);
@@ -251,7 +251,6 @@ function getEngagement(
       tier: "TRANSFORM",
       description:
         "Enterprise-grade AI transformation program with full process redesign, custom automation infrastructure, and a dedicated implementation team.",
-      price: "$35,000 + $8,500/mo",
     };
   }
   if ((isMid || isLarge) && !isLowReadiness && (isMedBudget || isHighBudget)) {
@@ -259,7 +258,6 @@ function getEngagement(
       tier: "ACCELERATE",
       description:
         "A comprehensive automation build-out for growing mid-market companies ready to scale operations systematically.",
-      price: "$22,500 + $5,000/mo",
     };
   }
   if (!isSmall && isMedBudget) {
@@ -267,14 +265,12 @@ function getEngagement(
       tier: "IGNITE",
       description:
         "A full automation sprint that deploys your highest-ROI workflows and builds the foundation for continued expansion.",
-      price: "$16,500 + $3,500/mo",
     };
   }
   return {
     tier: "SPARK",
     description:
       "Our flagship discovery and quick-win engagement to identify your top automation opportunities and deploy your first workflows in 30 days.",
-    price: "$7,500 one-time",
   };
 }
 
@@ -1797,19 +1793,6 @@ export default function PreAuditPage() {
                     >
                       {engagement.tier}
                     </div>
-                  </div>
-                  <div
-                    style={{
-                      padding: "8px 18px",
-                      background: dark ? "#0B0F1A" : "#F9FAFB",
-                      border: `1px solid ${border}`,
-                      borderRadius: 8,
-                      fontSize: 15,
-                      fontWeight: 700,
-                      color: text,
-                    }}
-                  >
-                    {engagement.price}
                   </div>
                 </div>
                 <p style={{ fontSize: 14, color: muted, lineHeight: 1.7, marginBottom: 16 }}>
