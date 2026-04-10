@@ -8,9 +8,9 @@ export default function ServicesPage() {
   const { theme } = useTheme();
   const dark = theme === "dark";
 
-  const bg = dark ? "#0B0F1A" : "#F9F8F5";
+  const bg = dark ? "#0B0F1A" : "#FFFFFF";
   const surface = dark ? "#1A2235" : "#FFFFFF";
-  const border = dark ? "#243049" : "#E8E4DC";
+  const border = dark ? "#243049" : "#E5E7EB";
   const text = dark ? "#F1F5F9" : "#141210";
   const muted = dark ? "#9CA3AF" : "#7A7468";
   const accent = dark ? "#3DCFED" : "#0D1F6E";
@@ -338,7 +338,7 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
-              <div style={{ fontSize: 11, color: card.featured ? accent : muted, padding: "10px 12px", background: dark ? "rgba(255,255,255,0.04)" : "#F9F8F5", borderRadius: 6, border: `1px solid ${border}`, lineHeight: 1.5 }}>
+              <div style={{ fontSize: 11, color: card.featured ? accent : muted, padding: "10px 12px", background: dark ? "rgba(255,255,255,0.04)" : "#EAF4FF", borderRadius: 6, border: `1px solid ${border}`, lineHeight: 1.5 }}>
                 {card.note}
               </div>
             </div>
