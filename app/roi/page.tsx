@@ -378,7 +378,8 @@ export default function ROICalculatorPage() {
                 <button
                   onClick={handleSubmit}
                   disabled={!email.trim()}
-                  className="w-full rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-8 py-3.5 text-base font-semibold text-white hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full rounded-full px-8 py-3.5 text-base font-semibold text-white hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
                 >
                   Book a Discovery Call →
                 </button>
@@ -529,7 +530,8 @@ export default function ROICalculatorPage() {
                 {step < 4 ? (
                   <button
                     onClick={next}
-                    className="rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-8 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                    className="rounded-full px-8 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                    style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
                   >
                     Next →
                   </button>
@@ -537,7 +539,8 @@ export default function ROICalculatorPage() {
                   <button
                     onClick={() => setStep(5)}
                     disabled={!canAdvance()}
-                    className="rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-8 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="rounded-full px-8 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
                   >
                     See My Results →
                   </button>
