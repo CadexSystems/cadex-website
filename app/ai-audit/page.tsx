@@ -289,7 +289,7 @@ export default function AIAuditPage() {
   const [submitting, setSubmitting] = useState(false);
   const [direction, setDirection] = useState(1);
 
-  const bg = isDark ? "#0B0F1A" : "#EAF4FF";
+  const bg = isDark ? "#0B0F1A" : "#FFFFFF";
   const cardBg = isDark ? "#0F1623" : "#FFFFFF";
   const border = isDark ? "#1E2D45" : "#E5E7EB";
   const textPrimary = isDark ? "#EAF4FF" : "#111827";
@@ -392,7 +392,7 @@ export default function AIAuditPage() {
             >
               <motion.div
                 className="h-full rounded-full"
-                style={{ background: "linear-gradient(90deg, #3DCFED, #1A3CC8)" }}
+                style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
                 animate={{ width: `${progressPercent()}%` }}
                 transition={{ duration: 0.4 }}
               />
@@ -458,8 +458,8 @@ export default function AIAuditPage() {
 
               <button
                 onClick={() => goTo(0)}
-                className="w-full rounded-2xl py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
-                style={{ background: "linear-gradient(135deg, #3DCFED, #1A3CC8)" }}
+                className="w-full rounded-full py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
+                style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
               >
                 Start the Assessment →
               </button>
@@ -533,7 +533,7 @@ export default function AIAuditPage() {
               <div className="flex gap-3 mt-10">
                 <button
                   onClick={() => goTo(step === 0 ? "intro" : step - 1, -1)}
-                  className="flex-1 rounded-2xl py-3.5 text-sm font-semibold transition-all"
+                  className="flex-1 rounded-full py-3.5 text-sm font-semibold transition-all"
                   style={{
                     backgroundColor: cardBg,
                     border: `1.5px solid ${border}`,
@@ -547,8 +547,8 @@ export default function AIAuditPage() {
                     goTo(step === CATEGORIES.length - 1 ? "email" : step + 1, 1)
                   }
                   disabled={!canAdvance()}
-                  className="flex-[2] rounded-2xl py-3.5 text-sm font-semibold text-white transition-opacity disabled:opacity-40"
-                  style={{ background: "linear-gradient(135deg, #3DCFED, #1A3CC8)" }}
+                  className="flex-[2] rounded-full py-3.5 text-sm font-semibold text-white transition-opacity disabled:opacity-40"
+                  style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
                 >
                   {step === CATEGORIES.length - 1 ? "See My Results →" : "Next →"}
                 </button>
@@ -637,8 +637,8 @@ export default function AIAuditPage() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full rounded-2xl py-4 text-base font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60 mt-2"
-                    style={{ background: "linear-gradient(135deg, #3DCFED, #1A3CC8)" }}
+                    className="w-full rounded-full py-4 text-base font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60 mt-2"
+                    style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
                   >
                     {submitting ? "Loading..." : "View My Score →"}
                   </button>
@@ -723,7 +723,7 @@ export default function AIAuditPage() {
                         >
                           <motion.div
                             className="h-full rounded-full"
-                            style={{ background: "linear-gradient(90deg, #3DCFED, #1A3CC8)" }}
+                            style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
                             initial={{ width: 0 }}
                             animate={{ width: `${(score / 20) * 100}%` }}
                             transition={{ delay: 0.1 * i + 0.3, duration: 0.6, ease: "easeOut" }}
@@ -772,14 +772,14 @@ export default function AIAuditPage() {
               <div className="space-y-3">
                 <a
                   href="/contact"
-                  className="flex items-center justify-center w-full rounded-2xl py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
-                  style={{ background: "linear-gradient(135deg, #3DCFED, #1A3CC8)" }}
+                  className="flex items-center justify-center w-full rounded-full py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
+                  style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
                 >
                   Book a Free Consultation →
                 </a>
                 <a
                   href="/roi"
-                  className="flex items-center justify-center w-full rounded-2xl py-3.5 text-sm font-semibold transition-all"
+                  className="flex items-center justify-center w-full rounded-full py-3.5 text-sm font-semibold transition-all"
                   style={{
                     backgroundColor: cardBg,
                     border: `1.5px solid ${border}`,
