@@ -1375,8 +1375,36 @@ export default function PreAuditPage() {
                     padding: "14px 32px",
                     fontSize: 16,
                   }}
-                  onClick={() => {
-                    if (validatePage3()) goTo("results", 1);
+                  onClick={async () => {
+                    if (validatePage3()) {
+                      goTo("results", 1);
+                      const score = getReadinessScore(page3);
+                      try {
+                        await fetch("/api/audit-submit", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            name: page1.name,
+                            company: page1.company,
+                            email: page1.email,
+                            score,
+                            band: getReadinessLabel(score),
+                            categoryScores: {
+                              crm: page3.hasCRM === "Yes" ? 10 : 0,
+                              sops: page3.hasSOPs === "Yes" ? 10 : 0,
+                              leadership: page3.leadershipSupport === "Yes" ? 10 : 0,
+                              automation: page3.triedAutomation === "Yes" ? 10 : 0,
+                              owner: page3.hasInternalOwner === "Yes" ? 10 : 0,
+                              growth: page3.growthPressure === "Yes" ? 10 : 0,
+                              data: page3.hasData === "Yes" ? 10 : 0,
+                              decisionMaker: page3.isDecisionMaker === "Yes" ? 10 : 0,
+                            },
+                          }),
+                        });
+                      } catch {
+                        // Non-blocking
+                      }
+                    }
                   }}
                 >
                   Generate My Pre-Audit Report &rarr;
