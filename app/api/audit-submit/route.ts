@@ -124,7 +124,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: "Cadex Systems <onboarding@resend.dev>",
-      to: ["brian@cadexhq.com", "discovery@cadexhq.com"],
+      to: ["brian@cadexhq.com"],
       subject: `🎯 New AI Audit: ${name} from ${company} scored ${score}/100`,
       html,
     });
