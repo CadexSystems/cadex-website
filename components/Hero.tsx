@@ -42,7 +42,7 @@ export default function Hero() {
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[700px] rounded-full opacity-15 blur-3xl pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse, #4FE0FF 0%, #1E8FE1 30%, transparent 70%)",
+            "radial-gradient(ellipse, #3DCFED 0%, #1A3CC8 30%, transparent 70%)",
         }}
       />
 
@@ -63,7 +63,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight"
-          style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+          style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
         >
           Stop Guessing.
           <br />
@@ -92,7 +92,8 @@ export default function Hero() {
         >
           <Link
             href="/contact"
-            className="rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-8 py-3.5 text-base font-semibold text-white hover:opacity-90 transition-opacity"
+            className="rounded-full px-8 py-3.5 text-base font-semibold text-white hover:opacity-90 transition-opacity"
+            style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
           >
             Book a Discovery Call
           </Link>

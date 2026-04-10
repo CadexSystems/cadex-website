@@ -31,7 +31,7 @@ function PasswordForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F9FAFB]">
+    <div className="min-h-screen flex items-center justify-center bg-[#EAF4FF]">
       <div className="w-full max-w-sm mx-auto px-6">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-700 bg-clip-text text-transparent">
@@ -76,7 +76,7 @@ export default function PasswordPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen flex items-center justify-center bg-[#F9FAFB]">
+        <div className="min-h-screen flex items-center justify-center bg-[#EAF4FF]">
           <p className="text-gray-500">Loading...</p>
         </div>
       }

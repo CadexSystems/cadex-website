@@ -12,7 +12,7 @@ export default function Footer() {
     <footer
       className="border-t transition-colors duration-300"
       style={{
-        backgroundColor: theme === "dark" ? "#111827" : "#F9FAFB",
+        backgroundColor: theme === "dark" ? "#111827" : "#EAF4FF",
         borderColor: theme === "dark" ? "#243049" : "#E5E7EB",
       }}
     >

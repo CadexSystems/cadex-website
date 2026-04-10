@@ -420,7 +420,7 @@ const GRADE_VALUES: Record<Grade, number> = { A: 100, B: 75, C: 40, D: 10 };
 
 const GRADE_COLORS: Record<Grade, string> = {
   A: "#22C55E",
-  B: "#4FE0FF",
+  B: "#3DCFED",
   C: "#F59E0B",
   D: "#EF4444",
 };
@@ -446,7 +446,7 @@ function calcScore(selectedIds: Set<string>): number {
 
 function scoreBand(score: number): { label: string; color: string } {
   if (score >= 80) return { label: "AI-Ready Stack", color: "#22C55E" };
-  if (score >= 60) return { label: "Strong Foundation", color: "#4FE0FF" };
+  if (score >= 60) return { label: "Strong Foundation", color: "#3DCFED" };
   if (score >= 40) return { label: "Needs Optimization", color: "#F59E0B" };
   return { label: "Significant Gaps", color: "#EF4444" };
 }
@@ -479,10 +479,10 @@ export default function TechStackPage() {
   const isDark = theme === "dark";
 
   // Theme tokens
-  const bg = isDark ? "#0B0F1A" : "#F9FAFB";
+  const bg = isDark ? "#0B0F1A" : "#EAF4FF";
   const cardBg = isDark ? "#0F1623" : "#FFFFFF";
   const border = isDark ? "#1E2D45" : "#E5E7EB";
-  const textPrimary = isDark ? "#F9FAFB" : "#111827";
+  const textPrimary = isDark ? "#EAF4FF" : "#111827";
   const textMuted = isDark ? "#9CA3AF" : "#6B7280";
   const trackBg = isDark ? "#1E2D45" : "#E5E7EB";
 
@@ -569,9 +569,9 @@ export default function TechStackPage() {
                     fontSize: "0.75rem",
                     fontWeight: 500,
                     marginBottom: "1.25rem",
-                    backgroundColor: isDark ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.06)",
-                    color: "#4FE0FF",
-                    border: "1px solid rgba(79,224,255,0.2)",
+                    backgroundColor: isDark ? "rgba(61,207,237,0.08)" : "rgba(26,60,200,0.06)",
+                    color: "#3DCFED",
+                    border: "1px solid rgba(61,207,237,0.2)",
                   }}
                 >
                   Free Tool · No signup required
@@ -639,7 +639,7 @@ export default function TechStackPage() {
                     fontWeight: 600,
                     color: "#fff",
                     background: canAnalyze
-                      ? "linear-gradient(135deg, #4FE0FF, #1E8FE1)"
+                      ? "linear-gradient(135deg, #3DCFED, #1A3CC8)"
                       : isDark ? "#1E2D45" : "#E5E7EB",
                     border: "none",
                     cursor: canAnalyze ? "pointer" : "not-allowed",
@@ -701,8 +701,8 @@ export default function TechStackPage() {
                                 fontWeight: 600,
                                 padding: "0.15rem 0.5rem",
                                 borderRadius: "9999px",
-                                backgroundColor: "rgba(79,224,255,0.12)",
-                                color: "#4FE0FF",
+                                backgroundColor: "rgba(61,207,237,0.12)",
+                                color: "#3DCFED",
                               }}
                             >
                               {selectedInCat} selected
@@ -760,12 +760,12 @@ export default function TechStackPage() {
                                       cursor: "pointer",
                                       transition: "all 0.15s",
                                       backgroundColor: isSelected
-                                        ? isDark ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.06)"
-                                        : isDark ? "rgba(30,45,69,0.4)" : "#F9FAFB",
+                                        ? isDark ? "rgba(61,207,237,0.08)" : "rgba(26,60,200,0.06)"
+                                        : isDark ? "rgba(30,45,69,0.4)" : "#EAF4FF",
                                       border: isSelected
-                                        ? "1.5px solid #4FE0FF"
+                                        ? "1.5px solid #3DCFED"
                                         : `1.5px solid ${border}`,
-                                      color: isSelected ? (isDark ? "#F9FAFB" : "#111827") : textMuted,
+                                      color: isSelected ? (isDark ? "#EAF4FF" : "#111827") : textMuted,
                                     }}
                                   >
                                     {/* Grade dot */}
@@ -822,7 +822,7 @@ export default function TechStackPage() {
                     fontWeight: 600,
                     color: canAnalyze ? "#fff" : textMuted,
                     background: canAnalyze
-                      ? "linear-gradient(135deg, #4FE0FF, #1E8FE1)"
+                      ? "linear-gradient(135deg, #3DCFED, #1A3CC8)"
                       : isDark ? "#0F1623" : "#F3F4F6",
                     border: canAnalyze ? "none" : `1.5px solid ${border}`,
                     cursor: canAnalyze ? "pointer" : "not-allowed",
@@ -857,9 +857,9 @@ export default function TechStackPage() {
                     fontSize: "0.75rem",
                     fontWeight: 500,
                     marginBottom: "1.25rem",
-                    backgroundColor: isDark ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.06)",
-                    color: "#4FE0FF",
-                    border: "1px solid rgba(79,224,255,0.2)",
+                    backgroundColor: isDark ? "rgba(61,207,237,0.08)" : "rgba(26,60,200,0.06)",
+                    color: "#3DCFED",
+                    border: "1px solid rgba(61,207,237,0.2)",
                   }}
                 >
                   Your Stack Analysis
@@ -1203,7 +1203,7 @@ export default function TechStackPage() {
                         width: "1.5rem",
                         height: "1.5rem",
                         borderRadius: "6px",
-                        backgroundColor: "rgba(79,224,255,0.15)",
+                        backgroundColor: "rgba(61,207,237,0.15)",
                         fontSize: "0.75rem",
                       }}
                     >
@@ -1213,7 +1213,7 @@ export default function TechStackPage() {
                       style={{
                         fontSize: "0.8125rem",
                         fontWeight: 700,
-                        color: "#4FE0FF",
+                        color: "#3DCFED",
                         textTransform: "uppercase",
                         letterSpacing: "0.08em",
                         margin: 0,
@@ -1253,8 +1253,8 @@ export default function TechStackPage() {
                             borderRadius: "8px",
                             fontSize: "0.8125rem",
                             fontWeight: 800,
-                            backgroundColor: "rgba(79,224,255,0.12)",
-                            color: "#4FE0FF",
+                            backgroundColor: "rgba(61,207,237,0.12)",
+                            color: "#3DCFED",
                             flexShrink: 0,
                             marginTop: "1px",
                           }}
@@ -1277,7 +1277,7 @@ export default function TechStackPage() {
                                 marginLeft: "0.5rem",
                                 fontSize: "0.6875rem",
                                 fontWeight: 500,
-                                color: "#4FE0FF",
+                                color: "#3DCFED",
                               }}
                             >
                               probably not using these yet
@@ -1298,9 +1298,9 @@ export default function TechStackPage() {
                                   fontSize: "0.6875rem",
                                   padding: "0.25rem 0.625rem",
                                   borderRadius: "9999px",
-                                  backgroundColor: "rgba(79,224,255,0.08)",
-                                  color: "#4FE0FF",
-                                  border: "1px solid rgba(79,224,255,0.2)",
+                                  backgroundColor: "rgba(61,207,237,0.08)",
+                                  color: "#3DCFED",
+                                  border: "1px solid rgba(61,207,237,0.2)",
                                   fontWeight: 500,
                                 }}
                               >
@@ -1463,8 +1463,8 @@ export default function TechStackPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.55, duration: 0.4 }}
                 style={{
-                  backgroundColor: isDark ? "rgba(79,224,255,0.04)" : "rgba(30,143,225,0.03)",
-                  border: "1px solid rgba(79,224,255,0.15)",
+                  backgroundColor: isDark ? "rgba(61,207,237,0.04)" : "rgba(26,60,200,0.03)",
+                  border: "1px solid rgba(61,207,237,0.15)",
                   borderRadius: "1rem",
                   padding: "1.25rem 1.5rem",
                   marginBottom: "1.5rem",
@@ -1549,7 +1549,7 @@ export default function TechStackPage() {
                         fontSize: "0.9375rem",
                         fontWeight: 600,
                         color: "#fff",
-                        background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+                        background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
                         textDecoration: "none",
                       }}
                     >
@@ -1596,9 +1596,9 @@ export default function TechStackPage() {
                         padding: "0.625rem 1.125rem",
                         fontSize: "0.875rem",
                         fontWeight: 600,
-                        color: "#4FE0FF",
-                        backgroundColor: "rgba(79,224,255,0.08)",
-                        border: "1px solid rgba(79,224,255,0.2)",
+                        color: "#3DCFED",
+                        backgroundColor: "rgba(61,207,237,0.08)",
+                        border: "1px solid rgba(61,207,237,0.2)",
                         textDecoration: "none",
                         whiteSpace: "nowrap",
                         flexShrink: 0,

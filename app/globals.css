@@ -2,9 +2,9 @@
 
 @theme {
   /* Brand Colors */
-  --color-cyan-400: #4FE0FF;
+  --color-cyan-400: #3DCFED;
   --color-cyan-500: #2CC8E8;
-  --color-blue-500: #1E8FE1;
+  --color-blue-500: #1A3CC8;
   --color-blue-600: #1674C0;
   --color-blue-700: #0A4FBF;
   --color-blue-900: #0B1A3E;
@@ -25,7 +25,7 @@
   --bg-primary: #0B0F1A;
   --bg-secondary: #111827;
   --bg-card: #1A2235;
-  --text-primary: #F9FAFB;
+  --text-primary: #EAF4FF;
   --text-secondary: #9CA3AF;
   --border-color: #243049;
 }
@@ -33,7 +33,7 @@
 /* Light mode overrides */
 :root.light {
   --bg-primary: #FFFFFF;
-  --bg-secondary: #F9FAFB;
+  --bg-secondary: #EAF4FF;
   --bg-card: #FFFFFF;
   --text-primary: #111827;
   --text-secondary: #6B7280;

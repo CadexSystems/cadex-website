@@ -129,11 +129,11 @@ export default function ChatWidget() {
 
   const bg = isDark ? "#0F1623" : "#FFFFFF";
   const border = isDark ? "#1E2D45" : "#E5E7EB";
-  const textPrimary = isDark ? "#F9FAFB" : "#111827";
+  const textPrimary = isDark ? "#EAF4FF" : "#111827";
   const textMuted = isDark ? "#9CA3AF" : "#6B7280";
-  const userBubble = "linear-gradient(135deg, #4FE0FF, #1E8FE1)";
+  const userBubble = "linear-gradient(135deg, #3DCFED, #1A3CC8)";
   const aiBubbleBg = isDark ? "#1A2235" : "#F3F4F6";
-  const inputBg = isDark ? "#1A2235" : "#F9FAFB";
+  const inputBg = isDark ? "#1A2235" : "#EAF4FF";
 
   return (
     <>
@@ -156,7 +156,7 @@ export default function ChatWidget() {
             <div
               className="flex items-center justify-between px-4 py-3.5"
               style={{
-                background: "linear-gradient(135deg, #4FE0FF22, #1E8FE122)",
+                background: "linear-gradient(135deg, #3DCFED22, #1A3CC822)",
                 borderBottom: `1px solid ${border}`,
               }}
             >
@@ -164,7 +164,7 @@ export default function ChatWidget() {
                 <div
                   className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
                   style={{
-                    background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+                    background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
                   }}
                 >
                   C
@@ -182,7 +182,7 @@ export default function ChatWidget() {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <span className="flex items-center gap-1 text-xs" style={{ color: "#4FE0FF" }}>
+                <span className="flex items-center gap-1 text-xs" style={{ color: "#3DCFED" }}>
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
                   Online
                 </span>
@@ -210,7 +210,7 @@ export default function ChatWidget() {
                     <div
                       className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mr-2 mt-0.5"
                       style={{
-                        background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+                        background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
                       }}
                     >
                       C
@@ -241,7 +241,7 @@ export default function ChatWidget() {
                             ol: ({ children }) => <ol className="mb-2 space-y-1 pl-4 list-decimal">{children}</ol>,
                             li: ({ children }) => (
                               <li className="flex gap-1.5 items-start">
-                                <span style={{ color: "#4FE0FF" }} className="mt-0.5 flex-shrink-0">•</span>
+                                <span style={{ color: "#3DCFED" }} className="mt-0.5 flex-shrink-0">•</span>
                                 <span>{children}</span>
                               </li>
                             ),
@@ -256,7 +256,7 @@ export default function ChatWidget() {
                                   href={href}
                                   target={isExternal ? "_blank" : "_self"}
                                   rel={isExternal ? "noopener noreferrer" : undefined}
-                                  style={{ color: "#4FE0FF", textDecoration: "underline", textUnderlineOffset: "2px" }}
+                                  style={{ color: "#3DCFED", textDecoration: "underline", textUnderlineOffset: "2px" }}
                                   onClick={(e) => e.stopPropagation()}
                                 >
                                   {children}
@@ -264,7 +264,7 @@ export default function ChatWidget() {
                               );
                             },
                             code: ({ children }) => (
-                              <code className="px-1 py-0.5 rounded text-xs font-mono" style={{ backgroundColor: "rgba(79,224,255,0.1)", color: "#4FE0FF" }}>{children}</code>
+                              <code className="px-1 py-0.5 rounded text-xs font-mono" style={{ backgroundColor: "rgba(61,207,237,0.1)", color: "#3DCFED" }}>{children}</code>
                             ),
                             h3: ({ children }) => <p className="font-semibold mb-1 mt-2">{children}</p>,
                             h4: ({ children }) => <p className="font-semibold mb-1">{children}</p>,
@@ -334,7 +334,7 @@ export default function ChatWidget() {
                   disabled={loading || !input.trim()}
                   className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-opacity disabled:opacity-40"
                   style={{
-                    background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+                    background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
                   }}
                   aria-label="Send message"
                 >
@@ -345,7 +345,7 @@ export default function ChatWidget() {
               </form>
               <p className="text-center text-xs mt-2" style={{ color: textMuted }}>
                 Powered by{" "}
-                <span style={{ color: "#4FE0FF" }}>Cadex AI</span>
+                <span style={{ color: "#3DCFED" }}>Cadex AI</span>
               </p>
             </div>
           </motion.div>
@@ -357,7 +357,7 @@ export default function ChatWidget() {
         onClick={() => setOpen((v) => !v)}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105"
         style={{
-          background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+          background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
         }}
         whileTap={{ scale: 0.95 }}
         aria-label="Open chat"

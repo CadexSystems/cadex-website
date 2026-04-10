@@ -126,7 +126,7 @@ export default function Home() {
           <AnimateIn delay={0.1}>
             <h2
               className="mt-6 text-4xl sm:text-5xl font-bold leading-tight tracking-tight"
-              style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+              style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
             >
               Lead with the outcome.
             </h2>
@@ -159,9 +159,9 @@ export default function Home() {
                     <div
                       className="relative z-10 flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-lg sm:text-xl font-bold"
                       style={{
-                        backgroundColor: theme === "dark" ? "#111827" : "#F9FAFB",
+                        backgroundColor: theme === "dark" ? "#111827" : "#EAF4FF",
                         border: `2px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}`,
-                        color: "#4FE0FF",
+                        color: "#3DCFED",
                       }}
                     >
                       {step.number}
@@ -171,7 +171,7 @@ export default function Home() {
                     <div className="pt-1 sm:pt-3">
                       <h3
                         className="text-2xl sm:text-3xl font-bold"
-                        style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+                        style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
                       >
                         <span className="text-cyan-400">{step.title}</span>{" "}
                         {step.accent}
@@ -204,12 +204,12 @@ export default function Home() {
               <div
                 className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-medium tracking-wide"
                 style={{
-                  backgroundColor: "rgba(79,224,255,0.08)",
+                  backgroundColor: "rgba(61,207,237,0.08)",
                   color: "#9CA3AF",
                   border: "1px solid rgba(255,255,255,0.08)",
                 }}
               >
-                <span className="mr-1.5" style={{ color: "#4FE0FF" }}>&#10038;</span>
+                <span className="mr-1.5" style={{ color: "#3DCFED" }}>&#10038;</span>
                 Our offerings
               </div>
             </div>
@@ -246,7 +246,7 @@ export default function Home() {
       {posts.length > 0 && (
         <section
           className="py-28 sm:py-36 transition-colors duration-300"
-          style={{ backgroundColor: theme === "dark" ? "#0B0F1A" : "#F9FAFB" }}
+          style={{ backgroundColor: theme === "dark" ? "#0B0F1A" : "#EAF4FF" }}
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <AnimateIn>
@@ -257,7 +257,7 @@ export default function Home() {
               <AnimateIn delay={0.1}>
                 <h2
                   className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight"
-                  style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+                  style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
                 >
                   Recent articles.
                 </h2>
@@ -309,8 +309,8 @@ export default function Home() {
                           <span
                             className="text-xs font-medium px-2 py-0.5 rounded-full"
                             style={{
-                              backgroundColor: theme === "dark" ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.06)",
-                              color: "#4FE0FF",
+                              backgroundColor: theme === "dark" ? "rgba(61,207,237,0.08)" : "rgba(26,60,200,0.06)",
+                              color: "#3DCFED",
                             }}
                           >
                             {post.category}
@@ -328,7 +328,7 @@ export default function Home() {
                       {/* Title */}
                       <h3
                         className="text-lg font-bold leading-snug mb-2 group-hover:text-cyan-400 transition-colors"
-                        style={{ color: theme === "dark" ? "#F9FAFB" : "#0A3D7C" }}
+                        style={{ color: theme === "dark" ? "#EAF4FF" : "#0D1F6E" }}
                       >
                         {post.title}
                       </h3>

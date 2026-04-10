@@ -248,7 +248,7 @@ const SCORE_BANDS = [
       "You have good bones. Targeted automations could deliver quick, measurable ROI while we build toward a broader implementation.",
     tier: "IGNITE",
     tierDesc: "Premium Audit",
-    color: "#1E8FE1",
+    color: "#1A3CC8",
   },
   {
     min: 60,
@@ -258,7 +258,7 @@ const SCORE_BANDS = [
       "Strong foundation. You're well-positioned for meaningful AI implementation across multiple areas of your business.",
     tier: "ACCELERATE",
     tierDesc: "Full Implementation",
-    color: "#4FE0FF",
+    color: "#3DCFED",
   },
   {
     min: 80,
@@ -289,10 +289,10 @@ export default function AIAuditPage() {
   const [submitting, setSubmitting] = useState(false);
   const [direction, setDirection] = useState(1);
 
-  const bg = isDark ? "#0B0F1A" : "#F9FAFB";
+  const bg = isDark ? "#0B0F1A" : "#EAF4FF";
   const cardBg = isDark ? "#0F1623" : "#FFFFFF";
   const border = isDark ? "#1E2D45" : "#E5E7EB";
-  const textPrimary = isDark ? "#F9FAFB" : "#111827";
+  const textPrimary = isDark ? "#EAF4FF" : "#111827";
   const textMuted = isDark ? "#9CA3AF" : "#6B7280";
 
   // ── Scoring ──────────────────────────────────────────────────────────────
@@ -392,7 +392,7 @@ export default function AIAuditPage() {
             >
               <motion.div
                 className="h-full rounded-full"
-                style={{ background: "linear-gradient(90deg, #4FE0FF, #1E8FE1)" }}
+                style={{ background: "linear-gradient(90deg, #3DCFED, #1A3CC8)" }}
                 animate={{ width: `${progressPercent()}%` }}
                 transition={{ duration: 0.4 }}
               />
@@ -419,9 +419,9 @@ export default function AIAuditPage() {
                 <div
                   className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-medium mb-6"
                   style={{
-                    backgroundColor: isDark ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.06)",
-                    color: "#4FE0FF",
-                    border: "1px solid rgba(79,224,255,0.2)",
+                    backgroundColor: isDark ? "rgba(61,207,237,0.08)" : "rgba(26,60,200,0.06)",
+                    color: "#3DCFED",
+                    border: "1px solid rgba(61,207,237,0.2)",
                   }}
                 >
                   Free Assessment · 5 minutes
@@ -459,7 +459,7 @@ export default function AIAuditPage() {
               <button
                 onClick={() => goTo(0)}
                 className="w-full rounded-2xl py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
-                style={{ background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)" }}
+                style={{ background: "linear-gradient(135deg, #3DCFED, #1A3CC8)" }}
               >
                 Start the Assessment →
               </button>
@@ -504,17 +504,17 @@ export default function AIAuditPage() {
                               className="w-full text-left rounded-xl px-4 py-3 text-sm transition-all"
                               style={{
                                 backgroundColor: isSelected
-                                  ? isDark ? "rgba(79,224,255,0.12)" : "rgba(30,143,225,0.08)"
+                                  ? isDark ? "rgba(61,207,237,0.12)" : "rgba(26,60,200,0.08)"
                                   : cardBg,
-                                border: `1.5px solid ${isSelected ? "#4FE0FF" : border}`,
-                                color: isSelected ? (isDark ? "#4FE0FF" : "#0A3D7C") : textPrimary,
+                                border: `1.5px solid ${isSelected ? "#3DCFED" : border}`,
+                                color: isSelected ? (isDark ? "#3DCFED" : "#0D1F6E") : textPrimary,
                                 fontWeight: isSelected ? 500 : 400,
                               }}
                             >
                               <span
                                 className="inline-flex items-center justify-center w-5 h-5 rounded-full text-xs mr-3 flex-shrink-0"
                                 style={{
-                                  backgroundColor: isSelected ? "#4FE0FF" : (isDark ? "#1E2D45" : "#F3F4F6"),
+                                  backgroundColor: isSelected ? "#3DCFED" : (isDark ? "#1E2D45" : "#F3F4F6"),
                                   color: isSelected ? "#000" : textMuted,
                                 }}
                               >
@@ -548,7 +548,7 @@ export default function AIAuditPage() {
                   }
                   disabled={!canAdvance()}
                   className="flex-[2] rounded-2xl py-3.5 text-sm font-semibold text-white transition-opacity disabled:opacity-40"
-                  style={{ background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)" }}
+                  style={{ background: "linear-gradient(135deg, #3DCFED, #1A3CC8)" }}
                 >
                   {step === CATEGORIES.length - 1 ? "See My Results →" : "Next →"}
                 </button>
@@ -592,7 +592,7 @@ export default function AIAuditPage() {
                       placeholder="Jane Smith"
                       className="w-full rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-cyan-400/40"
                       style={{
-                        backgroundColor: isDark ? "#1A2235" : "#F9FAFB",
+                        backgroundColor: isDark ? "#1A2235" : "#EAF4FF",
                         border: `1.5px solid ${border}`,
                         color: textPrimary,
                       }}
@@ -610,7 +610,7 @@ export default function AIAuditPage() {
                       placeholder="Acme Corp"
                       className="w-full rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-cyan-400/40"
                       style={{
-                        backgroundColor: isDark ? "#1A2235" : "#F9FAFB",
+                        backgroundColor: isDark ? "#1A2235" : "#EAF4FF",
                         border: `1.5px solid ${border}`,
                         color: textPrimary,
                       }}
@@ -628,7 +628,7 @@ export default function AIAuditPage() {
                       placeholder="jane@acmecorp.com"
                       className="w-full rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-cyan-400/40"
                       style={{
-                        backgroundColor: isDark ? "#1A2235" : "#F9FAFB",
+                        backgroundColor: isDark ? "#1A2235" : "#EAF4FF",
                         border: `1.5px solid ${border}`,
                         color: textPrimary,
                       }}
@@ -638,7 +638,7 @@ export default function AIAuditPage() {
                     type="submit"
                     disabled={submitting}
                     className="w-full rounded-2xl py-4 text-base font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60 mt-2"
-                    style={{ background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)" }}
+                    style={{ background: "linear-gradient(135deg, #3DCFED, #1A3CC8)" }}
                   >
                     {submitting ? "Loading..." : "View My Score →"}
                   </button>
@@ -713,7 +713,7 @@ export default function AIAuditPage() {
                           <span className="text-sm flex items-center gap-2" style={{ color: textPrimary }}>
                             {cat.icon} {cat.title}
                           </span>
-                          <span className="text-sm font-semibold" style={{ color: "#4FE0FF" }}>
+                          <span className="text-sm font-semibold" style={{ color: "#3DCFED" }}>
                             {score}/20
                           </span>
                         </div>
@@ -723,7 +723,7 @@ export default function AIAuditPage() {
                         >
                           <motion.div
                             className="h-full rounded-full"
-                            style={{ background: "linear-gradient(90deg, #4FE0FF, #1E8FE1)" }}
+                            style={{ background: "linear-gradient(90deg, #3DCFED, #1A3CC8)" }}
                             initial={{ width: 0 }}
                             animate={{ width: `${(score / 20) * 100}%` }}
                             transition={{ delay: 0.1 * i + 0.3, duration: 0.6, ease: "easeOut" }}
@@ -773,7 +773,7 @@ export default function AIAuditPage() {
                 <a
                   href="/contact"
                   className="flex items-center justify-center w-full rounded-2xl py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
-                  style={{ background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)" }}
+                  style={{ background: "linear-gradient(135deg, #3DCFED, #1A3CC8)" }}
                 >
                   Book a Free Consultation →
                 </a>
@@ -792,7 +792,7 @@ export default function AIAuditPage() {
 
               <p className="text-center text-xs mt-6" style={{ color: textMuted }}>
                 Questions? Email us at{" "}
-                <a href="mailto:info@cadexhq.com" style={{ color: "#4FE0FF" }}>
+                <a href="mailto:info@cadexhq.com" style={{ color: "#3DCFED" }}>
                   info@cadexhq.com
                 </a>
               </p>

@@ -23,7 +23,7 @@ export default function CTASection({
     <section
       className="py-28 sm:py-36 transition-colors duration-300 relative overflow-hidden"
       style={{
-        backgroundColor: theme === "dark" ? "#111827" : "#F9FAFB",
+        backgroundColor: theme === "dark" ? "#111827" : "#EAF4FF",
       }}
     >
       {/* Subtle gradient glow */}
@@ -31,7 +31,7 @@ export default function CTASection({
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full opacity-10 blur-3xl pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse, #4FE0FF 0%, #1E8FE1 40%, transparent 70%)",
+            "radial-gradient(ellipse, #3DCFED 0%, #1A3CC8 40%, transparent 70%)",
         }}
       />
 
@@ -39,7 +39,7 @@ export default function CTASection({
         <AnimateIn>
           <h2
             className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight"
-            style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+            style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
           >
             {headline}
           </h2>
@@ -57,7 +57,8 @@ export default function CTASection({
         <AnimateIn delay={0.2}>
           <Link
             href={buttonHref}
-            className="mt-10 inline-block rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-10 py-4 text-base font-semibold text-white hover:opacity-90 transition-opacity"
+            className="mt-10 inline-block rounded-full px-10 py-4 text-base font-semibold text-white hover:opacity-90 transition-opacity"
+            style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
           >
             {buttonText}
           </Link>

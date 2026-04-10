@@ -88,7 +88,7 @@ export default function Header() {
             className="md:hidden p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
-            style={{ color: theme === "dark" ? "#F9FAFB" : "#111827" }}
+            style={{ color: theme === "dark" ? "#EAF4FF" : "#111827" }}
           >
             {mobileOpen ? (
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

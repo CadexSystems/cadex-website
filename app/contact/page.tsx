@@ -46,7 +46,7 @@ export default function ContactPage() {
         <div className="text-center mb-12">
           <h1
             className="text-4xl sm:text-5xl font-bold"
-            style={{ color: isDark ? "#4FE0FF" : "#0A3D7C" }}
+            style={{ color: isDark ? "#3DCFED" : "#0D1F6E" }}
           >
             Book a Discovery Call
           </h1>
@@ -56,14 +56,14 @@ export default function ContactPage() {
         <div
           className="rounded-2xl p-10 text-center"
           style={{
-            backgroundColor: isDark ? "#0F1623" : "#F9FAFB",
+            backgroundColor: isDark ? "#0F1623" : "#EAF4FF",
             border: `1px solid ${isDark ? "#1E2D45" : "#E5E7EB"}`,
           }}
         >
           <div className="text-4xl mb-4">📅</div>
           <h2
             className="text-xl font-semibold mb-2"
-            style={{ color: isDark ? "#F9FAFB" : "#111827" }}
+            style={{ color: isDark ? "#EAF4FF" : "#111827" }}
           >
             Schedule a 30-Minute Discovery Call
           </h2>
@@ -91,7 +91,7 @@ export default function ContactPage() {
             ].map((item) => (
               <div key={item.title}>
                 <div className="text-2xl mb-2">{item.icon}</div>
-                <p className="text-sm font-semibold mb-1" style={{ color: isDark ? "#F9FAFB" : "#111827" }}>
+                <p className="text-sm font-semibold mb-1" style={{ color: isDark ? "#EAF4FF" : "#111827" }}>
                   {item.title}
                 </p>
                 <p className="text-xs leading-relaxed" style={{ color: isDark ? "#9CA3AF" : "#6B7280" }}>

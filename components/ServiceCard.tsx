@@ -11,8 +11,8 @@ interface ServiceCardProps {
 
 const TIER_ACCENTS: Record<string, { border: string; label: string }> = {
   gray: { border: "#6B7280", label: "#9CA3AF" },
-  blue: { border: "#1E8FE1", label: "#60A5FA" },
-  cyan: { border: "#4FE0FF", label: "#4FE0FF" },
+  blue: { border: "#1A3CC8", label: "#60A5FA" },
+  cyan: { border: "#3DCFED", label: "#3DCFED" },
   purple: { border: "#A855F7", label: "#C084FC" },
   amber: { border: "#F59E0B", label: "#FBBF24" },
 };
@@ -28,7 +28,7 @@ export default function ServiceCard({ tier, compact = false }: ServiceCardProps)
         backgroundColor: theme === "dark" ? "#1A2235" : "#FFFFFF",
         borderWidth: 1,
         borderStyle: "solid",
-        borderColor: "#4FE0FF",
+        borderColor: "#3DCFED",
       }}
     >
       {/* Tier label */}
@@ -44,7 +44,7 @@ export default function ServiceCard({ tier, compact = false }: ServiceCardProps)
       {/* Title */}
       <h3
         className="text-xl font-bold"
-        style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+        style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
       >
         {tier.title}
       </h3>

@@ -69,7 +69,7 @@ export default function BlogPage() {
           <div className="text-center mb-12">
             <h1
               className="text-4xl sm:text-5xl font-bold"
-              style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+              style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
             >
               Insights & Resources
             </h1>
@@ -121,9 +121,9 @@ export default function BlogPage() {
                             style={{
                               backgroundColor:
                                 theme === "dark"
-                                  ? "rgba(79,224,255,0.1)"
-                                  : "rgba(30,143,225,0.1)",
-                              color: "#4FE0FF",
+                                  ? "rgba(61,207,237,0.1)"
+                                  : "rgba(26,60,200,0.1)",
+                              color: "#3DCFED",
                             }}
                           >
                             {post.category}
@@ -147,7 +147,7 @@ export default function BlogPage() {
                       <h2
                         className="text-lg font-bold mb-2"
                         style={{
-                          color: theme === "dark" ? "#4FE0FF" : "#0A3D7C",
+                          color: theme === "dark" ? "#3DCFED" : "#0D1F6E",
                         }}
                       >
                         {post.title}
@@ -192,9 +192,9 @@ export default function BlogPage() {
                           style={{
                             backgroundColor:
                               theme === "dark"
-                                ? "rgba(79,224,255,0.1)"
-                                : "rgba(30,143,225,0.1)",
-                            color: "#4FE0FF",
+                                ? "rgba(61,207,237,0.1)"
+                                : "rgba(26,60,200,0.1)",
+                            color: "#3DCFED",
                           }}
                         >
                           {post.category}
@@ -211,7 +211,7 @@ export default function BlogPage() {
                       <h2
                         className="text-lg font-bold mb-2"
                         style={{
-                          color: theme === "dark" ? "#4FE0FF" : "#0A3D7C",
+                          color: theme === "dark" ? "#3DCFED" : "#0D1F6E",
                         }}
                       >
                         {post.title}

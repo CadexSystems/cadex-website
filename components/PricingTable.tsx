@@ -39,7 +39,7 @@ export default function PricingTable() {
             >
               <td
                 className="px-4 py-3 font-medium border-b"
-                style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C", borderColor }}
+                style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E", borderColor }}
               >
                 {row.tier}
               </td>
@@ -57,7 +57,7 @@ export default function PricingTable() {
               </td>
               <td
                 className="px-4 py-3 font-semibold border-b"
-                style={{ color: "#4FE0FF", borderColor }}
+                style={{ color: "#3DCFED", borderColor }}
               >
                 {row.yearOneTotal}
               </td>

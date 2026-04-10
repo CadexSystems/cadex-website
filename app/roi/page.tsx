@@ -92,10 +92,10 @@ export default function ROICalculatorPage() {
 
   const cardBg = dark ? "#1A2235" : "#FFFFFF";
   const cardBorder = dark ? "#243049" : "#E5E7EB";
-  const headingColor = dark ? "#4FE0FF" : "#0A3D7C";
+  const headingColor = dark ? "#3DCFED" : "#0D1F6E";
   const textColor = dark ? "#D1D5DB" : "#4B5563";
   const mutedColor = dark ? "#9CA3AF" : "#6B7280";
-  const surfaceBg = dark ? "#111827" : "#F9FAFB";
+  const surfaceBg = dark ? "#111827" : "#EAF4FF";
   const inputBg = dark ? "#0B0F1A" : "#FFFFFF";
   const inputBorder = dark ? "#243049" : "#E5E7EB";
 
@@ -109,7 +109,7 @@ export default function ROICalculatorPage() {
       height: 6px;
       border-radius: 999px;
       outline: none;
-      background: linear-gradient(to right, #4FE0FF, #1E8FE1);
+      background: linear-gradient(to right, #3DCFED, #1A3CC8);
     }
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
@@ -120,7 +120,7 @@ export default function ROICalculatorPage() {
       background: white;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       cursor: pointer;
-      border: 3px solid #4FE0FF;
+      border: 3px solid #3DCFED;
     }
     input[type="range"]::-moz-range-thumb {
       width: 24px;
@@ -129,7 +129,7 @@ export default function ROICalculatorPage() {
       background: white;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       cursor: pointer;
-      border: 3px solid #4FE0FF;
+      border: 3px solid #3DCFED;
     }
   `;
 
@@ -248,14 +248,14 @@ export default function ROICalculatorPage() {
                         style={{
                           backgroundColor: selected
                             ? dark
-                              ? "rgba(79,224,255,0.1)"
-                              : "rgba(10,61,124,0.06)"
+                              ? "rgba(61,207,237,0.1)"
+                              : "rgba(13,31,110,0.06)"
                             : surfaceBg,
                           border: `1.5px solid ${
                             selected
                               ? dark
-                                ? "#4FE0FF"
-                                : "#0A3D7C"
+                                ? "#3DCFED"
+                                : "#0D1F6E"
                               : cardBorder
                           }`,
                           color: selected ? headingColor : textColor,
@@ -325,8 +325,8 @@ export default function ROICalculatorPage() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="rounded-xl p-6"
                 style={{
-                  backgroundColor: dark ? "rgba(79,224,255,0.05)" : "rgba(10,61,124,0.03)",
-                  border: `1px solid ${dark ? "rgba(79,224,255,0.15)" : "rgba(10,61,124,0.1)"}`,
+                  backgroundColor: dark ? "rgba(61,207,237,0.05)" : "rgba(13,31,110,0.03)",
+                  border: `1px solid ${dark ? "rgba(61,207,237,0.15)" : "rgba(13,31,110,0.1)"}`,
                 }}
               >
                 <h3 className="text-lg font-bold mb-1" style={{ color: headingColor }}>
@@ -351,7 +351,7 @@ export default function ROICalculatorPage() {
                       style={{
                         backgroundColor: inputBg,
                         borderColor: inputBorder,
-                        color: dark ? "#F9FAFB" : "#111827",
+                        color: dark ? "#EAF4FF" : "#111827",
                       }}
                     />
                   </div>
@@ -369,7 +369,7 @@ export default function ROICalculatorPage() {
                       style={{
                         backgroundColor: inputBg,
                         borderColor: inputBorder,
-                        color: dark ? "#F9FAFB" : "#111827",
+                        color: dark ? "#EAF4FF" : "#111827",
                       }}
                     />
                   </div>
@@ -447,7 +447,7 @@ export default function ROICalculatorPage() {
               <motion.div
                 className="h-full rounded-full"
                 style={{
-                  background: "linear-gradient(to right, #4FE0FF, #1E8FE1)",
+                  background: "linear-gradient(to right, #3DCFED, #1A3CC8)",
                 }}
                 initial={false}
                 animate={{ width: step < 5 ? `${(step / 4) * 100}%` : "100%" }}
@@ -470,9 +470,9 @@ export default function ROICalculatorPage() {
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
                   style={{
-                    backgroundColor: dark ? "rgba(79,224,255,0.1)" : "rgba(10,61,124,0.06)",
+                    backgroundColor: dark ? "rgba(61,207,237,0.1)" : "rgba(13,31,110,0.06)",
                     color: headingColor,
-                    border: `1.5px solid ${dark ? "rgba(79,224,255,0.3)" : "rgba(10,61,124,0.15)"}`,
+                    border: `1.5px solid ${dark ? "rgba(61,207,237,0.3)" : "rgba(13,31,110,0.15)"}`,
                   }}
                 >
                   {step}
@@ -494,8 +494,8 @@ export default function ROICalculatorPage() {
                   transition={{ type: "spring", duration: 0.6 }}
                   className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4"
                   style={{
-                    backgroundColor: dark ? "rgba(79,224,255,0.1)" : "rgba(10,61,124,0.06)",
-                    border: `2px solid ${dark ? "#4FE0FF" : "#0A3D7C"}`,
+                    backgroundColor: dark ? "rgba(61,207,237,0.1)" : "rgba(13,31,110,0.06)",
+                    border: `2px solid ${dark ? "#3DCFED" : "#0D1F6E"}`,
                   }}
                 >
                   <span className="text-2xl">📊</span>

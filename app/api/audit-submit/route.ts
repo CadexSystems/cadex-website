@@ -40,30 +40,30 @@ export async function POST(req: Request) {
         ([key, val]) => `
         <tr>
           <td style="padding: 10px 16px; border-bottom: 1px solid #E5E7EB; color: #374151;">${CATEGORY_LABELS[key] ?? key}</td>
-          <td style="padding: 10px 16px; border-bottom: 1px solid #E5E7EB; font-weight: 600; color: #4FE0FF; text-align: right;">${val}/20</td>
+          <td style="padding: 10px 16px; border-bottom: 1px solid #E5E7EB; font-weight: 600; color: #3DCFED; text-align: right;">${val}/20</td>
         </tr>`
       )
       .join("");
 
     const bandColors: Record<string, string> = {
       "AI Starter": "#6B7280",
-      "AI Explorer": "#1E8FE1",
-      "AI Ready": "#4FE0FF",
+      "AI Explorer": "#1A3CC8",
+      "AI Ready": "#3DCFED",
       "AI-First": "#A855F7",
     };
-    const bandColor = bandColors[band] ?? "#4FE0FF";
+    const bandColor = bandColors[band] ?? "#3DCFED";
 
     const html = `
     <!DOCTYPE html>
     <html>
     <head><meta charset="utf-8" /></head>
-    <body style="margin:0; padding:0; background:#F9FAFB; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+    <body style="margin:0; padding:0; background:#EAF4FF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
       <div style="max-width: 600px; margin: 40px auto; background: #FFFFFF; border-radius: 16px; overflow: hidden; border: 1px solid #E5E7EB;">
 
         <!-- Header -->
-        <div style="background: linear-gradient(135deg, #0B0F1A, #0A3D7C); padding: 32px 40px;">
+        <div style="background: linear-gradient(135deg, #0B0F1A, #0D1F6E); padding: 32px 40px;">
           <p style="margin: 0 0 4px; color: #9CA3AF; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Cadex Systems</p>
-          <h1 style="margin: 0; color: #4FE0FF; font-size: 22px; font-weight: 700;">New AI Audit Submission</h1>
+          <h1 style="margin: 0; color: #3DCFED; font-size: 22px; font-weight: 700;">New AI Audit Submission</h1>
         </div>
 
         <!-- Lead info -->
@@ -80,7 +80,7 @@ export async function POST(req: Request) {
             <tr>
               <td style="padding: 8px 0; color: #6B7280; font-size: 13px;">Email</td>
               <td style="padding: 8px 0; font-size: 14px;">
-                <a href="mailto:${email}" style="color: #1E8FE1;">${email}</a>
+                <a href="mailto:${email}" style="color: #1A3CC8;">${email}</a>
               </td>
             </tr>
           </table>
@@ -88,7 +88,7 @@ export async function POST(req: Request) {
 
         <!-- Score -->
         <div style="padding: 32px 40px;">
-          <div style="background: #F9FAFB; border-radius: 12px; padding: 24px; text-align: center; border: 1px solid #E5E7EB;">
+          <div style="background: #EAF4FF; border-radius: 12px; padding: 24px; text-align: center; border: 1px solid #E5E7EB;">
             <p style="margin: 0 0 4px; color: #6B7280; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Overall Score</p>
             <p style="margin: 0; font-size: 64px; font-weight: 800; color: ${bandColor}; line-height: 1;">${score}</p>
             <p style="margin: 4px 0 0; color: #6B7280; font-size: 13px;">out of 100</p>
@@ -109,13 +109,13 @@ export async function POST(req: Request) {
         <!-- CTA -->
         <div style="padding: 0 40px 40px;">
           <a href="mailto:${email}?subject=Your AI Readiness Score — Next Steps&body=Hi ${name},%0D%0A%0D%0AThanks for completing the Cadex AI Readiness Scorecard. Your score of ${score}/100 puts you in the ${band} category.%0D%0A%0D%0AI'd love to walk you through what this means for ${company} and where the biggest opportunities are.%0D%0A%0D%0AWhen are you available for a quick 20-minute call?%0D%0A%0D%0ABest,%0D%0ABrian"
-            style="display: block; background: linear-gradient(135deg, #4FE0FF, #1E8FE1); color: #FFFFFF; text-align: center; padding: 14px 24px; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none;">
+            style="display: block; background: linear-gradient(135deg, #3DCFED, #1A3CC8); color: #FFFFFF; text-align: center; padding: 14px 24px; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none;">
             Reply to ${name} →
           </a>
         </div>
 
         <!-- Footer -->
-        <div style="background: #F9FAFB; padding: 16px 40px; border-top: 1px solid #E5E7EB;">
+        <div style="background: #EAF4FF; padding: 16px 40px; border-top: 1px solid #E5E7EB;">
           <p style="margin: 0; color: #9CA3AF; font-size: 12px; text-align: center;">Cadex Systems · info@cadexhq.com · cadexhq.com</p>
         </div>
       </div>

@@ -52,7 +52,7 @@ export default function LaunchingSoonPage() {
         className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[1000px] h-[700px] rounded-full opacity-15 blur-3xl pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse, #4FE0FF 0%, #1E8FE1 30%, transparent 70%)",
+            "radial-gradient(ellipse, #3DCFED 0%, #1A3CC8 30%, transparent 70%)",
         }}
       />
       <div
@@ -91,12 +91,12 @@ export default function LaunchingSoonPage() {
           <div
             className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-medium tracking-wide"
             style={{
-              backgroundColor: theme === "dark" ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.06)",
+              backgroundColor: theme === "dark" ? "rgba(61,207,237,0.08)" : "rgba(26,60,200,0.06)",
               color: theme === "dark" ? "#9CA3AF" : "#6B7280",
               border: `1px solid ${theme === "dark" ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`,
             }}
           >
-            <span className="mr-1.5" style={{ color: "#4FE0FF" }}>&#10038;</span>
+            <span className="mr-1.5" style={{ color: "#3DCFED" }}>&#10038;</span>
             Coming soon
           </div>
         </motion.div>
@@ -107,7 +107,7 @@ export default function LaunchingSoonPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-8 text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight"
-          style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+          style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
         >
           Something big
           <br />
@@ -137,14 +137,14 @@ export default function LaunchingSoonPage() {
             <div
               className="rounded-2xl p-6 mx-auto max-w-md"
               style={{
-                backgroundColor: theme === "dark" ? "#1A2235" : "#F9FAFB",
+                backgroundColor: theme === "dark" ? "#1A2235" : "#EAF4FF",
                 border: `1px solid ${theme === "dark" ? "#243049" : "#E5E7EB"}`,
               }}
             >
               <div className="text-3xl mb-2">&#10003;</div>
               <p
                 className="font-semibold"
-                style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+                style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
               >
                 You&apos;re on the list.
               </p>
@@ -170,7 +170,7 @@ export default function LaunchingSoonPage() {
                 style={{
                   backgroundColor: theme === "dark" ? "#1A2235" : "#FFFFFF",
                   borderColor: theme === "dark" ? "#243049" : "#E5E7EB",
-                  color: theme === "dark" ? "#F9FAFB" : "#111827",
+                  color: theme === "dark" ? "#EAF4FF" : "#111827",
                 }}
               />
               <button

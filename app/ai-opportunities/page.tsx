@@ -473,10 +473,10 @@ export default function AIOpportunitiesPage() {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [direction, setDirection] = useState(1);
 
-  const bg = isDark ? "#0B0F1A" : "#F9FAFB";
+  const bg = isDark ? "#0B0F1A" : "#EAF4FF";
   const cardBg = isDark ? "#0F1623" : "#FFFFFF";
   const border = isDark ? "#1E2D45" : "#E5E7EB";
-  const textPrimary = isDark ? "#F9FAFB" : "#111827";
+  const textPrimary = isDark ? "#EAF4FF" : "#111827";
   const textMuted = isDark ? "#9CA3AF" : "#6B7280";
 
   const goTo = (next: Step, dir = 1) => {
@@ -521,9 +521,9 @@ export default function AIOpportunitiesPage() {
             fontSize: "0.75rem",
             fontWeight: 500,
             marginBottom: "1.25rem",
-            backgroundColor: isDark ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.06)",
-            color: "#4FE0FF",
-            border: "1px solid rgba(79,224,255,0.2)",
+            backgroundColor: isDark ? "rgba(61,207,237,0.08)" : "rgba(26,60,200,0.06)",
+            color: "#3DCFED",
+            border: "1px solid rgba(61,207,237,0.2)",
           }}
         >
           2-Minute Assessment
@@ -591,11 +591,11 @@ export default function AIOpportunitiesPage() {
                       gap: "0.75rem",
                       padding: "1rem 1.125rem",
                       borderRadius: "0.875rem",
-                      border: `1.5px solid ${isSelected ? "#4FE0FF" : border}`,
+                      border: `1.5px solid ${isSelected ? "#3DCFED" : border}`,
                       backgroundColor: isSelected
                         ? isDark
-                          ? "rgba(79,224,255,0.08)"
-                          : "rgba(30,143,225,0.06)"
+                          ? "rgba(61,207,237,0.08)"
+                          : "rgba(26,60,200,0.06)"
                         : cardBg,
                       cursor: "pointer",
                       textAlign: "left",
@@ -609,7 +609,7 @@ export default function AIOpportunitiesPage() {
                       style={{
                         fontSize: "0.875rem",
                         fontWeight: isSelected ? 600 : 500,
-                        color: isSelected ? (isDark ? "#4FE0FF" : "#0A3D7C") : textPrimary,
+                        color: isSelected ? (isDark ? "#3DCFED" : "#0D1F6E") : textPrimary,
                         lineHeight: 1.3,
                       }}
                     >
@@ -688,11 +688,11 @@ export default function AIOpportunitiesPage() {
                       justifyContent: "space-between",
                       padding: "1rem 1.25rem",
                       borderRadius: "0.875rem",
-                      border: `1.5px solid ${isSelected ? "#4FE0FF" : border}`,
+                      border: `1.5px solid ${isSelected ? "#3DCFED" : border}`,
                       backgroundColor: isSelected
                         ? isDark
-                          ? "rgba(79,224,255,0.08)"
-                          : "rgba(30,143,225,0.06)"
+                          ? "rgba(61,207,237,0.08)"
+                          : "rgba(26,60,200,0.06)"
                         : cardBg,
                       cursor: "pointer",
                       textAlign: "left",
@@ -703,7 +703,7 @@ export default function AIOpportunitiesPage() {
                       style={{
                         fontSize: "0.9375rem",
                         fontWeight: 500,
-                        color: isSelected ? (isDark ? "#4FE0FF" : "#0A3D7C") : textPrimary,
+                        color: isSelected ? (isDark ? "#3DCFED" : "#0D1F6E") : textPrimary,
                       }}
                     >
                       {size.label}
@@ -712,11 +712,11 @@ export default function AIOpportunitiesPage() {
                       style={{
                         fontSize: "0.8125rem",
                         fontWeight: 500,
-                        color: isSelected ? (isDark ? "#4FE0FF" : "#1E8FE1") : textMuted,
+                        color: isSelected ? (isDark ? "#3DCFED" : "#1A3CC8") : textMuted,
                         backgroundColor: isSelected
                           ? isDark
-                            ? "rgba(79,224,255,0.12)"
-                            : "rgba(30,143,225,0.08)"
+                            ? "rgba(61,207,237,0.12)"
+                            : "rgba(26,60,200,0.08)"
                           : isDark
                           ? "#1E2D45"
                           : "#F3F4F6",
@@ -793,7 +793,7 @@ export default function AIOpportunitiesPage() {
                   {sizeInfo.label} · {sizeInfo.sublabel}
                 </span>
                 Estimated{" "}
-                <span style={{ color: "#4FE0FF", fontWeight: 600 }}>{totalHrs} hrs/week</span>{" "}
+                <span style={{ color: "#3DCFED", fontWeight: 600 }}>{totalHrs} hrs/week</span>{" "}
                 recoverable
               </p>
             </div>
@@ -823,7 +823,7 @@ export default function AIOpportunitiesPage() {
                       width: "2rem",
                       height: "2rem",
                       borderRadius: "9999px",
-                      background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+                      background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -886,11 +886,11 @@ export default function AIOpportunitiesPage() {
                           gap: "0.25rem",
                           fontSize: "0.75rem",
                           fontWeight: 600,
-                          color: "#4FE0FF",
+                          color: "#3DCFED",
                           backgroundColor: isDark
-                            ? "rgba(79,224,255,0.1)"
-                            : "rgba(30,143,225,0.07)",
-                          border: "1px solid rgba(79,224,255,0.25)",
+                            ? "rgba(61,207,237,0.1)"
+                            : "rgba(26,60,200,0.07)",
+                          border: "1px solid rgba(61,207,237,0.25)",
                           borderRadius: "9999px",
                           padding: "0.25rem 0.625rem",
                         }}
@@ -982,7 +982,7 @@ export default function AIOpportunitiesPage() {
                     justifyContent: "center",
                     padding: "0.9rem 1.5rem",
                     borderRadius: "0.875rem",
-                    background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+                    background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
                     color: "#000",
                     fontSize: "0.9375rem",
                     fontWeight: 700,
@@ -1011,7 +1011,7 @@ export default function AIOpportunitiesPage() {
                     transition: "border-color 0.15s",
                   }}
                   onMouseEnter={(e) =>
-                    ((e.currentTarget as HTMLAnchorElement).style.borderColor = "#4FE0FF")
+                    ((e.currentTarget as HTMLAnchorElement).style.borderColor = "#3DCFED")
                   }
                   onMouseLeave={(e) =>
                     ((e.currentTarget as HTMLAnchorElement).style.borderColor = border)

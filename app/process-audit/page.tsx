@@ -89,8 +89,8 @@ function hoursSavedMid(score: number): number {
 
 function potentialColor(score: number): string {
   if (score <= 30) return "#6B7280";
-  if (score <= 60) return "#1E8FE1";
-  if (score <= 80) return "#4FE0FF";
+  if (score <= 60) return "#1A3CC8";
+  if (score <= 80) return "#3DCFED";
   return "#A855F7";
 }
 
@@ -113,10 +113,10 @@ export default function ProcessAuditPage() {
 
   // ── Theme tokens ─────────────────────────────────────────────────────────
 
-  const bg = isDark ? "#0B0F1A" : "#F9FAFB";
+  const bg = isDark ? "#0B0F1A" : "#EAF4FF";
   const cardBg = isDark ? "#0F1623" : "#FFFFFF";
   const border = isDark ? "#1E2D45" : "#E5E7EB";
-  const textPrimary = isDark ? "#F9FAFB" : "#111827";
+  const textPrimary = isDark ? "#EAF4FF" : "#111827";
   const textMuted = isDark ? "#9CA3AF" : "#6B7280";
   const trackBg = isDark ? "#1E2D45" : "#E5E7EB";
 
@@ -232,7 +232,7 @@ export default function ProcessAuditPage() {
                 style={{
                   height: "100%",
                   borderRadius: "9999px",
-                  background: "linear-gradient(90deg, #4FE0FF, #1E8FE1)",
+                  background: "linear-gradient(90deg, #3DCFED, #1A3CC8)",
                 }}
                 animate={{ width: `${progressPercent()}%` }}
                 transition={{ duration: 0.4 }}
@@ -267,9 +267,9 @@ export default function ProcessAuditPage() {
                     fontSize: "0.75rem",
                     fontWeight: 500,
                     marginBottom: "1.5rem",
-                    backgroundColor: isDark ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.06)",
-                    color: "#4FE0FF",
-                    border: "1px solid rgba(79,224,255,0.2)",
+                    backgroundColor: isDark ? "rgba(61,207,237,0.08)" : "rgba(26,60,200,0.06)",
+                    color: "#3DCFED",
+                    border: "1px solid rgba(61,207,237,0.2)",
                   }}
                 >
                   Free Tool · Takes about 5 minutes
@@ -317,14 +317,14 @@ export default function ProcessAuditPage() {
               {/* What you'll get */}
               <div
                 style={{
-                  backgroundColor: isDark ? "rgba(79,224,255,0.05)" : "rgba(30,143,225,0.04)",
-                  border: `1px solid rgba(79,224,255,0.15)`,
+                  backgroundColor: isDark ? "rgba(61,207,237,0.05)" : "rgba(26,60,200,0.04)",
+                  border: `1px solid rgba(61,207,237,0.15)`,
                   borderRadius: "1rem",
                   padding: "1.25rem 1.5rem",
                   marginBottom: "2rem",
                 }}
               >
-                <p style={{ fontSize: "0.8125rem", fontWeight: 600, color: "#4FE0FF", marginBottom: "0.625rem" }}>
+                <p style={{ fontSize: "0.8125rem", fontWeight: 600, color: "#3DCFED", marginBottom: "0.625rem" }}>
                   What you&apos;ll get:
                 </p>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.375rem" }}>
@@ -335,7 +335,7 @@ export default function ProcessAuditPage() {
                     "A recommended next step",
                   ].map((item) => (
                     <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", fontSize: "0.8125rem", color: textMuted }}>
-                      <span style={{ color: "#4FE0FF", flexShrink: 0, marginTop: "1px" }}>✓</span>
+                      <span style={{ color: "#3DCFED", flexShrink: 0, marginTop: "1px" }}>✓</span>
                       {item}
                     </li>
                   ))}
@@ -351,7 +351,7 @@ export default function ProcessAuditPage() {
                   fontSize: "1rem",
                   fontWeight: 600,
                   color: "#fff",
-                  background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+                  background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
                   border: "none",
                   cursor: "pointer",
                   letterSpacing: "0.01em",
@@ -432,10 +432,10 @@ export default function ProcessAuditPage() {
                                 cursor: "pointer",
                                 transition: "all 0.15s",
                                 backgroundColor: isSelected
-                                  ? isDark ? "rgba(79,224,255,0.1)" : "rgba(30,143,225,0.07)"
-                                  : isDark ? "rgba(30,45,69,0.4)" : "#F9FAFB",
-                                border: `1.5px solid ${isSelected ? "#4FE0FF" : border}`,
-                                color: isSelected ? (isDark ? "#4FE0FF" : "#0A3D7C") : textPrimary,
+                                  ? isDark ? "rgba(61,207,237,0.1)" : "rgba(26,60,200,0.07)"
+                                  : isDark ? "rgba(30,45,69,0.4)" : "#EAF4FF",
+                                border: `1.5px solid ${isSelected ? "#3DCFED" : border}`,
+                                color: isSelected ? (isDark ? "#3DCFED" : "#0D1F6E") : textPrimary,
                                 fontWeight: isSelected ? 500 : 400,
                               }}
                             >
@@ -450,7 +450,7 @@ export default function ProcessAuditPage() {
                                   fontSize: "0.6875rem",
                                   fontWeight: 600,
                                   flexShrink: 0,
-                                  backgroundColor: isSelected ? "#4FE0FF" : trackBg,
+                                  backgroundColor: isSelected ? "#3DCFED" : trackBg,
                                   color: isSelected ? "#000" : textMuted,
                                 }}
                               >
@@ -510,7 +510,7 @@ export default function ProcessAuditPage() {
                     fontSize: "0.875rem",
                     fontWeight: 600,
                     color: "#fff",
-                    background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+                    background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
                     border: "none",
                     cursor: canAdvance() ? "pointer" : "not-allowed",
                     opacity: canAdvance() ? 1 : 0.4,
@@ -549,9 +549,9 @@ export default function ProcessAuditPage() {
                     fontSize: "0.75rem",
                     fontWeight: 500,
                     marginBottom: "1rem",
-                    backgroundColor: isDark ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.06)",
-                    color: "#4FE0FF",
-                    border: "1px solid rgba(79,224,255,0.2)",
+                    backgroundColor: isDark ? "rgba(61,207,237,0.08)" : "rgba(26,60,200,0.06)",
+                    color: "#3DCFED",
+                    border: "1px solid rgba(61,207,237,0.2)",
                   }}
                 >
                   Your Automation Opportunities
@@ -579,7 +579,7 @@ export default function ProcessAuditPage() {
                 transition={{ delay: 0.15, duration: 0.4 }}
                 style={{
                   backgroundColor: cardBg,
-                  border: "1.5px solid rgba(79,224,255,0.3)",
+                  border: "1.5px solid rgba(61,207,237,0.3)",
                   borderRadius: "1.25rem",
                   padding: "1.5rem",
                   marginBottom: "2rem",
@@ -594,7 +594,7 @@ export default function ProcessAuditPage() {
                     fontSize: "3.5rem",
                     fontWeight: 800,
                     lineHeight: 1,
-                    background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+                    background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -843,7 +843,7 @@ export default function ProcessAuditPage() {
                       fontSize: "0.9375rem",
                       fontWeight: 600,
                       color: "#fff",
-                      background: "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+                      background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
                       textDecoration: "none",
                     }}
                   >
@@ -874,7 +874,7 @@ export default function ProcessAuditPage() {
 
                 <p style={{ textAlign: "center", fontSize: "0.75rem", color: textMuted, marginTop: "1.5rem" }}>
                   Questions? Reach us at{" "}
-                  <a href="mailto:info@cadexhq.com" style={{ color: "#4FE0FF", textDecoration: "none" }}>
+                  <a href="mailto:info@cadexhq.com" style={{ color: "#3DCFED", textDecoration: "none" }}>
                     info@cadexhq.com
                   </a>
                 </p>

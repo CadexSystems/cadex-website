@@ -17,7 +17,7 @@ export default function AboutPage() {
           <div className="max-w-3xl">
             <h1
               className="text-4xl sm:text-5xl font-bold"
-              style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+              style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
             >
               About Cadex Systems
             </h1>
@@ -38,7 +38,7 @@ export default function AboutPage() {
       <section
         className="py-20 transition-colors duration-300"
         style={{
-          backgroundColor: theme === "dark" ? "#111827" : "#F9FAFB",
+          backgroundColor: theme === "dark" ? "#111827" : "#EAF4FF",
         }}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -46,7 +46,7 @@ export default function AboutPage() {
             <div>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+                style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
               >
                 Our Approach
               </h2>
@@ -75,7 +75,7 @@ export default function AboutPage() {
             <div>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+                style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
               >
                 What Sets Us Apart
               </h2>
@@ -102,7 +102,7 @@ export default function AboutPage() {
                     <h3
                       className="text-sm font-semibold"
                       style={{
-                        color: theme === "dark" ? "#4FE0FF" : "#0A3D7C",
+                        color: theme === "dark" ? "#3DCFED" : "#0D1F6E",
                       }}
                     >
                       <span className="text-cyan-400 mr-2">&#10003;</span>

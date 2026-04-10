@@ -68,7 +68,7 @@ export default function ROIFramework() {
     <section
       className="py-28 sm:py-36 transition-colors duration-300"
       style={{
-        backgroundColor: theme === "dark" ? "#0B0F1A" : "#F9FAFB",
+        backgroundColor: theme === "dark" ? "#0B0F1A" : "#EAF4FF",
       }}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -79,7 +79,7 @@ export default function ROIFramework() {
         <AnimateIn delay={0.1}>
           <h2
             className="mt-6 text-4xl sm:text-5xl font-bold leading-tight tracking-tight"
-            style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+            style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
           >
             Instant impact on the metrics
             <br />
@@ -100,7 +100,7 @@ export default function ROIFramework() {
                 <div className="text-3xl mb-4">{section.icon}</div>
                 <h3
                   className="text-lg font-bold mb-5"
-                  style={{ color: theme === "dark" ? "#4FE0FF" : "#0A3D7C" }}
+                  style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
                 >
                   {section.title}
                 </h3>

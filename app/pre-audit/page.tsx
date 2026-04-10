@@ -228,7 +228,7 @@ function getReadinessLabel(score: number): string {
 
 function getReadinessColor(score: number): string {
   if (score <= 40) return "#F59E0B";
-  if (score <= 70) return "#4FE0FF";
+  if (score <= 70) return "#3DCFED";
   return "#22C55E";
 }
 
@@ -288,12 +288,12 @@ export default function PreAuditPage() {
   const { theme } = useTheme();
   const dark = theme === "dark";
 
-  const bg = dark ? "#0B0F1A" : "#F9FAFB";
+  const bg = dark ? "#0B0F1A" : "#EAF4FF";
   const cardBg = dark ? "#0F1623" : "#FFFFFF";
   const border = dark ? "#1E2D45" : "#E5E7EB";
-  const text = dark ? "#F9FAFB" : "#111827";
+  const text = dark ? "#EAF4FF" : "#111827";
   const muted = dark ? "#9CA3AF" : "#6B7280";
-  const inputBg = dark ? "#0B0F1A" : "#F9FAFB";
+  const inputBg = dark ? "#0B0F1A" : "#EAF4FF";
 
   const [step, setStep] = useState<Step>("intro");
   const [direction, setDirection] = useState(1);
@@ -468,15 +468,15 @@ export default function PreAuditPage() {
 
   const radioCardActive: React.CSSProperties = {
     ...radioCardBase,
-    border: "1.5px solid #4FE0FF",
-    background: dark ? "rgba(79,224,255,0.08)" : "rgba(30,143,225,0.07)",
-    color: "#4FE0FF",
+    border: "1.5px solid #3DCFED",
+    background: dark ? "rgba(61,207,237,0.08)" : "rgba(26,60,200,0.07)",
+    color: "#3DCFED",
   };
 
   const gradientBtn: React.CSSProperties = {
     display: "inline-block",
     padding: "13px 28px",
-    background: "linear-gradient(90deg, #4FE0FF, #1E8FE1)",
+    background: "linear-gradient(90deg, #3DCFED, #1A3CC8)",
     borderRadius: 10,
     color: "#fff",
     fontWeight: 700,
@@ -491,10 +491,10 @@ export default function PreAuditPage() {
     padding: "12px 26px",
     background: "transparent",
     borderRadius: 10,
-    color: "#4FE0FF",
+    color: "#3DCFED",
     fontWeight: 600,
     fontSize: 15,
-    border: "1.5px solid #4FE0FF",
+    border: "1.5px solid #3DCFED",
     cursor: "pointer",
     letterSpacing: "0.02em",
   };
@@ -520,7 +520,7 @@ export default function PreAuditPage() {
               borderRadius: 99,
               background:
                 n <= current
-                  ? "linear-gradient(90deg, #4FE0FF, #1E8FE1)"
+                  ? "linear-gradient(90deg, #3DCFED, #1A3CC8)"
                   : border,
               transition: "background 0.3s ease",
             }}
@@ -539,8 +539,8 @@ export default function PreAuditPage() {
           display: "inline-block",
           padding: "4px 12px",
           borderRadius: 99,
-          border: "1px solid #4FE0FF",
-          color: "#4FE0FF",
+          border: "1px solid #3DCFED",
+          color: "#3DCFED",
           fontSize: 12,
           fontWeight: 600,
           letterSpacing: "0.06em",
@@ -587,8 +587,8 @@ export default function PreAuditPage() {
                   gap: 8,
                   padding: "6px 16px",
                   borderRadius: 99,
-                  border: "1px solid #4FE0FF",
-                  color: "#4FE0FF",
+                  border: "1px solid #3DCFED",
+                  color: "#3DCFED",
                   fontSize: 12,
                   fontWeight: 700,
                   letterSpacing: "0.1em",
@@ -611,7 +611,7 @@ export default function PreAuditPage() {
                 <span
                   style={{
                     background:
-                      "linear-gradient(90deg, #4FE0FF, #1E8FE1)",
+                      "linear-gradient(90deg, #3DCFED, #1A3CC8)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}
@@ -659,7 +659,7 @@ export default function PreAuditPage() {
                           width: 8,
                           height: 8,
                           borderRadius: "50%",
-                          background: "linear-gradient(#4FE0FF, #1E8FE1)",
+                          background: "linear-gradient(#3DCFED, #1A3CC8)",
                           marginTop: 6,
                           flexShrink: 0,
                         }}
@@ -1077,13 +1077,13 @@ export default function PreAuditPage() {
                         manualHours: Number(e.target.value),
                       }))
                     }
-                    style={{ flex: 1, accentColor: "#4FE0FF" }}
+                    style={{ flex: 1, accentColor: "#3DCFED" }}
                   />
                   <span
                     style={{
                       fontSize: 22,
                       fontWeight: 800,
-                      color: "#4FE0FF",
+                      color: "#3DCFED",
                       minWidth: 48,
                       textAlign: "right",
                     }}
@@ -1095,13 +1095,13 @@ export default function PreAuditPage() {
                   style={{
                     padding: "10px 16px",
                     background: dark
-                      ? "rgba(79,224,255,0.06)"
-                      : "rgba(30,143,225,0.06)",
+                      ? "rgba(61,207,237,0.06)"
+                      : "rgba(26,60,200,0.06)",
                     borderRadius: 8,
-                    border: "1px solid rgba(79,224,255,0.2)",
+                    border: "1px solid rgba(61,207,237,0.2)",
                     fontSize: 14,
                     fontWeight: 600,
-                    color: "#4FE0FF",
+                    color: "#3DCFED",
                   }}
                 >
                   ~{formatCurrency(page2.manualHours * 35 * 52)}/year in
@@ -1276,7 +1276,7 @@ export default function PreAuditPage() {
                   style={{
                     marginLeft: 20,
                     paddingLeft: 16,
-                    borderLeft: "2px solid #4FE0FF",
+                    borderLeft: "2px solid #3DCFED",
                   }}
                 >
                   <ReadinessQuestion
@@ -1413,7 +1413,7 @@ export default function PreAuditPage() {
                     fontWeight: 700,
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
-                    color: "#4FE0FF",
+                    color: "#3DCFED",
                   }}
                 >
                   Cadex Systems
@@ -1530,9 +1530,9 @@ export default function PreAuditPage() {
                     key={card.label}
                     style={{
                       background: dark
-                        ? "rgba(79,224,255,0.04)"
-                        : "rgba(30,143,225,0.04)",
-                      border: "1px solid rgba(79,224,255,0.2)",
+                        ? "rgba(61,207,237,0.04)"
+                        : "rgba(26,60,200,0.04)",
+                      border: "1px solid rgba(61,207,237,0.2)",
                       borderRadius: 10,
                       padding: "20px 18px",
                       textAlign: "center",
@@ -1542,7 +1542,7 @@ export default function PreAuditPage() {
                       style={{
                         fontSize: 28,
                         fontWeight: 900,
-                        color: "#4FE0FF",
+                        color: "#3DCFED",
                         marginBottom: 4,
                         letterSpacing: "-0.02em",
                       }}
@@ -1600,7 +1600,7 @@ export default function PreAuditPage() {
                           height: 32,
                           borderRadius: "50%",
                           background:
-                            "linear-gradient(135deg, #4FE0FF, #1E8FE1)",
+                            "linear-gradient(135deg, #3DCFED, #1A3CC8)",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -1640,12 +1640,12 @@ export default function PreAuditPage() {
                             padding: "3px 10px",
                             borderRadius: 99,
                             background: dark
-                              ? "rgba(79,224,255,0.08)"
-                              : "rgba(30,143,225,0.07)",
-                            border: "1px solid rgba(79,224,255,0.25)",
+                              ? "rgba(61,207,237,0.08)"
+                              : "rgba(26,60,200,0.07)",
+                            border: "1px solid rgba(61,207,237,0.25)",
                             fontSize: 12,
                             fontWeight: 600,
-                            color: "#4FE0FF",
+                            color: "#3DCFED",
                           }}
                         >
                           Est. {opp.hours}
@@ -1755,8 +1755,8 @@ export default function PreAuditPage() {
               <div
                 style={{
                   padding: "24px 24px",
-                  background: "linear-gradient(135deg, rgba(79,224,255,0.06), rgba(30,143,225,0.06))",
-                  border: "1.5px solid rgba(79,224,255,0.3)",
+                  background: "linear-gradient(135deg, rgba(61,207,237,0.06), rgba(26,60,200,0.06))",
+                  border: "1.5px solid rgba(61,207,237,0.3)",
                   borderRadius: 12,
                 }}
               >
@@ -1777,7 +1777,7 @@ export default function PreAuditPage() {
                         fontWeight: 800,
                         letterSpacing: "0.15em",
                         textTransform: "uppercase",
-                        color: "#4FE0FF",
+                        color: "#3DCFED",
                         marginBottom: 4,
                       }}
                     >
@@ -1803,9 +1803,9 @@ export default function PreAuditPage() {
                   style={{
                     fontSize: 14,
                     fontWeight: 600,
-                    color: "#4FE0FF",
+                    color: "#3DCFED",
                     textDecoration: "none",
-                    borderBottom: "1px solid rgba(79,224,255,0.3)",
+                    borderBottom: "1px solid rgba(61,207,237,0.3)",
                     paddingBottom: 1,
                   }}
                 >
@@ -1842,13 +1842,13 @@ export default function PreAuditPage() {
                         width: 28,
                         height: 28,
                         borderRadius: "50%",
-                        border: "2px solid #4FE0FF",
+                        border: "2px solid #3DCFED",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         fontSize: 13,
                         fontWeight: 800,
-                        color: "#4FE0FF",
+                        color: "#3DCFED",
                         flexShrink: 0,
                         marginTop: 1,
                       }}
@@ -1994,13 +1994,13 @@ function ReadinessQuestion({
               style={{
                 padding: "7px 18px",
                 borderRadius: 8,
-                border: `1.5px solid ${active ? "#4FE0FF" : border}`,
+                border: `1.5px solid ${active ? "#3DCFED" : border}`,
                 background: active
                   ? dark
-                    ? "rgba(79,224,255,0.1)"
-                    : "rgba(30,143,225,0.07)"
+                    ? "rgba(61,207,237,0.1)"
+                    : "rgba(26,60,200,0.07)"
                   : "transparent",
-                color: active ? "#4FE0FF" : text,
+                color: active ? "#3DCFED" : text,
                 fontSize: 13,
                 fontWeight: 600,
                 cursor: "pointer",
@@ -2052,7 +2052,7 @@ function ReportSection({
           style={{
             fontSize: 11,
             fontWeight: 800,
-            color: "#4FE0FF",
+            color: "#3DCFED",
             letterSpacing: "0.1em",
             textTransform: "uppercase",
           }}

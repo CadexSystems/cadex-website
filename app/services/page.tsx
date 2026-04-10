@@ -13,8 +13,8 @@ export default function ServicesPage() {
   const border = dark ? "#243049" : "#E8E4DC";
   const text = dark ? "#F1F5F9" : "#141210";
   const muted = dark ? "#9CA3AF" : "#7A7468";
-  const accent = dark ? "#4FE0FF" : "#0A3D7C";
-  const accentBg = dark ? "rgba(79,224,255,0.08)" : "#EDF7F2";
+  const accent = dark ? "#3DCFED" : "#0D1F6E";
+  const accentBg = dark ? "rgba(61,207,237,0.08)" : "#EDF7F2";
 
   return (
     <div style={{ backgroundColor: bg, color: text, minHeight: "100vh" }}>
@@ -59,7 +59,7 @@ export default function ServicesPage() {
             color: text,
             fontWeight: 500,
             background: accentBg,
-            border: `1px solid ${dark ? "rgba(79,224,255,0.2)" : "rgba(26,92,58,0.2)"}`,
+            border: `1px solid ${dark ? "rgba(61,207,237,0.2)" : "rgba(26,92,58,0.2)"}`,
             borderRadius: 6,
             padding: "8px 16px",
             marginBottom: 40,
@@ -76,7 +76,7 @@ export default function ServicesPage() {
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 font-bold rounded-lg transition-all hover:opacity-85 hover:-translate-y-px"
-            style={{ background: dark ? "#4FE0FF" : "#141210", color: dark ? "#0B0F1A" : "#FFFFFF", padding: "14px 28px", fontSize: 14, letterSpacing: "0.04em", textDecoration: "none" }}
+            style={{ background: dark ? "#3DCFED" : "#141210", color: dark ? "#0B0F1A" : "#FFFFFF", padding: "14px 28px", fontSize: 14, letterSpacing: "0.04em", textDecoration: "none" }}
           >
             Book a Discovery Call →
           </Link>
@@ -110,7 +110,7 @@ export default function ServicesPage() {
           {[
             {
               num: "01",
-              color: dark ? "#4FE0FF" : "#1A5C3A",
+              color: dark ? "#3DCFED" : "#1A5C3A",
               title: "Your team is doing manually what should happen automatically.",
               desc: "Hours lost every week to tasks that follow the same pattern every time. Reporting, data entry, follow-ups, routing, notifications — work that people are too good for.",
               items: [
@@ -254,7 +254,7 @@ export default function ServicesPage() {
               className="rounded-2xl"
               style={{
                 background: dept.featured ? accentBg : surface,
-                border: `1px solid ${dept.featured ? (dark ? "rgba(79,224,255,0.25)" : "rgba(26,92,58,0.2)") : border}`,
+                border: `1px solid ${dept.featured ? (dark ? "rgba(61,207,237,0.25)" : "rgba(26,92,58,0.2)") : border}`,
                 padding: "32px 28px",
               }}
             >
@@ -323,7 +323,7 @@ export default function ServicesPage() {
               className="rounded-2xl"
               style={{
                 background: card.featured ? accentBg : surface,
-                border: `1px solid ${card.featured ? (dark ? "rgba(79,224,255,0.25)" : "rgba(26,92,58,0.2)") : border}`,
+                border: `1px solid ${card.featured ? (dark ? "rgba(61,207,237,0.25)" : "rgba(26,92,58,0.2)") : border}`,
                 padding: "32px 28px",
               }}
             >

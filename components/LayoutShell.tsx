@@ -32,8 +32,8 @@ export default function LayoutShell({ children }: { children: React.ReactNode })
           className="fixed bottom-6 right-24 z-50 flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:opacity-90 hover:scale-105 transition-all"
           style={{
             boxShadow: theme === "dark"
-              ? "0 4px 24px rgba(79,224,255,0.25)"
-              : "0 4px 24px rgba(30,143,225,0.3)",
+              ? "0 4px 24px rgba(61,207,237,0.25)"
+              : "0 4px 24px rgba(26,60,200,0.3)",
           }}
         >
           <span>📊</span>
