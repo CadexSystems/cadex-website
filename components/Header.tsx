@@ -77,7 +77,8 @@ export default function Header() {
             {/* CTA */}
             <Link
               href="/contact"
-              className="rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+              className="rounded-full px-5 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+              style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
             >
               Book a Call
             </Link>
@@ -136,7 +137,8 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 px-4 py-2 text-sm font-semibold text-white text-center hover:opacity-90 transition-opacity"
+                className="rounded-full px-5 py-2 text-sm font-semibold text-white text-center hover:opacity-90 transition-opacity"
+                style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
               >
                 Book a Call
               </Link>

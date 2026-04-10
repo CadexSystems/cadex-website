@@ -29,7 +29,8 @@ export default function LayoutShell({ children }: { children: React.ReactNode })
       {!isROIPage && (
         <Link
           href="/roi"
-          className="fixed bottom-6 right-24 z-50 flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:opacity-90 hover:scale-105 transition-all"
+          className="fixed bottom-6 right-24 z-50 flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white shadow-lg hover:opacity-90 hover:scale-105 transition-all"
+          style={{ background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)" }}
           style={{
             boxShadow: theme === "dark"
               ? "0 4px 24px rgba(61,207,237,0.25)"

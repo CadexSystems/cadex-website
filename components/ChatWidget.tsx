@@ -156,7 +156,7 @@ export default function ChatWidget() {
             <div
               className="flex items-center justify-between px-4 py-3.5"
               style={{
-                background: "linear-gradient(135deg, #3DCFED22, #1A3CC822)",
+                background: "linear-gradient(135deg, #1A3CC822, #3DCFED22)",
                 borderBottom: `1px solid ${border}`,
               }}
             >
@@ -164,7 +164,7 @@ export default function ChatWidget() {
                 <div
                   className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
                   style={{
-                    background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
+                    background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)",
                   }}
                 >
                   C
@@ -210,7 +210,7 @@ export default function ChatWidget() {
                     <div
                       className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mr-2 mt-0.5"
                       style={{
-                        background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
+                        background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)",
                       }}
                     >
                       C
@@ -334,7 +334,7 @@ export default function ChatWidget() {
                   disabled={loading || !input.trim()}
                   className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-opacity disabled:opacity-40"
                   style={{
-                    background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
+                    background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)",
                   }}
                   aria-label="Send message"
                 >
@@ -357,7 +357,7 @@ export default function ChatWidget() {
         onClick={() => setOpen((v) => !v)}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105"
         style={{
-          background: "linear-gradient(135deg, #3DCFED, #1A3CC8)",
+          background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)",
         }}
         whileTap={{ scale: 0.95 }}
         aria-label="Open chat"
