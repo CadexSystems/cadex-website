@@ -288,12 +288,12 @@ export default function PreAuditPage() {
   const { theme } = useTheme();
   const dark = theme === "dark";
 
-  const bg = dark ? "#0B0F1A" : "#EAF4FF";
+  const bg = dark ? "#0B0F1A" : "#FFFFFF";
   const cardBg = dark ? "#0F1623" : "#FFFFFF";
   const border = dark ? "#1E2D45" : "#E5E7EB";
   const text = dark ? "#EAF4FF" : "#111827";
   const muted = dark ? "#9CA3AF" : "#6B7280";
-  const inputBg = dark ? "#0B0F1A" : "#EAF4FF";
+  const inputBg = dark ? "#0B0F1A" : "#FFFFFF";
 
   const [step, setStep] = useState<Step>("intro");
   const [direction, setDirection] = useState(1);
@@ -476,8 +476,8 @@ export default function PreAuditPage() {
   const gradientBtn: React.CSSProperties = {
     display: "inline-block",
     padding: "13px 28px",
-    background: "linear-gradient(90deg, #3DCFED, #1A3CC8)",
-    borderRadius: 10,
+    background: "linear-gradient(135deg, #1A3CC8, #1E6FE8, #3DCFED)",
+    borderRadius: 9999,
     color: "#fff",
     fontWeight: 700,
     fontSize: 15,
@@ -490,7 +490,7 @@ export default function PreAuditPage() {
     display: "inline-block",
     padding: "12px 26px",
     background: "transparent",
-    borderRadius: 10,
+    borderRadius: 9999,
     color: "#3DCFED",
     fontWeight: 600,
     fontSize: 15,
