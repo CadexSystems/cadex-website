@@ -207,7 +207,7 @@ export const ROI_FRAMEWORK = {
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Offerings", href: "/services" },
-  { label: "AI Audit", href: "/ai-audit" },
+  { label: "AI Audit", href: "/pre-audit" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
