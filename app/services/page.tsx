@@ -188,7 +188,7 @@ export default function ServicesPage() {
               style={{ backgroundColor: "rgba(61,207,237,0.12)", color: "#9CA3AF", border: "1px solid rgba(255,255,255,0.08)" }}
             >
               <span className="mr-1.5" style={{ color: "#3DCFED" }}>&#10038;</span>
-              Industries We&apos;ve Worked In
+              Designed to Industry
             </div>
           </AnimateIn>
 
@@ -209,13 +209,13 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {[
-              { icon: "📦", name: "E-Commerce & Agencies",   desc: "Brand management, seller operations, agency workflows" },
-              { icon: "⚖️", name: "Legal",                   desc: "Personal injury, intake automation, case management" },
-              { icon: "🏥", name: "Healthcare",              desc: "Dental, medical practices, patient workflows" },
-              { icon: "🎓", name: "Education",               desc: "Universities, EdTech, program engagement" },
+              { icon: "⚖️", name: "Legal",                   desc: "Intake automation, case and expert management" },
+              { icon: "🏥", name: "Healthcare",              desc: "Dental, medical practices, patient workflows, insurance reconciliation" },
+              { icon: "🎓", name: "Education",               desc: "Universities, EdTech, program engagement, student and faculty communications" },
+              { icon: "🏗️", name: "Trades & Services",      desc: "HVAC, plumbers, electricians, restoration, roofing, other specialty contractors" },
+              { icon: "🏢", name: "Professional Services",   desc: "Agencies, consultancies, staffing firms, personal trainers, coaching" },
               { icon: "💼", name: "Financial Services",      desc: "M&A, wealth management, compliance workflows" },
-              { icon: "🏗️", name: "Trades & Services",      desc: "HVAC, restoration, specialty contractors" },
-              { icon: "🏢", name: "Professional Services",   desc: "Agencies, consultancies, staffing firms" },
+              { icon: "📦", name: "E-Commerce & Agencies",   desc: "Brand management, seller operations, agency workflows" },
               { icon: "🔀", name: "Don't See Yours?",        desc: "If you have a process problem, we have a solution" },
             ].map((ind, i) => (
               <AnimateIn key={ind.name} delay={i * 0.05}>
@@ -240,7 +240,7 @@ export default function ServicesPage() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimateIn>
-            <SectionBadge text="By Department" />
+            <SectionBadge text="Designed by Department" />
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <h2
@@ -252,7 +252,7 @@ export default function ServicesPage() {
           </AnimateIn>
           <AnimateIn delay={0.15}>
             <p className="mt-4 text-lg max-w-xl leading-relaxed" style={{ color: muted }}>
-              Some clients come to us knowing which department is costing them the most. We start there and build outward from that first win.
+              Some engagements start from the inside out. One department, one constraint, one solved problem. That win becomes the foundation everything else is built on.
             </p>
           </AnimateIn>
 
@@ -317,44 +317,44 @@ export default function ServicesPage() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimateIn>
-            <SectionBadge text="Right-Sized for Where You Are" />
+            <SectionBadge text="Designed to Scale" />
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <h2
               className="mt-6 text-4xl sm:text-5xl font-bold leading-tight tracking-tight max-w-xl"
               style={{ color: heading }}
             >
-              Built for your scale. Designed to grow with you.
+              Built for where you are. Engineered for where you&apos;re going.
             </h2>
           </AnimateIn>
           <AnimateIn delay={0.15}>
             <p className="mt-4 text-lg max-w-xl leading-relaxed" style={{ color: muted }}>
-              Whether you&apos;re an owner-operator or running a 500-person organization, we scope every engagement to where you are today and build toward where you&apos;re going.
+              Whether you&apos;re an owner-operator or running a 50,000-person organization, we meet you where you are and build for what&apos;s next.
             </p>
           </AnimateIn>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                label: "Small Business",
-                name: "Owner-Operated",
+                label: "",
+                name: "Small Business",
                 size: "From solo operators to growing teams",
                 items: ["Fix the highest-friction process first", "Fast deployment, weeks not months", "No enterprise overhead or complexity", "Direct access to your Cadex team", "Grows with you as you scale"],
                 note: "Scoped to your specific needs. We'll find the right starting point together.",
                 featured: false,
               },
               {
-                label: "Mid-Market",
-                name: "Growing Company",
-                size: "$10M–$200M revenue",
+                label: "",
+                name: "Mid-Market",
+                size: "Organizations scaling beyond founder-led operations",
                 items: ["Multi-department automation rollout", "Custom AI integrations across your stack", "Team training and adoption support", "Monthly iteration and optimization", "Dedicated delivery team"],
                 note: "Scoped after discovery. We map the full opportunity before committing to scope.",
                 featured: true,
               },
               {
-                label: "Enterprise",
-                name: "Multi-Entity / Enterprise",
-                size: "$200M+ revenue · Multi-department or multi-location",
+                label: "",
+                name: "Enterprise",
+                size: "Complex organizational structures with multiple business units",
                 items: ["Enterprise-wide AI transformation", "Multi-entity and multi-department rollout", "Executive coaching and governance framework", "M&A integration and AI due diligence", "Board-level reporting and oversight"],
                 note: "Custom scoped. Every enterprise engagement is designed from scratch.",
                 featured: false,
