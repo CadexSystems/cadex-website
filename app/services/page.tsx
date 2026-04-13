@@ -105,7 +105,7 @@ export default function ServicesPage() {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                num: "01",
+                num: "Wasted Time",
                 color: accent,
                 title: "Your team is doing manually what should happen automatically.",
                 desc: "Hours lost every week to tasks that follow the same pattern every time. Reporting, data entry, follow-ups, routing, notifications — work that people are too good for.",
@@ -117,7 +117,7 @@ export default function ServicesPage() {
                 ],
               },
               {
-                num: "02",
+                num: "Lost Revenue",
                 color: dark ? "#FB923C" : "#C8420A",
                 title: "You're losing leads, clients, or revenue to slow processes.",
                 desc: "Speed wins deals. Consistency retains clients. When your follow-up is slow, your onboarding is inconsistent, or your proposals take too long, you're leaving money on the table.",
@@ -129,7 +129,7 @@ export default function ServicesPage() {
                 ],
               },
               {
-                num: "03",
+                num: "Missing Intelligence Layer",
                 color: dark ? "#818CF8" : "#1A3F6F",
                 title: "You need AI working across your organization, not just one tool.",
                 desc: "The goal isn't to add an AI tool. It's to build an organization where AI handles the operational layer so your people can operate at a completely different level.",
