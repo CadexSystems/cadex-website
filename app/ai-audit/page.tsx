@@ -792,8 +792,8 @@ export default function AIAuditPage() {
 
               <p className="text-center text-xs mt-6" style={{ color: textMuted }}>
                 Questions? Email us at{" "}
-                <a href="mailto:info@cadexhq.com" style={{ color: "#3DCFED" }}>
-                  info@cadexhq.com
+                <a href="mailto:discovery@cadexhq.com" style={{ color: "#3DCFED" }}>
+                  discovery@cadexhq.com
                 </a>
               </p>
             </motion.div>

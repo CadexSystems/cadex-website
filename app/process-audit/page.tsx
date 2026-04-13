@@ -874,8 +874,8 @@ export default function ProcessAuditPage() {
 
                 <p style={{ textAlign: "center", fontSize: "0.75rem", color: textMuted, marginTop: "1.5rem" }}>
                   Questions? Reach us at{" "}
-                  <a href="mailto:info@cadexhq.com" style={{ color: "#3DCFED", textDecoration: "none" }}>
-                    info@cadexhq.com
+                  <a href="mailto:discovery@cadexhq.com" style={{ color: "#3DCFED", textDecoration: "none" }}>
+                    discovery@cadexhq.com
                   </a>
                 </p>
               </motion.div>

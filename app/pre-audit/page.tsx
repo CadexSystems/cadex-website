@@ -1960,7 +1960,7 @@ export default function PreAuditPage() {
               >
                 This report was generated based on your self-reported inputs.
                 Actual results may vary. Cadex Systems &middot;{" "}
-                info@cadexhq.com
+                discovery@cadexhq.com
               </p>
             </div>
           </motion.div>

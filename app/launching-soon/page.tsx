@@ -216,10 +216,10 @@ export default function LaunchingSoonPage() {
         >
           Questions?{" "}
           <a
-            href="mailto:info@cadexhq.com"
+            href="mailto:discovery@cadexhq.com"
             className="text-cyan-400 hover:text-cyan-300 transition-colors"
           >
-            info@cadexhq.com
+            discovery@cadexhq.com
           </a>
         </motion.p>
 

@@ -106,8 +106,8 @@ export default function ContactPage() {
         <div className="mt-8 text-center">
           <p className="text-sm" style={{ color: isDark ? "#6B7280" : "#9CA3AF" }}>
             Prefer email? Reach us at{" "}
-            <a href="mailto:info@cadexhq.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-              info@cadexhq.com
+            <a href="mailto:discovery@cadexhq.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+              discovery@cadexhq.com
             </a>
           </p>
         </div>

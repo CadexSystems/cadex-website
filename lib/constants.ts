@@ -3,7 +3,7 @@ export const COMPANY = {
   tagline: "AI Integration & Automation Services",
   description:
     "We help businesses unlock operational efficiency through strategic AI implementation, automation, and ongoing optimization.",
-  email: "info@cadexhq.com",
+  email: "discovery@cadexhq.com",
   services: [
     "AI Integration & Automation",
     "Custom Consulting",

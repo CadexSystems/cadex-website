@@ -112,7 +112,7 @@ export default function ChatWidget() {
             ? {
                 ...m,
                 content:
-                  "Sorry, I ran into an issue. Please email us at info@cadexhq.com and we'll get back to you shortly.",
+                  "Sorry, I ran into an issue. Please email us at discovery@cadexhq.com and we'll get back to you shortly.",
               }
             : m
         )
