@@ -124,8 +124,8 @@ export async function POST(req: Request) {
     </html>`;
 
     await resend.emails.send({
-      from: "Cadex Systems <onboarding@resend.dev>",
-      to: ["brian@cadexhq.com", "discovery@cadexhq.com"],
+      from: "Cadex Systems <noreply@cadexhq.com>",
+      to: ["brian@cadexhq.com", "jason@cadexhq.com", "discovery@cadexhq.com"],
       subject: `📊 New ROI Submission: ${companyName || email} — ${formatCurrency(results.costSaved)}/yr opportunity`,
       html,
     });
