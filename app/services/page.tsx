@@ -73,7 +73,7 @@ export default function ServicesPage() {
                 Book a Discovery Call →
               </Link>
               <Link
-                href="/ai-audit"
+                href="/ai-ready"
                 className="rounded-full px-8 py-3.5 text-base font-semibold transition-colors hover:opacity-80"
                 style={{ color: accent, border: `2px solid ${accent}`, background: "transparent" }}
               >
@@ -265,7 +265,7 @@ export default function ServicesPage() {
               { label: "Client Success",      name: "Retain More.\nSurprise Them.",         size: "For account management and CS teams",        items: ["Automated onboarding workflows", "Health score monitoring and early alerts", "Renewal and upsell trigger sequences", "Client reporting and QBR automation"] },
               { label: "HR & People Ops",     name: "Hire Smarter.\nOnboard Faster.",       size: "For HR, recruiting, and people operations",  items: ["Applicant tracking and screening automation", "Onboarding workflow orchestration", "Performance review scheduling and reminders", "Policy and compliance document workflows"] },
               { label: "IT & Systems",        name: "Connect Everything.\nMonitor Less.",   size: "For IT, systems, and infrastructure teams",  items: ["System integration and API connections", "Automated alerts and incident routing", "Software provisioning workflows", "Security and compliance monitoring"] },
-              { label: "Not Sure?",           name: "Tell Us\nWhat's Broken.",              size: "We'll find where to start",                  items: ["Take the AI Intake Assessment", "We diagnose the highest-impact opportunity", "You decide where to begin", "No commitment required"], featured: true, href: "/ai-audit", cta: "Take the assessment →" },
+              { label: "Not Sure?",           name: "Tell Us\nWhat's Broken.",              size: "We'll find where to start",                  items: ["Take the AI Intake Assessment", "We diagnose the highest-impact opportunity", "You decide where to begin", "No commitment required"], featured: true, href: "/ai-ready", cta: "Take the assessment →" },
             ].map((dept, i) => (
               <AnimateIn key={dept.label} delay={(i % 4) * 0.08}>
                 <div

@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/contact", priority: 0.8, changeFrequency: "monthly" },
     { url: "/blog", priority: 0.7, changeFrequency: "weekly" },
     { url: "/roi", priority: 0.7, changeFrequency: "monthly" },
-    { url: "/ai-audit", priority: 0.6, changeFrequency: "monthly" },
+    { url: "/ai-ready", priority: 0.6, changeFrequency: "monthly" },
     { url: "/ai-opportunities", priority: 0.6, changeFrequency: "monthly" },
     { url: "/process-audit", priority: 0.6, changeFrequency: "monthly" },
     { url: "/tech-stack", priority: 0.6, changeFrequency: "monthly" },

@@ -975,7 +975,7 @@ export default function AIOpportunitiesPage() {
                 }}
               >
                 <a
-                  href="/ai-audit"
+                  href="/ai-ready"
                   style={{
                     display: "flex",
                     alignItems: "center",
