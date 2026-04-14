@@ -7,7 +7,54 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "Cadex Systems | AI Integration & Automation Services",
   description:
-    "We help businesses unlock operational efficiency through strategic AI implementation, automation, and ongoing optimization with measurable ROI.",
+    "Cadex Systems helps businesses unlock operational efficiency through strategic AI implementation, automation, and ongoing optimization with measurable ROI.",
+  metadataBase: new URL("https://www.cadexhq.com"),
+  alternates: {
+    canonical: "https://www.cadexhq.com",
+  },
+  keywords: [
+    "Cadex Systems",
+    "AI integration",
+    "AI automation",
+    "business automation",
+    "AI consulting",
+    "workflow automation",
+    "AI readiness",
+    "process automation",
+    "AI implementation",
+  ],
+  openGraph: {
+    title: "Cadex Systems | AI Integration & Automation Services",
+    description:
+      "Cadex Systems helps businesses unlock operational efficiency through strategic AI implementation, automation, and ongoing optimization with measurable ROI.",
+    url: "https://www.cadexhq.com",
+    siteName: "Cadex Systems",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/cadex-logo-dark.png",
+        width: 1200,
+        height: 630,
+        alt: "Cadex Systems",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cadex Systems | AI Integration & Automation Services",
+    description:
+      "Cadex Systems helps businesses unlock operational efficiency through strategic AI implementation and automation.",
+    images: ["/cadex-logo-dark.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -38,6 +85,32 @@ export default function RootLayout({
             gtag('js', new Date());
             gtag('config', 'G-1MMMQ924V7');
           `}
+        </Script>
+        <Script id="json-ld-org" type="application/ld+json" strategy="beforeInteractive">
+          {`{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Cadex Systems",
+            "url": "https://www.cadexhq.com",
+            "logo": "https://www.cadexhq.com/cadex-logo-dark.png",
+            "description": "Cadex Systems helps businesses unlock operational efficiency through strategic AI implementation, automation, and ongoing optimization with measurable ROI.",
+            "email": "discovery@cadexhq.com",
+            "sameAs": [],
+            "knowsAbout": [
+              "AI Integration",
+              "Business Automation",
+              "Workflow Automation",
+              "AI Implementation",
+              "Process Optimization",
+              "Operational Efficiency"
+            ],
+            "serviceType": [
+              "AI Integration & Automation",
+              "AI Readiness Assessment",
+              "Process Audit",
+              "ROI Analysis"
+            ]
+          }`}
         </Script>
         <ThemeProvider>
           <LayoutShell>{children}</LayoutShell>

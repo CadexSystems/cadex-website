@@ -1,0 +1,45 @@
+# Cadex Systems
+
+> Cadex Systems is an AI integration and automation company that helps businesses unlock operational efficiency through strategic AI implementation, workflow automation, and ongoing optimization with measurable ROI.
+
+## Company
+
+- **Website:** https://www.cadexhq.com
+- **Email:** discovery@cadexhq.com
+- **Tagline:** AI Integration & Automation Services
+
+## What We Do
+
+Cadex Systems designs and deploys AI-powered automation solutions for small businesses, mid-market companies, and enterprise organizations. We identify where manual work, lost revenue, and missing intelligence layers are costing businesses the most — then build systems to fix it.
+
+## Services
+
+- **AI Integration & Automation:** End-to-end design and deployment of AI workflows across sales, operations, finance, HR, marketing, and customer success
+- **AI Readiness Assessment:** A scored evaluation of a business's readiness to implement AI across five categories: data & systems, processes, team, leadership, and current tools
+- **Cadex Pre-Audit:** A multi-step intake assessment that identifies the highest-value automation opportunities for a specific business
+- **ROI Calculator:** An interactive tool that estimates annual cost savings from automation based on team size, hours wasted, and hourly cost
+
+## Industries Served
+
+- Legal (intake automation, case and expert management)
+- Healthcare (dental, medical practices, patient workflows, insurance reconciliation)
+- Education (universities, EdTech, program engagement, student and faculty communications)
+- Trades & Services (HVAC, plumbers, electricians, restoration, roofing, specialty contractors)
+- Professional Services (agencies, consultancies, staffing firms, personal trainers, coaching)
+- Financial Services (M&A, wealth management, compliance workflows)
+- E-Commerce & Agencies
+
+## Engagement Tiers
+
+- **Small Business:** Owner-operated to growing teams. Fast deployment, no enterprise overhead.
+- **Mid-Market:** Organizations scaling beyond founder-led operations. Multi-department automation rollout.
+- **Enterprise:** Complex organizational structures with multiple business units. Enterprise-wide AI transformation.
+
+## Tools & Links
+
+- [Offerings](https://www.cadexhq.com/services)
+- [AI Readiness Scorecard](https://www.cadexhq.com/ai-ready)
+- [Cadex Pre-Audit](https://www.cadexhq.com/pre-audit)
+- [ROI Calculator](https://www.cadexhq.com/roi)
+- [Blog](https://www.cadexhq.com/blog)
+- [Contact](https://www.cadexhq.com/contact)
