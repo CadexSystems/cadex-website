@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/cadex-logo-dark.png",
+        url: "/Cadex-Systems-Social.png",
         width: 1200,
         height: 630,
         alt: "Cadex Systems",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Cadex Systems | AI Integration & Automation Services",
     description:
       "Cadex Systems helps businesses unlock operational efficiency through strategic AI implementation and automation.",
-    images: ["/cadex-logo-dark.png"],
+    images: ["/Cadex-Systems-Social.png"],
   },
   robots: {
     index: true,
@@ -92,7 +92,7 @@ export default function RootLayout({
             "@type": "Organization",
             "name": "Cadex Systems",
             "url": "https://www.cadexhq.com",
-            "logo": "https://www.cadexhq.com/cadex-logo-dark.png",
+            "logo": "https://www.cadexhq.com/Cadex-Systems-Social.png",
             "description": "Cadex Systems helps businesses unlock operational efficiency through strategic AI implementation, automation, and ongoing optimization with measurable ROI.",
             "email": "discovery@cadexhq.com",
             "sameAs": [],
