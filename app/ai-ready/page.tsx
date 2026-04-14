@@ -23,24 +23,6 @@ const CATEGORIES = [
         ],
       },
       {
-        text: "How would you describe the quality of your business data?",
-        options: [
-          { label: "Inconsistent and hard to access", value: 0 },
-          { label: "Exists but scattered across tools", value: 1 },
-          { label: "Mostly clean and centralized", value: 2 },
-          { label: "Clean, structured, and reliable", value: 3 },
-        ],
-      },
-      {
-        text: "Do you have documented processes or SOPs?",
-        options: [
-          { label: "No documentation at all", value: 0 },
-          { label: "Some key processes documented", value: 1 },
-          { label: "Most processes documented", value: 2 },
-          { label: "Fully documented with regular updates", value: 3 },
-        ],
-      },
-      {
         text: "How well do your current tools integrate with each other?",
         options: [
           { label: "They don't, everything is siloed", value: 0 },
@@ -67,30 +49,12 @@ const CATEGORIES = [
         ],
       },
       {
-        text: "How often do manual errors or dropped tasks occur in your operations?",
-        options: [
-          { label: "Daily, it's a real problem", value: 0 },
-          { label: "Weekly", value: 1 },
-          { label: "Monthly", value: 2 },
-          { label: "Rarely, we have good controls", value: 3 },
-        ],
-      },
-      {
         text: "How well-defined are the steps in your key business processes?",
         options: [
           { label: "Most work requires judgment calls", value: 0 },
           { label: "A few processes follow predictable steps", value: 1 },
           { label: "Many processes are rule-based", value: 2 },
           { label: "Most processes are consistent and well-defined", value: 3 },
-        ],
-      },
-      {
-        text: "Do you actively track performance metrics for your operations?",
-        options: [
-          { label: "No metrics in place", value: 0 },
-          { label: "We track a few things informally", value: 1 },
-          { label: "We have dashboards but rarely act on them", value: 2 },
-          { label: "We actively measure and improve processes", value: 3 },
         ],
       },
     ],
@@ -119,24 +83,6 @@ const CATEGORIES = [
           { label: "Enthusiastic about improvement", value: 3 },
         ],
       },
-      {
-        text: "Do you have dedicated staff for operations or process improvement?",
-        options: [
-          { label: "No — everyone is stretched thin", value: 0 },
-          { label: "Informally — someone wears multiple hats", value: 1 },
-          { label: "Yes — one dedicated person", value: 2 },
-          { label: "Yes — a full operations or IT team", value: 3 },
-        ],
-      },
-      {
-        text: "How much capacity does your team have for learning new tools?",
-        options: [
-          { label: "None — we're overwhelmed", value: 0 },
-          { label: "Very limited", value: 1 },
-          { label: "Moderate — we can set aside some time", value: 2 },
-          { label: "High — we invest in ongoing training", value: 3 },
-        ],
-      },
     ],
   },
   {
@@ -152,24 +98,6 @@ const CATEGORIES = [
           { label: "Curious but not yet committed", value: 1 },
           { label: "Supportive and willing to invest", value: 2 },
           { label: "Actively championing AI adoption", value: 3 },
-        ],
-      },
-      {
-        text: "Do you have budget allocated for technology or AI?",
-        options: [
-          { label: "No budget available right now", value: 0 },
-          { label: "Under $10,000", value: 1 },
-          { label: "$10,000 – $50,000", value: 2 },
-          { label: "$50,000+", value: 3 },
-        ],
-      },
-      {
-        text: "What is your target timeline for implementing AI?",
-        options: [
-          { label: "No concrete plans yet", value: 0 },
-          { label: "12+ months from now", value: 1 },
-          { label: "6–12 months", value: 2 },
-          { label: "Within the next 6 months", value: 3 },
         ],
       },
       {
@@ -190,24 +118,6 @@ const CATEGORIES = [
     description: "How mature and AI-compatible is your current software stack?",
     questions: [
       {
-        text: "How would you describe the maturity of your current tech stack?",
-        options: [
-          { label: "Basic — email and spreadsheets only", value: 0 },
-          { label: "Standard — common SaaS tools", value: 1 },
-          { label: "Advanced — multiple integrated platforms", value: 2 },
-          { label: "Enterprise — custom or enterprise-grade systems", value: 3 },
-        ],
-      },
-      {
-        text: "Do your key business tools support integrations or APIs?",
-        options: [
-          { label: "I'm not sure", value: 0 },
-          { label: "Most don't support integrations", value: 1 },
-          { label: "Some do", value: 2 },
-          { label: "Yes — most have good API access", value: 3 },
-        ],
-      },
-      {
         text: "Are you currently using any AI or automation tools?",
         options: [
           { label: "None at all", value: 0 },
@@ -217,12 +127,12 @@ const CATEGORIES = [
         ],
       },
       {
-        text: "How reliable are your current systems day-to-day?",
+        text: "Do your key business tools support integrations or APIs?",
         options: [
-          { label: "Frequent issues and downtime", value: 0 },
-          { label: "Occasional problems", value: 1 },
-          { label: "Mostly reliable", value: 2 },
-          { label: "Highly reliable with good support", value: 3 },
+          { label: "I'm not sure", value: 0 },
+          { label: "Most don't support integrations", value: 1 },
+          { label: "Some do", value: 2 },
+          { label: "Yes — most have good API access", value: 3 },
         ],
       },
     ],
@@ -433,7 +343,7 @@ export default function AIAuditPage() {
                   AI Readiness Scorecard
                 </h1>
                 <p className="text-lg" style={{ color: textMuted }}>
-                  Answer 20 questions across 5 categories to discover your business&apos;s AI maturity score and get a personalized recommendation.
+                  Answer 10 questions across 5 categories to discover your business&apos;s AI maturity score and get a personalized recommendation.
                 </p>
               </div>
 
@@ -449,7 +359,7 @@ export default function AIAuditPage() {
                         {cat.title}
                       </p>
                       <p className="text-xs" style={{ color: textMuted }}>
-                        4 questions
+                        2 questions
                       </p>
                     </div>
                   </div>
