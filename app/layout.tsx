@@ -9,9 +9,6 @@ export const metadata: Metadata = {
   description:
     "Cadex Systems helps businesses unlock operational efficiency through strategic AI implementation, automation, and ongoing optimization with measurable ROI.",
   metadataBase: new URL("https://www.cadexhq.com"),
-  alternates: {
-    canonical: "https://www.cadexhq.com",
-  },
   keywords: [
     "Cadex Systems",
     "AI integration",
@@ -87,30 +84,66 @@ export default function RootLayout({
           `}
         </Script>
         <Script id="json-ld-org" type="application/ld+json" strategy="beforeInteractive">
-          {`{
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Cadex Systems",
-            "url": "https://www.cadexhq.com",
-            "logo": "https://www.cadexhq.com/Cadex-Systems-Social.png",
-            "description": "Cadex Systems helps businesses unlock operational efficiency through strategic AI implementation, automation, and ongoing optimization with measurable ROI.",
-            "email": "discovery@cadexhq.com",
-            "sameAs": [],
-            "knowsAbout": [
-              "AI Integration",
-              "Business Automation",
-              "Workflow Automation",
-              "AI Implementation",
-              "Process Optimization",
-              "Operational Efficiency"
-            ],
-            "serviceType": [
-              "AI Integration & Automation",
-              "AI Readiness Assessment",
-              "Process Audit",
-              "ROI Analysis"
-            ]
-          }`}
+          {`[
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Cadex Systems",
+              "url": "https://www.cadexhq.com",
+              "logo": "https://www.cadexhq.com/Cadex-Systems-Social.png",
+              "description": "Cadex Systems helps businesses unlock operational efficiency through strategic AI implementation, automation, and ongoing optimization with measurable ROI.",
+              "email": "discovery@cadexhq.com",
+              "areaServed": "US",
+              "sameAs": []
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": "Cadex Systems",
+              "url": "https://www.cadexhq.com",
+              "email": "discovery@cadexhq.com",
+              "description": "AI integration and automation consultancy helping small businesses, mid-market companies, and enterprises deploy AI-powered workflows with measurable ROI.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Clearwater",
+                "addressRegion": "FL",
+                "addressCountry": "US"
+              },
+              "areaServed": "US",
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "AI Integration Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "AI Integration & Automation",
+                      "description": "End-to-end design and deployment of AI workflows across sales, operations, finance, HR, marketing, and customer success."
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "AI Readiness Assessment",
+                      "description": "A scored evaluation of a business readiness to implement AI across five categories: data, processes, team, leadership, and tools.",
+                      "url": "https://www.cadexhq.com/ai-ready"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Cadex Pre-Audit",
+                      "description": "A multi-step intake assessment that identifies the highest-value automation opportunities for a specific business.",
+                      "url": "https://www.cadexhq.com/pre-audit"
+                    }
+                  }
+                ]
+              }
+            }
+          ]`}
         </Script>
         <ThemeProvider>
           <LayoutShell>{children}</LayoutShell>

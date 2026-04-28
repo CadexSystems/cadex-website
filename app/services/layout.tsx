@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Offerings | Cadex Systems",
+  title: "AI Automation & Integration Services | Cadex Systems",
   description:
-    "From a one-time discovery session to enterprise-wide transformation, choose the engagement that fits your needs.",
+    "Explore Cadex Systems AI integration and automation services for small business, mid-market, and enterprise. Designed by industry and department.",
+  alternates: { canonical: "https://www.cadexhq.com/services" },
 };
 
 export default function ServicesLayout({
