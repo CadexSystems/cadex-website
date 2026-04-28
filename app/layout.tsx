@@ -105,7 +105,7 @@ export default function RootLayout({
               "description": "AI integration and automation consultancy helping small businesses, mid-market companies, and enterprises deploy AI-powered workflows with measurable ROI.",
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Clearwater",
+                "addressLocality": "Parkland",
                 "addressRegion": "FL",
                 "addressCountry": "US"
               },
