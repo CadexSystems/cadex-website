@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Cadex Systems | AI Integration Consultancy | Parkland, FL",
+  title: "About Cadex Systems | AI Integration Consultancy | Coral Springs, FL",
   description:
-    "Learn about Cadex Systems, an AI integration and automation consultancy based in Parkland, Florida helping businesses deploy AI with measurable ROI.",
+    "Learn about Cadex Systems, an AI integration and automation consultancy based in Coral Springs, Florida helping businesses deploy AI with measurable ROI.",
   alternates: { canonical: "https://www.cadexhq.com/about" },
 };
 

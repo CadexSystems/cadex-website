@@ -78,6 +78,13 @@ export default function Footer() {
             >
               {COMPANY.email}
             </a>
+            <address
+              className="mt-3 not-italic text-sm leading-relaxed"
+              style={{ color: theme === "dark" ? "#9CA3AF" : "#6B7280" }}
+            >
+              3301 N University Drive, Suite 100<br />
+              Coral Springs, FL 33065
+            </address>
             <div className="mt-4">
               <h4
                 className="text-sm font-semibold mb-2"

@@ -105,8 +105,10 @@ export default function RootLayout({
               "description": "AI integration and automation consultancy helping small businesses, mid-market companies, and enterprises deploy AI-powered workflows with measurable ROI.",
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Parkland",
+                "streetAddress": "3301 N University Drive, Suite 100",
+                "addressLocality": "Coral Springs",
                 "addressRegion": "FL",
+                "postalCode": "33065",
                 "addressCountry": "US"
               },
               "areaServed": "US",
