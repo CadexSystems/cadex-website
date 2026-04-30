@@ -2,11 +2,14 @@
 // Theme-aware rendering is handled by BlogListUI (client component that receives plain data).
 
 import { sanityClient, BLOG_POSTS_QUERY, urlFor } from "@/lib/sanity";
+import type { SanityImageSource } from "@sanity/image-url";
 import BlogListUI, { PostData } from "./BlogListUI";
 import CTASection from "@/components/CTASection";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type RawPost = PostData & { mainImage: any };
+// Re-fetch from Sanity at most once per hour so new posts appear without redeployment.
+export const revalidate = 3600;
+
+type RawPost = PostData & { mainImage: SanityImageSource | null };
 
 export default async function BlogPage() {
   let posts: PostData[] = [];
@@ -24,7 +27,8 @@ export default async function BlogPage() {
         ? urlFor(p.mainImage).width(600).height(300).url()
         : null,
     }));
-  } catch {
+  } catch (err) {
+    console.error("[blog/page] Sanity fetch failed:", err);
     // Fall through — BlogListUI will render placeholder posts
   }
 

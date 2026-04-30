@@ -3,10 +3,13 @@
 
 import type { Metadata } from "next";
 import { sanityClient, BLOG_POST_QUERY, urlFor } from "@/lib/sanity";
+import type { SanityImageSource } from "@sanity/image-url";
 import BlogPostUI, { PostData } from "./BlogPostUI";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type RawPost = PostData & { mainImage: any };
+// Re-fetch from Sanity at most once per hour so edits appear without redeployment.
+export const revalidate = 3600;
+
+type RawPost = PostData & { mainImage: SanityImageSource | null };
 
 // ── Per-post SEO metadata ──────────────────────────────────────────────────────
 export async function generateMetadata({
@@ -31,8 +34,8 @@ export async function generateMetadata({
         },
       };
     }
-  } catch {
-    // fall through to default
+  } catch (err) {
+    console.error("[blog/[slug]] generateMetadata fetch failed:", err);
   }
   return { title: "Blog | Cadex Systems" };
 }
@@ -63,8 +66,9 @@ export default async function BlogPostPage({
         cta: raw.cta,
       };
     }
-  } catch {
-    // fall through — BlogPostUI renders a "not found" state
+  } catch (err) {
+    console.error(`[blog/[slug]] Sanity fetch failed for slug "${slug}":`, err);
+    // Fall through — BlogPostUI renders a "not found" state
   }
 
   return <BlogPostUI post={post} />;

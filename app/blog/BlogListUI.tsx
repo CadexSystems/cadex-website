@@ -9,9 +9,9 @@ export interface PostData {
   _id: string;
   title: string;
   slug: { current: string };
-  excerpt: string;
-  category: string;
-  publishedAt: string;
+  excerpt: string | null;
+  category: string | null;
+  publishedAt: string | null;
   imageUrl: string | null; // pre-resolved by server component — no Sanity import needed
 }
 
@@ -58,7 +58,7 @@ export default function BlogListUI({ posts }: { posts: PostData[] }) {
             className="text-4xl sm:text-5xl font-bold"
             style={{ color: theme === "dark" ? "#3DCFED" : "#0D1F6E" }}
           >
-            Insights &amp; Resources
+            Insights & Resources
           </h1>
           <p
             className="mt-4 text-lg max-w-2xl mx-auto"
