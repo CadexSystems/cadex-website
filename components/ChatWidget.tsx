@@ -145,6 +145,9 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Chat with Caden, Cadex AI Assistant"
             className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-24px)] rounded-2xl shadow-2xl flex flex-col overflow-hidden"
             style={{
               backgroundColor: bg,
@@ -200,7 +203,12 @@ export default function ChatWidget() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+            <div
+              className="flex-1 overflow-y-auto px-4 py-4 space-y-4"
+              role="log"
+              aria-live="polite"
+              aria-label="Chat messages"
+            >
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -315,8 +323,12 @@ export default function ChatWidget() {
               style={{ borderTop: `1px solid ${border}` }}
             >
               <form onSubmit={handleSubmit} className="flex items-center gap-2">
+                <label htmlFor="chat-input" className="sr-only">
+                  Message Caden
+                </label>
                 <input
                   ref={inputRef}
+                  id="chat-input"
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}

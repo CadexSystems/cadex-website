@@ -1,7 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors */
+  /* ── Cadex Brand Palette ──────────────────────────────────────────────────── */
+  /* Use these as: bg-brand-navy, text-brand-cyan, border-brand-royal, etc.     */
+  --color-brand-navy:  #0D1F6E;  /* Deep Navy        — headings, dark accents  */
+  --color-brand-royal: #1A3CC8;  /* Royal Blue       — primary CTAs            */
+  --color-brand-vivid: #1E6FE8;  /* Vivid Blue       — gradient midpoint       */
+  --color-brand-cyan:  #3DCFED;  /* Cyan Highlight   — links, badges, accents  */
+  --color-brand-light: #EAF4FF;  /* Light Blue 100   — section backgrounds     */
+  --color-brand-dark:  #0B0F1A;  /* Ink              — dark page background    */
+
+  /* Mapped to Tailwind color slots for existing utility classes */
   --color-cyan-400: #3DCFED;
   --color-cyan-500: #2CC8E8;
   --color-blue-500: #1A3CC8;

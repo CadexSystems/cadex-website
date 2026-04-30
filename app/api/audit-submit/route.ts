@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 import { z } from "zod";
+import { rateLimit, getIp } from "@/lib/rateLimit";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -38,7 +39,16 @@ const bandColors: Record<string, string> = {
 };
 
 export async function POST(req: Request) {
-  // ── 1. Validate input ────────────────────────────────────────────────────────
+  // ── 1. Rate limit — 5 submissions per IP per hour ────────────────────────────
+  const { allowed } = rateLimit(getIp(req), 5, 60 * 60 * 1000);
+  if (!allowed) {
+    return new Response(
+      JSON.stringify({ error: "Too many submissions. Please try again later." }),
+      { status: 429, headers: { "Content-Type": "application/json" } }
+    );
+  }
+
+  // ── 2. Validate input ────────────────────────────────────────────────────────
   let input: AuditSubmitInput;
   try {
     const body = await req.json();
@@ -60,7 +70,7 @@ export async function POST(req: Request) {
   const { name, company, email, score, band, categoryScores } = input;
 
   try {
-    // ── 2. Save to Supabase ──────────────────────────────────────────────────
+    // ── 3. Save to Supabase ──────────────────────────────────────────────────
     const { error: dbError } = await supabase.from("ai_audit_results").insert({
       name,
       company,
@@ -78,7 +88,7 @@ export async function POST(req: Request) {
       );
     }
 
-    // ── 3. Send email via Resend ─────────────────────────────────────────────
+    // ── 4. Send email via Resend ─────────────────────────────────────────────
     const bandColor = bandColors[band] ?? "#3DCFED";
 
     const categoryRows = Object.entries(categoryScores)
