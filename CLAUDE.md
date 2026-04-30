@@ -58,6 +58,37 @@
 
 - No hand-holding needed
 
+## MODEL ARCHITECTURE
+
+**Primary:** Sonnet — execution, implementation, all routine tasks
+
+**On call:** Opus — planning, architecture decisions, any task where drift would be costly
+
+### How to invoke Opus
+
+Option A (turnkey): use the `opusplan` alias in Claude Code — Opus handles plan mode automatically, Sonnet handles execution, handoff is automatic.
+
+Option B (explicit): run Sonnet as primary, wire Opus as an `/advisor` subagent. Call the advisor **before** substantive work — not during, not after.
+
+### What to hand Opus when you call it
+
+- Intent (what you're trying to accomplish and why)
+- Constraints (what can't change, what's off-limits)
+- Acceptance criteria (how you'll know it's done)
+- Relevant file locations
+
+### The mental model
+
+Treat Claude more like a capable engineer you're delegating to than a pair programmer you're guiding line by line. Write a sharp spec, let the advisor think before any code is written, then hand off to the executor.
+
+Slowing down at the start of a task feels slow. By the end, it's faster — because the executor isn't course-correcting three times on a misread spec.
+
+### Rule of thumb
+
+When launch marketing and engineering docs disagree, trust the docs. The `opusplan` architecture is the supported path — it's as close as a vendor gets to saying "this is how it's meant to be used."
+
+---
+
 ## CORE PRINCIPLES
 
 - Simplicity First — touch minimal code
