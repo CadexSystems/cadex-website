@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
+import { z } from "zod";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -8,6 +9,19 @@ const supabase = createClient(
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// ── Validation schema ──────────────────────────────────────────────────────────
+const AuditSubmitSchema = z.object({
+  name: z.string().min(1).max(200),
+  company: z.string().min(1).max(200),
+  email: z.string().email(),
+  score: z.number().int().min(0).max(100),
+  band: z.enum(["AI Starter", "AI Explorer", "AI Ready", "AI-First"]),
+  categoryScores: z.record(z.string(), z.number().min(0).max(20)),
+});
+
+type AuditSubmitInput = z.infer<typeof AuditSubmitSchema>;
+
+// ── Helpers ────────────────────────────────────────────────────────────────────
 const CATEGORY_LABELS: Record<string, string> = {
   data: "Data & Systems",
   processes: "Processes",
@@ -16,11 +30,37 @@ const CATEGORY_LABELS: Record<string, string> = {
   tools: "Current Tools",
 };
 
-export async function POST(req: Request) {
-  try {
-    const { name, company, email, score, band, categoryScores } = await req.json();
+const bandColors: Record<string, string> = {
+  "AI Starter": "#6B7280",
+  "AI Explorer": "#1A3CC8",
+  "AI Ready": "#3DCFED",
+  "AI-First": "#A855F7",
+};
 
-    // ── 1. Save to Supabase ────────────────────────────────────────────────
+export async function POST(req: Request) {
+  // ── 1. Validate input ────────────────────────────────────────────────────────
+  let input: AuditSubmitInput;
+  try {
+    const body = await req.json();
+    const parsed = AuditSubmitSchema.safeParse(body);
+    if (!parsed.success) {
+      return new Response(
+        JSON.stringify({ error: "Invalid input", details: parsed.error.flatten() }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+    input = parsed.data;
+  } catch {
+    return new Response(
+      JSON.stringify({ error: "Invalid JSON" }),
+      { status: 400, headers: { "Content-Type": "application/json" } }
+    );
+  }
+
+  const { name, company, email, score, band, categoryScores } = input;
+
+  try {
+    // ── 2. Save to Supabase ──────────────────────────────────────────────────
     const { error: dbError } = await supabase.from("ai_audit_results").insert({
       name,
       company,
@@ -31,11 +71,17 @@ export async function POST(req: Request) {
     });
 
     if (dbError) {
-      console.error("Supabase insert error:", dbError);
+      console.error("[audit-submit] Supabase insert error:", dbError);
+      return new Response(
+        JSON.stringify({ error: "Failed to save submission. Please try again." }),
+        { status: 500, headers: { "Content-Type": "application/json" } }
+      );
     }
 
-    // ── 2. Send email via Resend ───────────────────────────────────────────
-    const categoryRows = Object.entries(categoryScores as Record<string, number>)
+    // ── 3. Send email via Resend ─────────────────────────────────────────────
+    const bandColor = bandColors[band] ?? "#3DCFED";
+
+    const categoryRows = Object.entries(categoryScores)
       .map(
         ([key, val]) => `
         <tr>
@@ -44,14 +90,6 @@ export async function POST(req: Request) {
         </tr>`
       )
       .join("");
-
-    const bandColors: Record<string, string> = {
-      "AI Starter": "#6B7280",
-      "AI Explorer": "#1A3CC8",
-      "AI Ready": "#3DCFED",
-      "AI-First": "#A855F7",
-    };
-    const bandColor = bandColors[band] ?? "#3DCFED";
 
     const html = `
     <!DOCTYPE html>
@@ -134,7 +172,7 @@ export async function POST(req: Request) {
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
-    console.error("Audit submit error:", error);
+    console.error("[audit-submit] Error:", error);
     return new Response(JSON.stringify({ error: "Submission failed" }), {
       status: 500,
       headers: { "Content-Type": "application/json" },

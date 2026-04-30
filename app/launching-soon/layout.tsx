@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cadex Systems",
+  title: "Coming Soon | Cadex Systems",
   robots: { index: false, follow: false },
 };
 
-export default function PasswordLayout({
+export default function LaunchingSoonLayout({
   children,
 }: {
   children: React.ReactNode;

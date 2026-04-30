@@ -13,16 +13,16 @@ import { SERVICE_TIERS } from "@/lib/constants";
 import type { ServiceTier } from "@/lib/constants";
 import { useTheme } from "@/components/ThemeProvider";
 import { sanityClient, SERVICES_QUERY, BLOG_POSTS_QUERY, urlFor } from "@/lib/sanity";
+// urlFor used only in useEffect to resolve image URLs once at fetch time, not on every render
 
 interface BlogPost {
   _id: string;
   title: string;
   slug: { current: string };
-  excerpt: string;
-  category: string;
-  publishedAt: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  mainImage: any;
+  excerpt: string | null;
+  category: string | null;
+  publishedAt: string | null;
+  imageUrl: string | null; // resolved once in useEffect, not on every render
 }
 
 interface SanityService {
@@ -89,8 +89,23 @@ export default function Home() {
       if (data && data.length > 0) setTiers(data.map(mapSanityToTier));
     }).catch(() => {});
 
-    sanityClient.fetch(BLOG_POSTS_QUERY).then((data: BlogPost[]) => {
-      if (data && data.length > 0) setPosts(data.slice(0, 3));
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    sanityClient.fetch(BLOG_POSTS_QUERY).then((data: any[]) => {
+      if (data && data.length > 0) {
+        setPosts(
+          data.slice(0, 3).map((p) => ({
+            _id: p._id,
+            title: p.title,
+            slug: p.slug,
+            excerpt: p.excerpt ?? null,
+            category: p.category ?? null,
+            publishedAt: p.publishedAt ?? null,
+            imageUrl: p.mainImage
+              ? urlFor(p.mainImage).width(600).height(300).url()
+              : null,
+          }))
+        );
+      }
     }).catch(() => {});
   }, []);
 
@@ -285,10 +300,10 @@ export default function Home() {
                     }}
                   >
                     {/* Image */}
-                    {post.mainImage ? (
+                    {post.imageUrl ? (
                       <div className="h-48 relative flex-shrink-0">
                         <Image
-                          src={urlFor(post.mainImage).width(600).height(300).url()}
+                          src={post.imageUrl}
                           alt={post.title}
                           fill
                           className="object-cover"

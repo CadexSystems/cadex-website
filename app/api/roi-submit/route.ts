@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
+import { z } from "zod";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -8,6 +9,26 @@ const supabase = createClient(
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// ── Validation schema ──────────────────────────────────────────────────────────
+const ROISubmitSchema = z.object({
+  companyName: z.string().max(200).optional(),
+  email: z.string().email(),
+  employees: z.number().int().min(1).max(100_000),
+  hoursWasted: z.number().min(0).max(168),
+  hourlyCost: z.number().min(1).max(10_000),
+  departments: z.array(z.string().max(100)).max(20),
+  results: z.object({
+    annualHoursWasted: z.number().min(0),
+    annualCostWasted: z.number().min(0),
+    hoursSaved: z.number().min(0),
+    costSaved: z.number().min(0),
+    fteEquivalent: z.number().min(0),
+  }),
+});
+
+type ROISubmitInput = z.infer<typeof ROISubmitSchema>;
+
+// ── Helpers ────────────────────────────────────────────────────────────────────
 function formatCurrency(n: number) {
   if (n >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`;
   if (n >= 1_000) return `$${Math.round(n / 1_000)}k`;
@@ -15,11 +36,29 @@ function formatCurrency(n: number) {
 }
 
 export async function POST(req: Request) {
+  // ── 1. Validate input ────────────────────────────────────────────────────────
+  let input: ROISubmitInput;
   try {
-    const { companyName, email, employees, hoursWasted, hourlyCost, departments, results } =
-      await req.json();
+    const body = await req.json();
+    const parsed = ROISubmitSchema.safeParse(body);
+    if (!parsed.success) {
+      return new Response(
+        JSON.stringify({ error: "Invalid input", details: parsed.error.flatten() }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+    input = parsed.data;
+  } catch {
+    return new Response(
+      JSON.stringify({ error: "Invalid JSON" }),
+      { status: 400, headers: { "Content-Type": "application/json" } }
+    );
+  }
 
-    // ── 1. Save to Supabase ────────────────────────────────────────────────
+  const { companyName, email, employees, hoursWasted, hourlyCost, departments, results } = input;
+
+  try {
+    // ── 2. Save to Supabase ──────────────────────────────────────────────────
     const { error: dbError } = await supabase.from("roi_submissions").insert({
       company_name: companyName,
       email,
@@ -35,10 +74,14 @@ export async function POST(req: Request) {
     });
 
     if (dbError) {
-      console.error("Supabase insert error:", dbError);
+      console.error("[roi-submit] Supabase insert error:", dbError);
+      return new Response(
+        JSON.stringify({ error: "Failed to save submission. Please try again." }),
+        { status: 500, headers: { "Content-Type": "application/json" } }
+      );
     }
 
-    // ── 2. Send email via Resend ───────────────────────────────────────────
+    // ── 3. Send email via Resend ─────────────────────────────────────────────
     const html = `
     <!DOCTYPE html>
     <html>
@@ -135,7 +178,7 @@ export async function POST(req: Request) {
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
-    console.error("ROI submit error:", error);
+    console.error("[roi-submit] Error:", error);
     return new Response(JSON.stringify({ error: "Submission failed" }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
